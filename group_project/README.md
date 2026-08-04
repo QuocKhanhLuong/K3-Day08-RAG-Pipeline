@@ -1,105 +1,75 @@
-# Bài Tập Nhóm — University Services RAG Chatbot
+# Nhóm — ⚖️ Trợ Lý Hỏi Đáp Luật Lao Động Cho Người Trẻ
 
-## Mục Tiêu
+## Product goal
 
-Sau khi hoàn thành bài cá nhân, nhóm ngồi lại để xây dựng **1 trong 2 sản phẩm**:
+The team is building a legal-information assistant for common early-career
+employment questions: probation, contracts, wages, overtime, leave,
+termination and labour discipline. It must retrieve evidence before answering,
+cite the real legal document/article/clause where available, and state that it
+is not legal advice.
 
----
+## Architecture
 
-## Yêu cầu 1: Sản phẩm nhóm RAG Chatbot
-
-Xây dựng chatbot trả lời câu hỏi về dịch vụ và chính sách đại học liên quan.
-
-**Yêu cầu:**
-- Giao diện chat (Streamlit / Gradio / Chainlit)
-- Trả lời có citation (dựa trên Task 10)
-- Hỗ trợ follow-up questions (conversation memory)
-- Hiển thị source documents đã dùng
-
-**Stack gợi ý:**
-```
-Chainlit/Streamlit → Retrieval (Task 9) → Generation (Task 10) → Display
-```
-
----
-
-## Yêu cầu 2: RAG Evaluation Pipeline
-
-Sử dụng **1 trong 3 framework** sau để evaluate pipeline RAG của nhóm:
-
-### Framework lựa chọn
-
-| Framework | Cài đặt | Đặc điểm |
-|-----------|---------|-----------|
-| [DeepEval](https://github.com/confident-ai/deepeval) | `pip install deepeval` | Nhiều metric built-in, dễ integrate với pytest |
-| [RAGAS](https://github.com/explodinggradients/ragas) | `pip install ragas` | Chuẩn industry cho RAG eval, 3 trục chính |
-| [TruLens](https://github.com/truera/trulens) | `pip install trulens` | Dashboard UI, feedback functions mạnh |
-
-### Yêu cầu Evaluation
-
-1. **Tạo Golden Dataset** — tối thiểu 15 cặp Q&A (question, expected_answer, expected_context)
-2. **Chạy evaluation** trên toàn bộ golden dataset với các metrics sau:
-   - **Faithfulness** — câu trả lời có bám đúng context không?
-   - **Answer Relevance** — câu trả lời có đúng câu hỏi không?
-   - **Context Recall** — retriever có lấy đủ evidence không?
-   - **Context Precision** — trong context lấy về, bao nhiêu % thực sự hữu ích?
-3. **So sánh A/B** — chạy eval trên ít nhất 2 config khác nhau (ví dụ: có reranking vs không reranking, hoặc hybrid vs dense-only)
-4. **Báo cáo** — bảng điểm + phân tích worst performers + đề xuất cải tiến
-
-Xem code mẫu (DeepEval/RAGAS/TruLens) chi tiết trong `README.md` gốc mục "Yêu cầu 2".
-
-### Deliverable Evaluation
-
-- [ ] File `group_project/evaluation/golden_dataset.json` — 15+ cặp Q&A
-- [ ] File `group_project/evaluation/eval_pipeline.py` — script chạy evaluation
-- [ ] File `group_project/evaluation/results.md` — bảng điểm + phân tích
-- [ ] So sánh A/B ít nhất 2 configs
-
----
-
-## Yêu Cầu Chung
-
-1. **Tích hợp pipeline** từ bài cá nhân của các thành viên
-2. **Demo hoạt động được** trong buổi trình bày (chạy local hoặc deploy)
-3. **Evaluation pipeline** chạy được và có báo cáo kết quả
-4. **Code push lên repository** chung của nhóm
-5. **README** mô tả kiến trúc và phân công (điền bên dưới)
-
----
-
-## Kiến Trúc Hệ Thống
-
-```
-[Vẽ diagram kiến trúc ở đây]
+```text
+Official legal sources ─┐
+                         ├→ Markdown + legal metadata → article/clause chunks
+Official guidance ───────┘                                  │
+                                               BGE-M3/Chroma + BM25
+                                                           │
+                                                         RRF
+                                                           │
+                                             dense evidence gate / PageIndex
+                                                           │
+                                           citation-grounded LLM → Streamlit
 ```
 
----
+The branch `agent/legal-data-pipeline` delivers only the data handoff on the
+left side of this diagram. It does not claim that indexing, retrieval,
+generation, chatbot or evaluation are complete.
 
-## Phân Công Công Việc
+## Data handoff
 
-| Thành viên | MSSV | Nhiệm vụ | Trạng thái |
-|-----------|------|----------|------------|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| Input | Contract |
+|---|---|
+| `data/landing/legal/legal_sources.json` | Canonical source, status, dates and SHA-256 manifest. |
+| `data/standardized/legal/*.md` | Normative government text with YAML front matter. |
+| `data/standardized/news/*.md` | Official guidance, always `normative: false`, `legal_status: reference`. |
+| `src/schemas.py` | Shared TypedDict contract and safe indexing predicate. |
 
----
+Read [DATA_CONTRACT.md](../docs/DATA_CONTRACT.md) and
+[HANDOFF_NOTES.md](../docs/HANDOFF_NOTES.md) before changing Task 4–10.
 
-## Hướng Dẫn Chạy
+## Team allocation
+
+| Member | MSSV | Responsibility | Current scope |
+|---|---|---|---|
+| Lương Quốc Khánh | 2A202601713 | Role 1 team lead/RAG architect; Tasks 1–3 data engineering | Data contract, collection, standardization, validation, supervisor |
+| TBD | TBD | Tasks 4–6 | Legal-aware chunking, Chroma, dense and BM25 retrieval |
+| TBD | TBD | Tasks 7–8 | RRF/reranking and PageIndex fallback |
+| TBD | TBD | Tasks 9–10 and app | Retrieval pipeline, grounded generation, Streamlit |
+| TBD | TBD | Evaluation | Golden dataset, RAGAS and A/B report |
+
+## Integration rules
+
+1. Preserve `document_id`, `source_url`, `normative`, `legal_status` and legal
+   hierarchy metadata in every chunk/result/citation.
+2. Never answer a current-law question using `unknown`, `expired`, `replaced`
+   or guidance-only evidence.
+3. Do not use RRF score as the evidence-quality threshold; use original dense
+   cosine similarity.
+4. Guidance and contract templates are explanatory only, never the legal rule.
+5. Maintain the disclaimer in the user interface and refuse when evidence is
+   insufficient.
+
+## Data setup and checks
 
 ```bash
-# Cài đặt dependencies
-pip install -r requirements.txt
-
-# Chạy app
-streamlit run app.py
-# hoặc
-chainlit run app.py
+conda activate data-foundations
+python -m pip install --prefer-binary -r requirements.txt
+python -m src.supervisor prepare-data
+python -m src.validate_corpus
+pytest tests/test_data_pipeline.py -v
 ```
 
----
-
-## Lưu ý
-
-Hãy giữ lại repo này nếu như bạn học track 3 giai đoạn 2, chúng ta sẽ phát triển tiếp dự án lên knowledge graph để khắc phục các câu hỏi hóc búa khi có các câu hỏi khó.
+Subsequent owners should document their Task 4–10 verification and evaluation
+results here when those implementations are actually available.

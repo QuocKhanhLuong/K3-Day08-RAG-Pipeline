@@ -15,6 +15,7 @@ data/_tmp_pdf/
 # Temp / cache
 .pytest_cache/
 *.tmp
+.crawl4ai_runtime/
 pageindex_doc_ids.json
 pageindex_pdfs/
 
