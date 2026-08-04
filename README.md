@@ -176,22 +176,14 @@ Run the data validator before handing the corpus to Task 4:
 python -m src.validate_corpus
 ```
 
-## Team responsibilities
+## Thành viên nhóm
 
-### Team members
-
-| # | Member |
-|---:|---|
-| 1 | Lương Quốc Khánh |
-| 2 | Huyền |
-| 3 | Mỹ Anh |
-| 4 | Hoàng Đức Anh |
-
-| Workstream | Owner | Status on this branch |
-|---|---|---|
-| Role 1 architecture, data contract, corpus validation, supervisor | Lương Quốc Khánh | Implemented in scope |
-| Tasks 1–3 data engineering | Lương Quốc Khánh | Implemented in scope |
-| Tasks 4–10, app and RAG evaluation | Assigned teammates | Not implemented or modified on this branch |
+| STT | Họ và tên | Mã số sinh viên |
+|---:|---|---|
+| 1 | Lương Quốc Khánh | 2A202601713 |
+| 2 | Nguyễn Thu Huyền | 2A202601027 |
+| 3 | Trần Nguyễn Mỹ Anh | 2A202601019 |
+| 4 | Hoàng Đức Anh | 2A202601223 |
 
 ## Known limitations
 
