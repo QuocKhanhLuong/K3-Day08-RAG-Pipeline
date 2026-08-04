@@ -1,17 +1,102 @@
 [
   {
-    "question": "Học phí hàng năm của chương trình Business tại RMIT Vietnam là bao nhiêu?",
-    "expected_answer": "Khoảng 375.840.000 VND mỗi năm (tùy chương trình cụ thể).",
-    "expected_context": "Trang Tuition Fees, mục Undergraduate Programs"
+    "question": "Thời gian thử việc tối đa đối với vị trí quản lý doanh nghiệp là bao lâu?",
+    "expected_answer": "Thời gian thử việc tối đa là 180 ngày đối với công việc của người quản lý doanh nghiệp theo quy định của pháp luật về doanh nghiệp và quản lý, sử dụng vốn nhà nước đầu tư vào sản xuất, kinh doanh tại doanh nghiệp.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 25 về thời gian thử việc"
   },
   {
-    "question": "Học phí được thanh toán theo hình thức nào?",
-    "expected_answer": "Thanh toán theo từng học kỳ, tính theo từng môn học đã đăng ký.",
-    "expected_context": "Trang Tuition Fees, mục Payment Structure"
+    "question": "Công việc yêu cầu trình độ cao đẳng trở lên thì được thử việc tối đa mấy ngày?",
+    "expected_answer": "Công việc có chức danh nghề nghiệp cần trình độ chuyên môn, kỹ thuật từ cao đẳng trở lên được thử việc tối đa 60 ngày.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 25 khoản 2"
   },
   {
-    "question": "Trường có cung cấp ký túc xá trong khuôn viên không?",
-    "expected_answer": "Không — trường không cung cấp chỗ ở trong khuôn viên, nhưng có đội ngũ hỗ trợ sinh viên tìm chỗ ở gần trường.",
-    "expected_context": "Trang Accommodation Services"
+    "question": "Lương thử việc tối thiểu phải bằng bao nhiêu phần trăm lương của công việc đó?",
+    "expected_answer": "Tiền lương thử việc do hai bên thỏa thuận nhưng ít nhất phải bằng 85% mức lương của công việc đó.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 26 về tiền lương thử việc"
+  },
+  {
+    "question": "Hợp đồng lao động có thời hạn dưới 1 tháng có được thỏa thuận thử việc không?",
+    "expected_answer": "Không. Pháp luật không áp dụng thử việc đối với người lao động giao kết hợp đồng lao động có thời hạn dưới 1 tháng.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 24 khoản 3 về thử việc"
+  },
+  {
+    "question": "Khi kết thúc thử việc mà đạt yêu cầu thì người sử dụng lao động phải làm gì?",
+    "expected_answer": "Người sử dụng lao động phải tiếp tục thực hiện hợp đồng lao động đã giao kết hoặc giao kết hợp đồng lao động nếu trước đó chỉ ký hợp đồng thử việc.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 27 về kết thúc thời gian thử việc"
+  },
+  {
+    "question": "Có những loại hợp đồng lao động nào theo Bộ luật Lao động 2019?",
+    "expected_answer": "Có 2 loại chính: hợp đồng lao động không xác định thời hạn và hợp đồng lao động xác định thời hạn, trong đó hợp đồng xác định thời hạn không quá 36 tháng.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 20 về loại hợp đồng lao động"
+  },
+  {
+    "question": "Hợp đồng lao động điện tử có giá trị như hợp đồng giấy không?",
+    "expected_answer": "Có. Hợp đồng lao động được giao kết qua phương tiện điện tử dưới dạng thông điệp dữ liệu có giá trị như hợp đồng lao động bằng văn bản.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 14 về hình thức hợp đồng lao động"
+  },
+  {
+    "question": "Người lao động làm hợp đồng không xác định thời hạn muốn nghỉ việc phải báo trước bao lâu?",
+    "expected_answer": "Thông thường, người lao động làm theo hợp đồng không xác định thời hạn phải báo trước ít nhất 45 ngày khi đơn phương chấm dứt hợp đồng.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 35 khoản 1 điểm a"
+  },
+  {
+    "question": "Người lao động ký hợp đồng từ 12 tháng đến 36 tháng muốn nghỉ việc thì phải báo trước mấy ngày?",
+    "expected_answer": "Thông thường, người lao động phải báo trước ít nhất 30 ngày nếu làm theo hợp đồng lao động xác định thời hạn từ 12 tháng đến 36 tháng.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 35 khoản 1 điểm b"
+  },
+  {
+    "question": "Trường hợp nào người lao động được nghỉ việc không cần báo trước?",
+    "expected_answer": "Người lao động có thể nghỉ không cần báo trước trong một số trường hợp như không được bố trí đúng công việc hoặc địa điểm, không được trả đủ hoặc đúng hạn lương, bị ngược đãi, quấy rối tình dục tại nơi làm việc, lao động nữ mang thai phải nghỉ theo chỉ định, đủ tuổi nghỉ hưu hoặc người sử dụng lao động cung cấp thông tin không trung thực khi giao kết hợp đồng.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 35 khoản 2 về quyền đơn phương chấm dứt hợp đồng không cần báo trước"
+  },
+  {
+    "question": "Người sử dụng lao động đơn phương chấm dứt hợp đồng không xác định thời hạn phải báo trước bao lâu?",
+    "expected_answer": "Người sử dụng lao động phải báo trước ít nhất 45 ngày đối với hợp đồng lao động không xác định thời hạn, trừ các trường hợp pháp luật quy định không phải báo trước.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 36 khoản 2 điểm a"
+  },
+  {
+    "question": "Sau khi chấm dứt hợp đồng lao động, công ty phải thanh toán các khoản liên quan trong bao lâu?",
+    "expected_answer": "Trong 14 ngày làm việc kể từ ngày chấm dứt hợp đồng, hai bên phải thanh toán đầy đủ các khoản liên quan. Một số trường hợp đặc biệt có thể kéo dài nhưng không quá 30 ngày.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 48 khoản 1"
+  },
+  {
+    "question": "Điều kiện để người lao động được hưởng trợ cấp thôi việc là gì?",
+    "expected_answer": "Người lao động làm việc thường xuyên từ đủ 12 tháng trở lên cho người sử dụng lao động và chấm dứt hợp đồng thuộc các trường hợp luật định thì được trợ cấp thôi việc, mỗi năm làm việc được trợ cấp một nửa tháng tiền lương, trừ thời gian đã tham gia bảo hiểm thất nghiệp hoặc đã được chi trả trợ cấp thôi việc, mất việc làm.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 46 về trợ cấp thôi việc"
+  },
+  {
+    "question": "Công ty chậm trả lương cho nhân viên thì có phải trả thêm tiền không?",
+    "expected_answer": "Nếu trả lương chậm từ 15 ngày trở lên, người sử dụng lao động phải đền bù thêm cho người lao động một khoản tiền ít nhất bằng số tiền lãi của khoản lương chậm trả, tính theo lãi suất huy động tiền gửi có kỳ hạn 1 tháng do ngân hàng nơi công ty mở tài khoản trả lương công bố tại thời điểm trả lương.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 94 và Điều 97 về nguyên tắc, kỳ hạn trả lương"
+  },
+  {
+    "question": "Từ ngày 01/01/2026, mức lương tối thiểu tháng vùng I là bao nhiêu?",
+    "expected_answer": "Từ ngày 01/01/2026, mức lương tối thiểu tháng vùng I là 5.310.000 đồng/tháng.",
+    "expected_context": "Nghị định 293/2025/NĐ-CP, Điều 3 về mức lương tối thiểu vùng"
+  },
+  {
+    "question": "Từ ngày 01/01/2026, mức lương tối thiểu giờ vùng II là bao nhiêu?",
+    "expected_answer": "Từ ngày 01/01/2026, mức lương tối thiểu giờ vùng II là 22.700 đồng/giờ.",
+    "expected_context": "Nghị định 293/2025/NĐ-CP, Điều 3 về mức lương tối thiểu giờ theo vùng"
+  },
+  {
+    "question": "Người sử dụng lao động muốn yêu cầu làm thêm giờ thì cần điều kiện gì?",
+    "expected_answer": "Việc làm thêm giờ phải có sự đồng ý của người lao động và phải bảo đảm giới hạn về số giờ làm thêm: không quá 50% số giờ làm việc bình thường trong ngày, tổng giờ làm việc và làm thêm không quá 12 giờ/ngày nếu tính theo tuần, không quá 40 giờ/tháng và thông thường không quá 200 giờ/năm.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 107 về làm thêm giờ"
+  },
+  {
+    "question": "Tiền lương làm thêm giờ vào ngày thường, ngày nghỉ hằng tuần và ngày lễ được tính tối thiểu thế nào?",
+    "expected_answer": "Làm thêm giờ được trả ít nhất 150% vào ngày thường, 200% vào ngày nghỉ hằng tuần và 300% vào ngày lễ, tết hoặc ngày nghỉ có hưởng lương; mức 300% chưa bao gồm tiền lương ngày lễ, tết, ngày nghỉ có hưởng lương đối với người hưởng lương ngày.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 98 khoản 1 về tiền lương làm thêm giờ"
+  },
+  {
+    "question": "Người lao động làm việc vào ban đêm được trả thêm bao nhiêu tiền lương?",
+    "expected_answer": "Người lao động làm việc vào ban đêm được trả thêm ít nhất 30% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc của ngày làm việc bình thường.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 98 khoản 2 về tiền lương làm việc ban đêm"
+  },
+  {
+    "question": "Người lao động làm đủ 12 tháng thì được nghỉ hằng năm tối thiểu bao nhiêu ngày?",
+    "expected_answer": "Người lao động làm đủ 12 tháng được nghỉ hằng năm hưởng nguyên lương tối thiểu 12 ngày làm việc trong điều kiện bình thường; 14 ngày đối với một số nhóm lao động hoặc công việc nặng nhọc, độc hại, nguy hiểm; 16 ngày đối với công việc đặc biệt nặng nhọc, độc hại, nguy hiểm.",
+    "expected_context": "Bộ luật Lao động 2019, Điều 113 về nghỉ hằng năm"
   }
 ]
