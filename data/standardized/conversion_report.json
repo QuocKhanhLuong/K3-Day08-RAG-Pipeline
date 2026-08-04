@@ -1,0 +1,21 @@
+[
+  {
+    "status": "success",
+    "source": "labor-code-consolidated-18-2026.pdf",
+    "output": "/Users/alvinluong/K3-Day08-RAG-Pipeline/data/standardized/legal/labor-code-consolidated-18-2026.md",
+    "document_id": "labor_code_consolidated_18_2026",
+    "page count": 88,
+    "page_count": 88,
+    "processed pages": 88,
+    "processed_pages": 88,
+    "extraction method": "markitdown_native",
+    "extraction_method": "markitdown_native",
+    "body characters": 199061,
+    "body_characters": 199061,
+    "article count": 358,
+    "article_count": 358,
+    "OCR status": "not_required",
+    "ocr_status": "not_required",
+    "warnings": []
+  }
+]

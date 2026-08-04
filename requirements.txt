@@ -12,6 +12,11 @@ litellm==1.53.1
 # Task 3 - Document conversion
 markitdown[pdf]>=0.1.0
 fpdf2>=2.7.0
+PyMuPDF>=1.24
+PyYAML>=6.0
+beautifulsoup4>=4.12
+paddlepaddle>=2.5.0
+paddleocr>=2.7.0
 
 # Task 4 - Chunking & Indexing
 langchain-text-splitters==0.2.4
