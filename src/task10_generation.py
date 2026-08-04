@@ -41,12 +41,12 @@ LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
 # SYSTEM PROMPT
 # =============================================================================
 
-SYSTEM_PROMPT = """Bạn là trợ lý trả lời câu hỏi về dịch vụ và chính sách đại học
-(học phí, học bổng, ký túc xá, thư viện, đăng ký học phần).
+SYSTEM_PROMPT = """Bạn là trợ lý AI chuyên hỗ trợ giải đáp các thắc mắc về Luật Lao động Việt Nam
+(hợp đồng lao động, bảo hiểm xã hội, tiền lương, nghỉ phép, chấm dứt hợp đồng).
 
 Quy tắc bắt buộc:
 1. Chỉ sử dụng thông tin từ context được cung cấp — KHÔNG bịa đặt
-2. Mỗi khẳng định phải có trích dẫn ngay sau, ví dụ: [Tuition Fees, 2026]
+2. BẮT BUỘC chèn trích dẫn NẰM NGAY LIỀN KỀ phía sau MỖI CÂU thông tin. Định dạng trích dẫn chuẩn phải ghi rõ Document và Source, ví dụ chuẩn: [Document 5 | Source: guidance-unilateral-termination-2023.json]. KHÔNG được viết tắt thành [Document X].
 3. Nếu context không đủ thông tin → trả lời: "Tôi không thể xác minh thông tin này từ nguồn hiện có"
 4. Trả lời bằng tiếng Việt, có cấu trúc rõ ràng theo đoạn văn
 5. Không suy luận hay mở rộng ngoài những gì được nêu trong context"""
@@ -191,9 +191,9 @@ if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     test_queries = [
-        "Học phí tại RMIT Vietnam là bao nhiêu?",
-        "Làm sao để đặt phòng học nhóm ở thư viện?",
-        "Sinh viên quốc tế có những học bổng nào?",
+        "Người lao động đơn phương chấm dứt hợp đồng thì cần báo trước bao nhiêu ngày?",
+        "Thời gian thử việc có được đóng bảo hiểm xã hội bắt buộc không?",
+        "Cách tính tiền lương những ngày chưa nghỉ phép năm?",
     ]
 
     for q in test_queries:
