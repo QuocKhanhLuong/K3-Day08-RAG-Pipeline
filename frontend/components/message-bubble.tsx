@@ -6,6 +6,20 @@ import type { Message } from "@/lib/mock-data"
 import { CitationList } from "@/components/citation-card"
 import { cn } from "@/lib/utils"
 
+function firstNumber(...values: unknown[]) {
+  for (const value of values) {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return value
+    }
+  }
+
+  return null
+}
+
+function formatPercentScore(value: number | null) {
+  return value === null ? "N/A" : `${(value * 100).toFixed(1)}%`
+}
+
 export function MessageBubble({ message }: { message: Message }) {
   const isUser = message.role === "user"
   const [showLog, setShowLog] = useState(false)
@@ -142,10 +156,10 @@ export function MessageBubble({ message }: { message: Message }) {
                           </div>
                           <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
                             <span className="text-emerald-600 dark:text-emerald-400 font-medium">
-                              🧠 Semantic: {chunk.semantic_score ? `${(chunk.semantic_score * 100).toFixed(1)}%` : "N/A"}
+                              🧠 Semantic: {formatPercentScore(firstNumber(chunk.semantic_score, chunk.dense_score, chunk.cosine_score, String(chunk.type).toLowerCase().includes("pageindex") ? 0 : null))}
                             </span>
                             <span className="text-blue-600 dark:text-blue-400 font-medium">
-                              🔤 Lexical BM25: {chunk.lexical_score ? `${(chunk.lexical_score * 100).toFixed(1)}%` : "N/A"}
+                              🔤 Lexical BM25: {formatPercentScore(firstNumber(chunk.lexical_score, chunk.sparse_score, chunk.bm25_score, String(chunk.type).toLowerCase().includes("pageindex") ? 0 : null))}
                             </span>
                             <span className="uppercase font-mono text-[9px] bg-accent px-1 rounded">
                               {chunk.type}

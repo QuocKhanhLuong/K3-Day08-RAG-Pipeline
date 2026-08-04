@@ -1,19 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin', 'vietnamese'],
-  variable: '--font-sans',
-  display: 'swap',
-})
-
-const sourceSerif = Source_Serif_4({
-  subsets: ['latin', 'vietnamese'],
-  variable: '--font-serif',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: 'Luật Cùng Bạn — Trợ lý hỏi đáp Luật Lao Động',
@@ -53,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="vi" className={`bg-background ${inter.variable} ${sourceSerif.variable}`}>
+    <html lang="vi" className="bg-background">
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
