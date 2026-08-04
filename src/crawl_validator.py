@@ -65,7 +65,7 @@ def slugify(text: str) -> str:
 
 def extract_content_from_html(html_text: str, domain: str) -> tuple[str, str]:
     """Trích xuất tiêu đề và đoạn văn bản sạch từ HTML."""
-    # Title extraction
+    # 1. Title extraction
     h1_match = re.search(r'<h1[^>]*>(.*?)</h1>', html_text, re.IGNORECASE | re.DOTALL)
     title_match = re.search(r'<title[^>]*>(.*?)</title>', html_text, re.IGNORECASE | re.DOTALL)
 
@@ -76,28 +76,29 @@ def extract_content_from_html(html_text: str, domain: str) -> tuple[str, str]:
         title = re.sub(r'<[^>]+>', '', title_match.group(1)).strip()
 
     title = re.sub(r'\s+', ' ', title)
-    if not title or len(title) < 5:
+    if not title or len(title) < 3:
         title = f"Văn bản pháp lý từ {domain}"
 
-    # Clean scripts, styles, header, footer, nav
-    clean_html = re.sub(r'<(script|style|header|footer|nav|iframe)[^>]*>.*?</\1>', '', html_text, flags=re.IGNORECASE | re.DOTALL)
+    # 2. Strip scripts, styles, svg, noscript, iframe
+    clean_html = re.sub(r'<(script|style|svg|noscript|iframe)[^>]*>.*?</\1>', '', html_text, flags=re.IGNORECASE | re.DOTALL)
 
-    # Extract <p>, <h2>, <h3>, <li> content
-    paragraphs = []
-    p_matches = re.findall(r'<(p|h2|h3|li)[^>]*>(.*?)</\1>', clean_html, re.IGNORECASE | re.DOTALL)
-    for tag, p in p_matches:
-        text = re.sub(r'<[^>]+>', '', p).strip()
-        text = re.sub(r'\s+', ' ', text)
-        if len(text) > 25 and not text.startswith("http") and "©" not in text:
-            paragraphs.append(text)
+    # 3. Insert paragraph breaks for block elements
+    clean_html = re.sub(r'</?(p|div|h1|h2|h3|h4|h5|h6|li|tr|article|section|br)[^>]*>', '\n', clean_html, flags=re.IGNORECASE)
 
-    # Fallback to div text blocks if few paragraphs found
-    if len(paragraphs) < 3:
-        text_only = re.sub(r'<[^>]+>', '\n', clean_html)
-        lines = [re.sub(r'\s+', ' ', line).strip() for line in text_only.splitlines() if len(line.strip()) > 35]
-        paragraphs = lines[:30]
+    # 4. Strip remaining HTML tags and decode HTML entities
+    text_plain = html.unescape(re.sub(r'<[^>]+>', ' ', clean_html))
 
-    return title, "\n\n".join(paragraphs)
+    # 5. Extract meaningful paragraph lines (> 20 chars)
+    raw_lines = [line.strip() for line in text_plain.splitlines()]
+    meaningful_lines = []
+
+    for line in raw_lines:
+        line = re.sub(r'\s+', ' ', line)
+        if len(line) > 20 and not line.startswith("http") and "javascript:" not in line and "©" not in line:
+            meaningful_lines.append(line)
+
+    content_text = "\n\n".join(meaningful_lines)
+    return title, content_text
 
 
 def evaluate_domain(domain: str) -> tuple[str, int, str]:
@@ -143,29 +144,49 @@ def crawl_and_validate_url(url: str) -> dict[str, Any]:
     parsed = urlparse(url)
     domain = parsed.netloc
 
-    # Step 1: Crawl webpage handling gzip decompression & headers
+    # Step 1: Crawl webpage handling anti-bot cookie challenges & gzip decompression
     try:
-        req = urllib.request.Request(
-            url,
-            headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-                "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-            }
-        )
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        }
+        req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=15) as response:
             html_bytes = response.read()
 
-            # Handle GZIP decompression
-            if response.headers.get("Content-Encoding") == "gzip" or html_bytes.startswith(b"\x1f\x8b"):
-                try:
-                    html_bytes = gzip.decompress(html_bytes)
-                except Exception as ge:
-                    print(f"[WARNING] Gzip decompress error: {ge}")
+        # Handle GZIP decompression
+        if html_bytes.startswith(b"\x1f\x8b"):
+            try:
+                html_bytes = gzip.decompress(html_bytes)
+            except Exception:
+                pass
 
-            charset = response.headers.get_content_charset() or "utf-8"
+        charset = response.headers.get_content_charset() or "utf-8"
+        if "," in charset:
+            charset = charset.split(",")[0].strip()
+
+        try:
             html_text = html_bytes.decode(charset, errors="replace")
-            html_text = html.unescape(html_text)
+        except Exception:
+            html_text = html_bytes.decode("utf-8", errors="replace")
+
+        # Anti-Bot Cookie Bypass (e.g. laodong.vn JS cookie challenge)
+        cookie_match = re.search(r'document\.cookie\s*=\s*["\']([^"\';]+)', html_text)
+        if cookie_match and len(html_text) < 1000:
+            cookie_pair = cookie_match.group(1)
+            headers["Cookie"] = cookie_pair
+            req_retry = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req_retry, timeout=15) as resp_retry:
+                html_bytes = resp_retry.read()
+                if html_bytes.startswith(b"\x1f\x8b"):
+                    try:
+                        html_bytes = gzip.decompress(html_bytes)
+                    except Exception:
+                        pass
+                html_text = html_bytes.decode("utf-8", errors="replace")
+
+        html_text = html.unescape(html_text)
 
     except Exception as e:
         return {
@@ -288,7 +309,7 @@ if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
 
-    test_url = "https://baochinhphu.vn/khong-nghi-het-phep-nam-co-duoc-thanh-toan-tien-10225090516273483.htm"
+    test_url = "https://laodong.vn/cong-dong/tram-uu-tien-cho-nguoi-lao-dong-1400000.ldo"
     print(f"Testing crawl URL: {test_url}")
     result = crawl_and_validate_url(test_url)
     print(f"Status: {result.get('status')} | Title: {result.get('title')} | Words: {result.get('word_count')} | Score: {result.get('score')}")

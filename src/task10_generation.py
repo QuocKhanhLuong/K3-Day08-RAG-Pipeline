@@ -110,13 +110,14 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
         }
 
     # Step 1: Retrieve
-    chunks = retrieve(query, top_k=top_k)
+    chunks, retrieval_details = retrieve(query, top_k=top_k, return_details=True)
 
     if not chunks:
         return {
             "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có",
             "sources": [],
-            "retrieval_source": "none"
+            "retrieval_source": retrieval_details.get("strategy", "none"),
+            "retrieval_log": retrieval_details,
         }
 
     # Step 2: Reorder
@@ -182,8 +183,10 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
     return {
         "answer": answer,
         "sources": chunks,
-        "retrieval_source": chunks[0].get("source", "hybrid") if chunks else "none"
+        "retrieval_source": retrieval_details.get("strategy", "Hybrid RRF Search"),
+        "retrieval_log": retrieval_details,
     }
+
 
 
 if __name__ == "__main__":
