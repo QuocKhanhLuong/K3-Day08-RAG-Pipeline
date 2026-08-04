@@ -104,7 +104,7 @@ const KNOWLEDGE: { keywords: string[]; answer: Answer }[] = [
 
 const DEFAULT_ANSWER: Answer = {
   content:
-    "Đây là bản demo giao diện nên câu trả lời được lấy từ dữ liệu mẫu. Bạn hãy thử các chủ đề như thử việc, làm thêm giờ (OT), nghỉ phép, hợp đồng lao động hoặc sa thải để xem câu trả lời kèm căn cứ pháp lý.\n\nKhi kết nối AI thật, trợ lý sẽ tra cứu trực tiếp Bộ luật Lao động 2019 và các nghị định hướng dẫn để trả lời câu hỏi của bạn.",
+    "Không thể kết nối đến máy chủ Backend RAG (http://localhost:8000). Vui lòng kiểm tra lại trạng thái hoạt động của server (`python server.py`).",
 }
 
 export function getMockAnswer(question: string): Answer {
@@ -116,3 +116,4 @@ export function getMockAnswer(question: string): Answer {
   }
   return DEFAULT_ANSWER
 }
+

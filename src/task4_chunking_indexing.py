@@ -32,7 +32,7 @@ EMBEDDING_DIM = 384
 
 # ChromaDB: Đơn giản, chạy local, tự động lưu trữ persistent
 VECTOR_STORE = "chromadb"
-COLLECTION_NAME = "university_services_docs"
+COLLECTION_NAME = "legal_labor_docs"
 
 _model_instance = None
 
@@ -81,9 +81,22 @@ def load_documents() -> list[dict]:
             if not content:
                 continue
             doc_type = "legal" if "legal" in str(md_file) else "news"
+            meta = {"source": md_file.name, "type": doc_type}
+            if doc_type == "news":
+                # Try finding matching landing json file for issuing_authority / issuing_organization
+                landing_json = STANDARDIZED_DIR.parent / "landing" / "news" / f"{md_file.stem}.json"
+                issuing_auth = "Báo Điện tử Chính phủ"
+                if landing_json.exists():
+                    try:
+                        jdata = json.loads(landing_json.read_text(encoding="utf-8"))
+                        issuing_auth = jdata.get("issuing_authority") or jdata.get("issuing_organization") or issuing_auth
+                    except Exception:
+                        pass
+                meta["issuing_authority"] = issuing_auth
+
             documents.append({
                 "content": content,
-                "metadata": {"source": md_file.name, "type": doc_type}
+                "metadata": meta
             })
 
     # 2. Load JSON files (.json) for legal documents or news
@@ -98,26 +111,35 @@ def load_documents() -> list[dict]:
                     continue
                 data = json.loads(raw_text)
                 doc_type = "legal" if "legal" in str(json_file) else "news"
+                issuing_auth = (data.get("issuing_authority") or data.get("issuing_organization") or ("Báo Điện tử Chính phủ" if doc_type == "news" else "")) if isinstance(data, dict) else ""
+
 
                 if isinstance(data, dict):
                     title = data.get("title") or data.get("document_name") or json_file.stem
                     body = data.get("content") or data.get("content_markdown") or data.get("text") or str(data)
                     content_str = f"# {title}\n\n{body}"
+                    meta = {"source": json_file.name, "type": doc_type}
+                    if issuing_auth:
+                        meta["issuing_authority"] = issuing_auth
                     documents.append({
                         "content": content_str,
-                        "metadata": {"source": json_file.name, "type": doc_type}
+                        "metadata": meta
                     })
                 elif isinstance(data, list):
                     for idx, item in enumerate(data):
                         if isinstance(item, dict):
                             title = item.get("title") or item.get("article") or f"{json_file.stem}_{idx}"
                             body = item.get("content") or item.get("text") or str(item)
+                            meta = {"source": f"{json_file.name}#{idx}", "type": doc_type}
+                            if issuing_auth:
+                                meta["issuing_authority"] = issuing_auth
                             documents.append({
                                 "content": f"# {title}\n\n{body}",
-                                "metadata": {"source": f"{json_file.name}#{idx}", "type": doc_type}
+                                "metadata": meta
                             })
             except Exception as e:
                 print(f"[WARNING] Error reading JSON document {json_file.name}: {e}")
+
 
     return documents
 

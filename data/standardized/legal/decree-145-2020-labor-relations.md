@@ -1,8 +1,7 @@
 ---
 document_id: decree_145_2020_labor_relations
 source: decree-145-2020-labor-relations.pdf
-title: Nghị định quy định chi tiết và hướng dẫn thi hành một số điều của Bộ luật Lao
-  động về điều kiện lao động và quan hệ lao động
+title: Nghị định quy định chi tiết và hướng dẫn thi hành một số điều của Bộ luật Lao động về điều kiện lao động và quan hệ lao động
 document_number: 145/2020/NĐ-CP
 document_type: decree
 issuing_authority: Chính phủ

@@ -41,14 +41,13 @@ LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
 # SYSTEM PROMPT
 # =============================================================================
 
-SYSTEM_PROMPT = """Bạn là trợ lý trả lời câu hỏi về dịch vụ và chính sách đại học
-(học phí, học bổng, ký túc xá, thư viện, đăng ký học phần).
+SYSTEM_PROMPT = """Bạn là trợ lý tư vấn pháp luật lao động Việt Nam (Bộ luật Lao động 2019, các Nghị định và tài liệu hướng dẫn chính thống).
 
 Quy tắc bắt buộc:
 1. Chỉ sử dụng thông tin từ context được cung cấp — KHÔNG bịa đặt
-2. Mỗi khẳng định phải có trích dẫn ngay sau, ví dụ: [Tuition Fees, 2026]
+2. Mỗi khẳng định phải có trích dẫn nguồn văn bản hoặc điều luật tương ứng (ví dụ: [Bộ luật Lao động 2019], [Nghị định 145/2020/NĐ-CP])
 3. Nếu context không đủ thông tin → trả lời: "Tôi không thể xác minh thông tin này từ nguồn hiện có"
-4. Trả lời bằng tiếng Việt, có cấu trúc rõ ràng theo đoạn văn
+4. Trả lời bằng tiếng Việt, có cấu trúc rõ ràng, chuyên nghiệp và dễ hiểu
 5. Không suy luận hay mở rộng ngoài những gì được nêu trong context"""
 
 
@@ -151,7 +150,7 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
             answer = response.choices[0].message.content
         except Exception as e:
             print(f"[WARNING] OpenAI API call error: {e}")
-            answer = f"Theo thông tin tìm được:\n\n{context}\n\n[Trích dẫn tự động]"
+            answer = f"Theo thông tin tìm được từ nguồn dữ liệu:\n\n{context}\n\n[Trích dẫn tự động]"
     elif openrouter_key:
         try:
             from openai import OpenAI
@@ -172,12 +171,12 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
             answer = response.choices[0].message.content
         except Exception as e:
             print(f"[WARNING] OpenRouter API call error: {e}")
-            answer = f"Theo thông tin tìm được:\n\n{context}\n\n[Trích dẫn tự động]"
+            answer = f"Theo thông tin tìm được từ nguồn dữ liệu:\n\n{context}\n\n[Trích dẫn tự động]"
     else:
         # Structured fallback response when no API key configured
-        source_names = [c.get("metadata", {}).get("source", "Tài liệu") for c in chunks[:2]]
-        answer = f"Dựa trên các tài liệu [{', '.join(source_names)}]:\n\n" + \
-                 "\n".join([f"- {c['content'][:150]}..." for c in chunks[:3]])
+        source_names = [c.get("metadata", {}).get("source", "Tài liệu") for c in chunks[:3]]
+        answer = f"Dựa trên các văn bản pháp luật và hướng dẫn [{', '.join(source_names)}]:\n\n" + \
+                 "\n".join([f"• {c['content'][:250]}..." for c in chunks[:3]])
 
     return {
         "answer": answer,
@@ -191,9 +190,9 @@ if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     test_queries = [
-        "Học phí tại RMIT Vietnam là bao nhiêu?",
-        "Làm sao để đặt phòng học nhóm ở thư viện?",
-        "Sinh viên quốc tế có những học bổng nào?",
+        "Không nghỉ hết phép năm có được thanh toán tiền?",
+        "Thời gian thử việc tối đa và mức lương thử việc quy định như thế nào?",
+        "Giới hạn thời giờ làm thêm giờ và thủ tục đăng ký tăng giờ làm thêm?",
     ]
 
     for q in test_queries:
@@ -203,3 +202,4 @@ if __name__ == "__main__":
         result = generate_with_citation(q)
         print(f"\nA: {result['answer']}")
         print(f"\n[Sources: {len(result['sources'])} chunks | via {result['retrieval_source']}]")
+

@@ -1,25 +1,32 @@
 "use client"
 
-import { Scale, Plus, MessageSquare, X } from "lucide-react"
-import { conversations, topics } from "@/lib/mock-data"
+import { Scale, Plus, MessageSquare, X, Trash2, Globe } from "lucide-react"
+import { topics, type Conversation } from "@/lib/mock-data"
+
 import { cn } from "@/lib/utils"
 
 type AppSidebarProps = {
   open: boolean
   onClose: () => void
+  conversations: Conversation[]
   activeConversation: string | null
   onSelectConversation: (id: string) => void
+  onDeleteConversation?: (id: string) => void
   onSelectTopic: (label: string) => void
   onNewChat: () => void
+  onOpenCrawlModal?: () => void
 }
 
 export function AppSidebar({
   open,
   onClose,
+  conversations,
   activeConversation,
   onSelectConversation,
+  onDeleteConversation,
   onSelectTopic,
   onNewChat,
+  onOpenCrawlModal,
 }: AppSidebarProps) {
   return (
     <>
@@ -58,8 +65,8 @@ export function AppSidebar({
           </button>
         </div>
 
-        {/* New chat */}
-        <div className="px-4 pt-4">
+        {/* Actions */}
+        <div className="flex flex-col gap-2 px-4 pt-4">
           <button
             onClick={onNewChat}
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-sidebar-primary px-4 py-2.5 text-sm font-medium text-sidebar-primary-foreground transition-opacity hover:opacity-90"
@@ -67,7 +74,18 @@ export function AppSidebar({
             <Plus className="size-4" />
             Cuộc trò chuyện mới
           </button>
+
+          {onOpenCrawlModal && (
+            <button
+              onClick={onOpenCrawlModal}
+              className="flex w-full items-center justify-center gap-2 rounded-lg border border-sidebar-border bg-card px-4 py-2 text-xs font-medium text-sidebar-foreground transition-colors hover:border-sidebar-primary hover:text-sidebar-primary"
+            >
+              <Globe className="size-3.5" />
+              Nạp & Crawl dữ liệu từ URL
+            </button>
+          )}
         </div>
+
 
         <div className="flex-1 overflow-y-auto px-4 py-5">
           {/* Quick topics */}
@@ -97,31 +115,47 @@ export function AppSidebar({
             <h2 className="mb-2 px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Lịch sử hội thoại
             </h2>
-            <ul className="flex flex-col gap-1">
-              {conversations.map((conv) => (
-                <li key={conv.id}>
-                  <button
-                    onClick={() => onSelectConversation(conv.id)}
-                    className={cn(
-                      "flex w-full items-start gap-2.5 rounded-lg px-3 py-2.5 text-left transition-colors",
-                      activeConversation === conv.id
-                        ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                        : "hover:bg-sidebar-accent/60",
+            {conversations.length === 0 ? (
+              <p className="px-1 text-xs text-muted-foreground italic">Chưa có cuộc trò chuyện nào</p>
+            ) : (
+              <ul className="flex flex-col gap-1">
+                {conversations.map((conv) => (
+                  <li key={conv.id} className="group relative flex items-center">
+                    <button
+                      onClick={() => onSelectConversation(conv.id)}
+                      className={cn(
+                        "flex w-full items-start gap-2.5 rounded-lg px-3 py-2.5 text-left transition-colors pr-8",
+                        activeConversation === conv.id
+                          ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                          : "hover:bg-sidebar-accent/60",
+                      )}
+                    >
+                      <MessageSquare className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-sm font-medium">{conv.title}</span>
+                        <span className="block truncate text-xs text-muted-foreground">{conv.preview}</span>
+                      </span>
+                    </button>
+                    {onDeleteConversation && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          onDeleteConversation(conv.id)
+                        }}
+                        title="Xóa hội thoại"
+                        className="absolute right-2 text-muted-foreground opacity-0 hover:text-destructive group-hover:opacity-100 transition-opacity p-1"
+                      >
+                        <Trash2 className="size-3.5" />
+                      </button>
                     )}
-                  >
-                    <MessageSquare className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block truncate text-sm font-medium">{conv.title}</span>
-                      <span className="block truncate text-xs text-muted-foreground">{conv.preview}</span>
-                    </span>
-                    <span className="shrink-0 text-[10px] text-muted-foreground">{conv.date}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
         </div>
       </aside>
     </>
   )
 }
+

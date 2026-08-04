@@ -1,8 +1,7 @@
 ---
 document_id: decree_12_2022_labor_penalties
 source: decree-12-2022-labor-penalties.pdf
-title: Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo
-  hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng
+title: Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng
 document_number: 12/2022/NĐ-CP
 document_type: decree
 issuing_authority: Chính phủ
