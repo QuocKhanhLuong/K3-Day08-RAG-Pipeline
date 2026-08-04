@@ -36,6 +36,7 @@ def _metadata(document_id: str, filename: str) -> dict:
         "expiry_date": None,
         "legal_status": "in_force",
         "normative": True,
+        "authoritative": True,
         "source_url": "https://example.gov.vn/legal-source",
         "download_url": "https://example.gov.vn/legal-source.pdf",
         "local_filename": filename,
@@ -78,6 +79,8 @@ def corpus_tree(tmp_path: Path) -> tuple[Path, Path]:
             "issuing_organization": "Cơ quan nhà nước",
             "document_type": "official_guidance",
             "normative": False,
+            "authoritative": False,
+            "authority_level": "government_guidance",
             "legal_status": "reference",
             "legal_topics": ["probation"],
             "audience_roles": ["employee"],
@@ -95,11 +98,20 @@ def corpus_tree(tmp_path: Path) -> tuple[Path, Path]:
                 "document_type": "law" if group == "legal" else "official_guidance",
                 "legal_status": "in_force" if group == "legal" else "reference",
                 "normative": group == "legal",
+                "authoritative": group == "legal",
+                "authority_level": "national_law" if group == "legal" else "government_guidance",
                 "source_url": "https://example.gov.vn/source",
                 "legal_topics": ["probation"],
                 "audience_roles": ["employee"],
             }
-            content = "---\n" + yaml.safe_dump(metadata, allow_unicode=True, sort_keys=False) + "---\n\n# Source\n\n" + ("Nội dung có thể kiểm tra. " * 20)
+            if group == "legal":
+                body = "### Điều 1. Phạm vi điều chỉnh quy định pháp luật\n\n1. Nội dung khoản một...\n\n" + ("Nội dung điều luật pháp luật chi tiết có thể kiểm tra. " * 80)
+            else:
+                body = "Nội dung hướng dẫn chi tiết có thể kiểm tra. " * 30
+            if group == "legal":
+                metadata["source_format"] = "txt"
+                metadata["body_character_count"] = len("# Title\n\n" + body)
+            content = "---\n" + yaml.safe_dump(metadata, allow_unicode=True, sort_keys=False) + "---\n\n# Title\n\n" + body
             (standardized / group / f"{group}-{index}.md").write_text(content, encoding="utf-8")
     return landing, standardized
 
@@ -223,3 +235,146 @@ def test_crawl_failure_keeps_existing_guidance(tmp_path: Path, monkeypatch: pyte
 
 def test_supervisor_inspect_returns_success() -> None:
     assert supervisor.main(["inspect"]) == 0
+
+
+def test_scanned_pdf_routed_to_paddleocr(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """PDF scan is routed to PaddleOCR."""
+    pdf_path = tmp_path / "scanned.pdf"
+    pdf_path.write_bytes(b"%PDF-1.4 scanned content")
+
+    class MockInspection:
+        requires_ocr = True
+        pdf_type = "scanned"
+        total_pages = 2
+
+    class MockOcrResult:
+        processed_pages = 2
+        total_pages = 2
+        native_text_pages = 0
+        ocr_pages = 2
+        extraction_method = "paddle_ocr"
+        status = "success"
+        warnings = []
+        full_text = "### Điều 1. Phạm vi điều chỉnh\n\nNội dung điều luật pháp luật " * 100
+
+    monkeypatch.setattr(task3, "inspect_pdf", lambda path: MockInspection())
+    monkeypatch.setattr(task3, "ocr_pdf_with_paddle", lambda path: MockOcrResult())
+
+    source_meta = {
+        "document_id": "test_scanned",
+        "title": "Test scanned PDF",
+        "source_page_url": "https://example.gov.vn",
+    }
+
+    markdown, metadata = task3._convert_legal_source(pdf_path, source_meta)
+    assert metadata["extraction_method"] == "paddle_ocr"
+    assert "Điều 1" in markdown
+
+
+def test_text_pdf_bypasses_ocr(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """PDF with text does not call OCR."""
+    pdf_path = tmp_path / "text.pdf"
+    pdf_path.write_bytes(b"%PDF-1.4 text content")
+
+    class MockInspection:
+        requires_ocr = False
+        pdf_type = "born_digital"
+        total_pages = 1
+
+    monkeypatch.setattr(task3, "inspect_pdf", lambda path: MockInspection())
+
+    def mock_ocr(path):
+        raise RuntimeError("Should not call OCR")
+
+    monkeypatch.setattr(task3, "ocr_pdf_with_paddle", mock_ocr)
+    monkeypatch.setattr(task3, "_convert_with_markitdown", lambda path: "### Điều 10. Nội dung khoản\n\n" + ("Nội dung pháp luật có text layer. " * 80))
+
+    source_meta = {
+        "document_id": "test_text",
+        "title": "Test text PDF",
+        "source_page_url": "https://example.gov.vn",
+    }
+
+    markdown, metadata = task3._convert_legal_source(pdf_path, source_meta)
+    assert metadata["extraction_method"] == "markitdown_native"
+
+
+def test_yaml_long_body_empty_fails_validation(corpus_tree: tuple[Path, Path]) -> None:
+    """YAML long but body empty must fail."""
+    path = corpus_tree[1] / "legal" / "legal-0.md"
+    metadata = {
+        "document_id": "long_yaml_empty_body",
+        "title": "Test long yaml",
+        "document_type": "law",
+        "legal_status": "in_force",
+        "normative": True,
+        "source_url": "https://example.gov.vn",
+        "legal_topics": ["probation"] * 50,
+        "audience_roles": ["employee"] * 50,
+    }
+    content = "---\n" + yaml.safe_dump(metadata, allow_unicode=True) + "---\n\n"
+    path.write_text(content, encoding="utf-8")
+    report = validate_corpus(landing_dir=corpus_tree[0], standardized_dir=corpus_tree[1])
+    assert any("too short" in error for error in report.errors)
+
+
+def test_legal_body_missing_dieu_fails_validation(corpus_tree: tuple[Path, Path]) -> None:
+    """Legal body without 'Điều' must fail."""
+    path = corpus_tree[1] / "legal" / "legal-0.md"
+    metadata = {
+        "document_id": "no_dieu_body",
+        "title": "Test body without dieu",
+        "document_type": "law",
+        "legal_status": "in_force",
+        "normative": True,
+        "source_url": "https://example.gov.vn",
+    }
+    body = "Đây là văn bản bản pháp luật nhưng không chứa từ khoá điều luật nào cả. " * 50
+    content = "---\n" + yaml.safe_dump(metadata, allow_unicode=True) + "---\n\n" + body
+    path.write_text(content, encoding="utf-8")
+    report = validate_corpus(landing_dir=corpus_tree[0], standardized_dir=corpus_tree[1])
+    assert any("missing 'Điều" in error for error in report.errors)
+
+
+def test_processed_pages_incomplete_fails_validation(corpus_tree: tuple[Path, Path]) -> None:
+    """Incomplete processed pages must fail."""
+    path = corpus_tree[1] / "legal" / "legal-0.md"
+    metadata = {
+        "document_id": "incomplete_pages",
+        "title": "Test incomplete pages",
+        "document_type": "law",
+        "legal_status": "in_force",
+        "normative": True,
+        "source_url": "https://example.gov.vn",
+        "pdf_pages": 10,
+        "processed_pages": 8,
+    }
+    body = "### Điều 1. Quy định\n\n" + ("Nội dung pháp luật hợp lệ. " * 80)
+    content = "---\n" + yaml.safe_dump(metadata, allow_unicode=True) + "---\n\n" + body
+    path.write_text(content, encoding="utf-8")
+    report = validate_corpus(landing_dir=corpus_tree[0], standardized_dir=corpus_tree[1])
+    assert any("processed pages count mismatch" in error.lower() for error in report.errors)
+
+
+def test_guidance_boilerplate_removed() -> None:
+    """Guidance cleans menu and footer boilerplate."""
+    raw_guidance = (
+        "Nội dung bài viết hướng dẫn chính thức.\n\n"
+        "Quyền lợi của người lao động khi thử việc...\n\n"
+        "Tham khảo thêm\n"
+        "Bài viết khác liên quan 1\n"
+        "Tin liên quan"
+    )
+    cleaned = task3.clean_guidance_markdown(raw_guidance)
+    assert "Tham khảo thêm" not in cleaned
+    assert "Tin liên quan" not in cleaned
+    assert "Nội dung bài viết hướng dẫn chính thức." in cleaned
+
+
+def test_pdf_is_gitignored() -> None:
+    """PDF files under data/landing/legal/ are gitignored."""
+    gitignore_path = task3.ROOT_DIR / ".gitignore"
+    content = gitignore_path.read_text(encoding="utf-8")
+    assert "data/landing/legal/*.pdf" in content
+    assert "data/landing/legal/*.docx" in content
+    assert "data/processed/" in content

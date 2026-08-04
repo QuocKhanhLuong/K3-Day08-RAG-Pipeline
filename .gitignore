@@ -12,6 +12,15 @@ venv/
 # Temp PDF conversion cache
 data/_tmp_pdf/
 
+# Original legal binaries and OCR derivatives are local-only.
+data/landing/legal/*.pdf
+data/landing/legal/*.doc
+data/landing/legal/*.docx
+data/processed/
+.paddlex/
+paddle_models/
+model_cache/
+
 # Temp / cache
 .pytest_cache/
 *.tmp

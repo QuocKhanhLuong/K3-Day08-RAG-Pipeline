@@ -28,10 +28,16 @@ def _print_outcomes(label: str, outcomes: Sequence[dict]) -> bool:
 def collect_legal(force: bool) -> bool:
     from src.task1_collect_legal_docs import collect_legal_documents
 
-    report = collect_legal_documents(force=force)
-    outcomes = [dict(item, status="success") for item in report["success"]]
-    outcomes += [dict(item, status="skipped") for item in report["skipped"]]
-    outcomes += [dict(item, status="failed") for item in report["failed"]]
+    records = collect_legal_documents(force=force)
+    outcomes = [
+        {
+            "document_id": item.get("document_id"),
+            "status": "success" if item.get("download_status") == "success" else "failed",
+            "path": item.get("local_filename"),
+            "reason": item.get("failure_reason"),
+        }
+        for item in records
+    ]
     return _print_outcomes("Legal collection", outcomes)
 
 
@@ -76,7 +82,7 @@ def inspect() -> None:
     print("Role 1 / Data Engineering scope")
     print("Owned: architecture handoff, Task 1 collection, Task 2 guidance crawl, Task 3 Markdown, validation, data orchestration.")
     print("Handoff to Task 4: data/standardized/{legal,news}/*.md plus data/landing/legal/legal_sources.json")
-    print("Default indexing policy: only normative=true with legal_status in_force or partially_effective; preserve all legal metadata.")
+    print("Task 4 handoff: preserve all metadata; only active_corpus=true sources may enter an index, and guidance remains non-normative.")
     print("Not run here: embeddings, Chroma indexing, semantic/BM25 retrieval, RRF, PageIndex, generation, app, evaluation.")
 
 

@@ -124,7 +124,7 @@ transparent normal-HTTPS fallback rather than bypassing a WAF.
 ```bash
 python -m src.task1_collect_legal_docs
 python -m src.task2_crawl_news
-python -m src.task3_convert_markdown
+python -m src.task3_convert_markdown --rebuild-all
 python -m src.validate_corpus
 ```
 
