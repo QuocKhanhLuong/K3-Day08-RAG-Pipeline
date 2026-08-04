@@ -21,7 +21,10 @@ export type Message = {
   role: "user" | "assistant"
   content: string
   citations?: Citation[]
+  retrieval_source?: string
+  retrieval_log?: any
 }
+
 
 export type Conversation = {
   id: string

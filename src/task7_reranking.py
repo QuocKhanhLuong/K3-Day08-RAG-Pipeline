@@ -145,31 +145,38 @@ def rerank_mmr(
 
 
 def rerank_rrf(
-    ranked_lists: list[list[dict]], top_k: int = 5, k: int = 60
+    ranked_lists: list[list[dict]],
+    top_k: int = 5,
+    k: int = 60,
+    weights: Optional[list[float]] = None
 ) -> list[dict]:
     """
-    Reciprocal Rank Fusion — gộp kết quả từ nhiều ranker.
+    Weighted Reciprocal Rank Fusion — gộp kết quả từ nhiều ranker có trọng số % tầm quan trọng.
 
-    RRF(d) = Σ 1 / (k + rank_r(d))
+    RRF(d) = Σ w_r * [ 1 / (k + rank_r(d)) ]
 
     Args:
         ranked_lists: List of ranked result lists (mỗi list từ 1 ranker)
         top_k: Số lượng kết quả cuối cùng
         k: Smoothing constant (default=60, từ paper Cormack et al. 2009)
+        weights: Danh sách trọng số % tầm quan trọng cho từng ranker (vd: [0.5, 0.5] hoặc [0.7, 0.3])
 
     Returns:
-        List of top_k candidates sorted by RRF score descending.
+        List of top_k candidates sorted by weighted RRF score descending.
     """
     if not ranked_lists:
         return []
 
+    if weights is None or len(weights) != len(ranked_lists):
+        weights = [1.0 / len(ranked_lists)] * len(ranked_lists)
+
     rrf_scores = {}    # content -> score
     content_map = {}   # content -> full item dict
 
-    for ranked_list in ranked_lists:
+    for w, ranked_list in zip(weights, ranked_lists):
         for rank, item in enumerate(ranked_list, 1):
             key = item["content"]
-            rrf_scores[key] = rrf_scores.get(key, 0.0) + 1.0 / (k + rank)
+            rrf_scores[key] = rrf_scores.get(key, 0.0) + w * (1.0 / (k + rank))
             if key not in content_map:
                 content_map[key] = item
 
@@ -182,6 +189,7 @@ def rerank_rrf(
         results.append(item)
 
     return results
+
 
 
 def rerank(

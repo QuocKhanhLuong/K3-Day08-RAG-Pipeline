@@ -54,6 +54,7 @@ class ChatResponse(BaseModel):
     sources: list[dict]
     citations: list[CitationItem]
     retrieval_source: str
+    retrieval_log: Optional[dict] = None
 
 
 from src.guidance_matcher import load_guidance_catalog
@@ -110,7 +111,9 @@ def handle_chat_query(req: QueryRequest):
             sources=raw_sources,
             citations=citations,
             retrieval_source=rag_output.get("retrieval_source", "hybrid"),
+            retrieval_log=rag_output.get("retrieval_log"),
         )
+
     except Exception as e:
         print(f"[ERROR] Chat processing error: {e}")
         raise HTTPException(status_code=500, detail=f"Error in RAG pipeline: {str(e)}")

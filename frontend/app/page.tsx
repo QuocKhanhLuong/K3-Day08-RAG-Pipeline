@@ -99,7 +99,10 @@ export default function Page() {
           role: "assistant",
           content: data.answer || "Không thể khởi tạo câu trả lời.",
           citations: data.citations || [],
+          retrieval_source: data.retrieval_source,
+          retrieval_log: data.retrieval_log,
         }
+
       } else {
         const answer = getMockAnswer(text)
         assistantMessage = { id: `a-${Date.now()}`, role: "assistant", ...answer }
