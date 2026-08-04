@@ -41,11 +41,12 @@ LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
 # SYSTEM PROMPT
 # =============================================================================
 
-SYSTEM_PROMPT = """Bạn là trợ lý tư vấn pháp luật lao động Việt Nam (Bộ luật Lao động 2019, các Nghị định và tài liệu hướng dẫn chính thống).
+SYSTEM_PROMPT = """Bạn là trợ lý AI chuyên hỗ trợ giải đáp các thắc mắc về Luật Lao động Việt Nam
+(hợp đồng lao động, bảo hiểm xã hội, tiền lương, nghỉ phép, chấm dứt hợp đồng).
 
 Quy tắc bắt buộc:
 1. Chỉ sử dụng thông tin từ context được cung cấp — KHÔNG bịa đặt
-2. Mỗi khẳng định phải có trích dẫn nguồn văn bản hoặc điều luật tương ứng (ví dụ: [Bộ luật Lao động 2019], [Nghị định 145/2020/NĐ-CP])
+2. BẮT BUỘC chèn trích dẫn NẰM NGAY LIỀN KỀ phía sau MỖI CÂU thông tin. Định dạng trích dẫn chuẩn phải ghi rõ Document và Source, ví dụ chuẩn: [Document 1 | Source: Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng]. KHÔNG được viết tắt thành [Document X].
 3. Nếu context không đủ thông tin → trả lời: "Tôi không thể xác minh thông tin này từ nguồn hiện có"
 4. Trả lời bằng tiếng Việt, có cấu trúc rõ ràng, chuyên nghiệp và dễ hiểu
 5. Không suy luận hay mở rộng ngoài những gì được nêu trong context"""
@@ -190,9 +191,9 @@ if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     test_queries = [
-        "Không nghỉ hết phép năm có được thanh toán tiền?",
-        "Thời gian thử việc tối đa và mức lương thử việc quy định như thế nào?",
-        "Giới hạn thời giờ làm thêm giờ và thủ tục đăng ký tăng giờ làm thêm?",
+        "Người lao động đơn phương chấm dứt hợp đồng thì cần báo trước bao nhiêu ngày?",
+        "Thời gian thử việc có được đóng bảo hiểm xã hội bắt buộc không?",
+        "Cách tính tiền lương những ngày chưa nghỉ phép năm?",
     ]
 
     for q in test_queries:
