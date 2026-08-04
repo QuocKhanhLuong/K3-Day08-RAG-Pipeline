@@ -270,10 +270,13 @@ def _validate_standardized(report: CorpusValidationReport, standardized_dir: Pat
                 report.errors.append(f"OCR processed pages count mismatch ({processed_pages} != {pdf_pages}): {path.name}")
 
             body_char_count = metadata.get("body_character_count")
+            # Keep source-internal whitespace intact.  Only the Markdown
+            # delimiter line ending is outside the counted legal body.
+            written_body = body.strip("\r\n")
             if not isinstance(body_char_count, int):
                 report.errors.append(f"Legal Markdown is missing integer body_character_count: {path.name}")
-            elif body_char_count != len(body_stripped):
-                report.errors.append(f"body_character_count mismatch in metadata vs body ({body_char_count} != {len(body_stripped)}): {path.name}")
+            elif body_char_count != len(written_body):
+                report.errors.append(f"body_character_count mismatch in metadata vs body ({body_char_count} != {len(written_body)}): {path.name}")
 
         lowered = content.lower()
         for marker in PLACEHOLDERS:
@@ -284,8 +287,12 @@ def _validate_standardized(report: CorpusValidationReport, standardized_dir: Pat
     if conversion_report.is_file():
         try:
             conversion = json.loads(conversion_report.read_text(encoding="utf-8"))
-            report.ocr_processed = len(conversion.get("ocr_processed") or [])
-            report.manual_review_required = max(report.manual_review_required, len(conversion.get("manual_review_required") or []))
+            if isinstance(conversion, dict):
+                report.ocr_processed = len(conversion.get("ocr_processed") or [])
+                report.manual_review_required = max(report.manual_review_required, len(conversion.get("manual_review_required") or []))
+            elif isinstance(conversion, list):
+                report.ocr_processed = len([item for item in conversion if "paddle_ocr" in str(item.get("extraction_method")) or "paddle_ocr" in str(item.get("extraction method"))])
+                report.manual_review_required = max(report.manual_review_required, len([item for item in conversion if item.get("ocr_status") == "automatic_unreviewed" or item.get("OCR status") == "automatic_unreviewed"]))
         except (OSError, json.JSONDecodeError):
             report.warnings.append("conversion_report.json is not readable")
 

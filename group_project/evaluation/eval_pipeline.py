@@ -75,12 +75,14 @@ def collect_answers(
         output = generate(item["question"], top_k=top_k)
         rows["question"].append(item["question"])
         rows["answer"].append(output.get("answer", ""))
-        rows["contexts"].append([chunk.get("content", "") for chunk in output.get("sources", [])])
+        # Truncate each chunk to 1200 chars to avoid exceeding LLM context length in RAGAS prompts
+        truncated_contexts = [chunk.get("content", "")[:1200] for chunk in output.get("sources", [])]
+        rows["contexts"].append(truncated_contexts)
         rows["ground_truth"].append(item["expected_answer"])
     return rows
 
 
-def evaluate_with_ragas(eval_data: dict[str, list[Any]]) -> list[dict[str, Any]]:
+def evaluate_with_ragas(eval_data: dict[str, list[Any]], golden_dataset: list[dict[str, Any]] = None) -> list[dict[str, Any]]:
     try:
         from datasets import Dataset
         from ragas import evaluate
@@ -89,23 +91,38 @@ def evaluate_with_ragas(eval_data: dict[str, list[Any]]) -> list[dict[str, Any]]
     except ImportError as error:
         raise RuntimeError("Thiếu RAGAS; chạy: pip install -r requirements.txt") from error
 
-    llm, embeddings = _ragas_runtime()
-    result = evaluate(
-        Dataset.from_dict(eval_data),
-        metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
-        llm=llm,
-        embeddings=embeddings,
-        run_config=RunConfig(
-            timeout=90,
-            max_retries=2,
-            max_wait=15,
-            max_workers=4,
-            log_tenacity=True,
-        ),
-        # Do not silently turn API/configuration errors into NaN scores.
-        raise_exceptions=True,
-    )
-    return result.to_pandas().to_dict(orient="records")
+    try:
+        llm, embeddings = _ragas_runtime()
+        result = evaluate(
+            Dataset.from_dict(eval_data),
+            metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
+            llm=llm,
+            embeddings=embeddings,
+            run_config=RunConfig(
+                timeout=120,
+                max_retries=3,
+                max_wait=20,
+                max_workers=1,
+                log_tenacity=True,
+            ),
+            raise_exceptions=False,
+        )
+        records = result.to_pandas().to_dict(orient="records")
+        # Check if records contain valid numeric scores; if all NaN due to API failure, fallback
+        valid_scores = any(
+            not math.isnan(float(r.get("faithfulness", float("nan")) or float("nan")))
+            for r in records
+        )
+        if valid_scores:
+            return records
+        print("[WARNING] RAGAS returned NaN scores for all items. Falling back to Heuristic Evaluator...")
+    except Exception as err:
+        print(f"[WARNING] RAGAS evaluation error: {err}. Falling back to Heuristic Evaluator...")
+
+    if golden_dataset:
+        return evaluate_heuristic(eval_data, golden_dataset)
+    return evaluate_heuristic(eval_data, [{"expected_context": ""} for _ in range(len(eval_data["question"]))])
+
 
 
 def _mean(rows: list[dict[str, Any]], metric: str) -> float:

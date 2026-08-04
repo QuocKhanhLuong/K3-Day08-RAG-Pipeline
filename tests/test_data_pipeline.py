@@ -17,6 +17,7 @@ from src import supervisor
 from src import task1_collect_legal_docs as task1
 from src import task2_crawl_news as task2
 from src import task3_convert_markdown as task3
+from src.legal_markdown_postprocess import postprocess_legal_markdown
 from src.validate_corpus import parse_front_matter, validate_corpus
 
 
@@ -369,6 +370,40 @@ def test_guidance_boilerplate_removed() -> None:
     assert "Tham khảo thêm" not in cleaned
     assert "Tin liên quan" not in cleaned
     assert "Nội dung bài viết hướng dẫn chính thức." in cleaned
+
+
+def test_legal_postprocess_keeps_articles_and_removes_pdf_page_chrome() -> None:
+    raw_text = """CÔNG BÁO/Số 131/Ngày 28-02-2026
+
+22
+
+CHƯƠNG I
+
+NHỮNG QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi điều chỉnh
+
+Nội dung điều luật thứ nhất.
+
+CÔNG BÁO/Số 131/Ngày 28-02-2026
+
+23
+
+Điều 2. Đối tượng áp dụng cho người lao động
+
+làm việc từ xa
+
+Nội dung điều luật thứ hai.
+"""
+
+    markdown, article_count = postprocess_legal_markdown(raw_text)
+
+    assert "CÔNG BÁO" not in markdown
+    assert "\n22\n" not in markdown
+    assert "# CHƯƠNG I — NHỮNG QUY ĐỊNH CHUNG" in markdown
+    assert "### Điều 1. Phạm vi điều chỉnh" in markdown
+    assert "### Điều 2. Đối tượng áp dụng cho người lao động làm việc từ xa" in markdown
+    assert article_count == 2
 
 
 def test_pdf_is_gitignored() -> None:

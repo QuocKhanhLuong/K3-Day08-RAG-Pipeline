@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -37,9 +39,7 @@ audience_roles: []
 
 # Hợp đồng thử việc không đóng BHXH bắt buộc
 
-Trả lời công dân - doanh nghiệp
-
-Hợp đồng thử việc không đóng BHXH bắt buộc
+*Ngày đăng: 2026-03-06*
 
 (Chinhphu.vn) - Bà Nguyễn Thị Hạnh (Hà Nội) công tác tại một doanh nghiệp FDI. Doanh nghiệp của bà và người lao động ký hợp đồng thử việc riêng, không phải hợp đồng lao động. Doanh nghiệp không đóng BHXH bắt buộc cho người lao động trong thời gian thử việc, các nội dung hợp đồng thử việc bảo đảm theo quy định tại khoản 2 Điều 24 Bộ luật Lao động 2019.
 

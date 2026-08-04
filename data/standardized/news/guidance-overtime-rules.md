@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -37,9 +39,7 @@ audience_roles: []
 
 # Làm thêm giờ thế nào là đúng quy định?
 
-Trả lời công dân - doanh nghiệp
-
-Làm thêm giờ thế nào là đúng quy định?
+*Ngày đăng: 2024-01-30*
 
 (Chinhphu.vn) - Vừa qua, giám đốc công ty của ông Nguyễn Văn Phúc (Tây Ninh) có ý kiến cho công nhân làm thêm 1 giờ 35 phút vào mỗi ngày (ngoài giờ hành chính), nhưng không tính tăng ca bù và sẽ được nghỉ vào thứ 7.
 

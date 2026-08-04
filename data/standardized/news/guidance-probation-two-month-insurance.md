@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -37,9 +39,7 @@ audience_roles: []
 
 # Hợp đồng thử việc 2 tháng có phải đóng BHXH bắt buộc?
 
-Trả lời công dân - doanh nghiệp
-
-Hợp đồng thử việc 2 tháng có phải đóng BHXH bắt buộc?
+*Ngày đăng: 2026-06-12*
 
 (Chinhphu.vn) - Công ty của bà Khuê Chiêu (Hà Nội) ký hợp đồng thử việc 02 tháng đối với vị trí phụ trách truyền thông - maketing, mức lương 15.000.000 đồng/tháng.
 

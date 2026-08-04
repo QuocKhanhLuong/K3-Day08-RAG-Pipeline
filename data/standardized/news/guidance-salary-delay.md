@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -38,9 +40,7 @@ audience_roles: []
 
 # Thế nào là chậm trả lương do trường hợp bất khả kháng?
 
-Trả lời công dân - doanh nghiệp
-
-Thế nào là chậm trả lương do trường hợp bất khả kháng?
+*Ngày đăng: 2026-03-05*
 
 (Chinhphu.vn) - Ông Quốc Tuấn làm việc tại đơn vị sự nghiệp công lập tự chủ tài chính, vị trí hợp đồng chuyên môn nghiệp vụ theo Nghị định số 111/2022/NĐ-CP. Sau khi sáp nhập đơn vị hành chính, từ cuối năm 2025 đơn vị ông đã trình đề án tự chủ đến cơ quan có thẩm quyền nhưng vẫn chưa được phê duyệt. Do vậy, cơ quan chưa thực hiện chi lương theo hợp đồng đã ký với ông.
 

@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -37,9 +39,7 @@ audience_roles: []
 
 # Thế nào là đơn phương chấm dứt hợp đồng lao động đúng luật?
 
-Trả lời công dân - doanh nghiệp
-
-Thế nào là đơn phương chấm dứt hợp đồng lao động đúng luật?
+*Ngày đăng: 2023-04-30*
 
 (Chinhphu.vn) - Bà Trần Thị Hồng Nhung làm việc ở một công ty được 6 năm, có ký hợp đồng lao động. Nay, bà viết đơn xin thôi việc và đã nộp, báo với công ty trước 45 ngày theo đúng nội dung hợp đồng, nhưng công ty không giải quyết nên bà chưa thể nghỉ việc. Vậy, trường hợp này bà cần làm thế nào?
 

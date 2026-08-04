@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -37,9 +39,7 @@ audience_roles: []
 
 # Điều kiện áp dụng hình thức sa thải lao động
 
-Trả lời công dân - doanh nghiệp
-
-Điều kiện áp dụng hình thức sa thải lao động
+*Ngày đăng: 2025-12-09*
 
 (Chinhphu.vn) - Để áp dụng hình thức sa thải kỷ luật lao động thì người sử dụng lao động phải quy định cụ thể các hành vi xử lý kỷ luật sa thải tại nội quy lao động (Điều 118 Bộ luật Lao động), sau đó mới tiến hành xử lý kỷ luật sa thải người lao động theo nội quy và trình tự luật định.
 

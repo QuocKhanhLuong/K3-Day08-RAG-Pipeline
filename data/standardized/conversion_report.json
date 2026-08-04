@@ -1,21 +1,58 @@
-[
-  {
-    "status": "success",
-    "source": "labor-code-consolidated-18-2026.pdf",
-    "output": "/Users/alvinluong/K3-Day08-RAG-Pipeline/data/standardized/legal/labor-code-consolidated-18-2026.md",
-    "document_id": "labor_code_consolidated_18_2026",
-    "page count": 88,
-    "page_count": 88,
-    "processed pages": 88,
-    "processed_pages": 88,
-    "extraction method": "markitdown_native",
-    "extraction_method": "markitdown_native",
-    "body characters": 199061,
-    "body_characters": 199061,
-    "article count": 358,
-    "article_count": 358,
-    "OCR status": "not_required",
-    "ocr_status": "not_required",
-    "warnings": []
-  }
-]
+{
+  "generated_at": "2026-08-04T09:10:41+00:00",
+  "documents": [
+    {
+      "status": "success",
+      "source": "labor-code-consolidated-18-2026.pdf",
+      "output": "/Users/alvinluong/K3-Day08-RAG-Pipeline/data/standardized/legal/labor-code-consolidated-18-2026.md",
+      "document_id": "labor_code_consolidated_18_2026",
+      "page count": 88,
+      "page_count": 88,
+      "processed pages": 88,
+      "processed_pages": 88,
+      "extraction method": "markitdown_native",
+      "extraction_method": "markitdown_native",
+      "body characters": 195608,
+      "body_characters": 195608,
+      "article count": 220,
+      "article_count": 220,
+      "OCR status": "not_required",
+      "ocr_status": "not_required",
+      "warnings": []
+    }
+  ],
+  "failed": [
+    {
+      "status": "failed",
+      "source": "labor-code-45-2019-qh14.pdf",
+      "reason": "Legal body does not contain any 'Điều <number>'"
+    },
+    {
+      "status": "failed",
+      "source": "decree-145-2020-labor-relations.pdf",
+      "reason": "Legal body does not contain any 'Điều <number>'"
+    },
+    {
+      "status": "failed",
+      "source": "decree-12-2022-labor-penalties.pdf",
+      "reason": "Legal body does not contain any 'Điều <number>'"
+    },
+    {
+      "status": "failed",
+      "source": "decree-293-2025-minimum-wage.pdf",
+      "reason": "Legal body does not contain any 'Điều <number>'"
+    },
+    {
+      "status": "failed",
+      "source": "decree-337-2025-electronic-labor-contract.pdf",
+      "reason": "Legal body does not contain any 'Điều <number>'"
+    },
+    {
+      "status": "failed",
+      "source": "circular-08-2026-electronic-labor-contract.pdf",
+      "reason": "Legal body does not contain any 'Điều <number>'"
+    }
+  ],
+  "ocr_processed": [],
+  "manual_review_required": []
+}
