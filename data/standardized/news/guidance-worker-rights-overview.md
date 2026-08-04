@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -38,11 +40,7 @@ audience_roles: []
 
 # Từ 2021: Thêm nhiều quyền lợi cho người lao động
 
-Xã hội
-
-Pháp luật
-
-Từ 2021: Thêm nhiều quyền lợi cho người lao động
+*Ngày đăng: 2021-01-01*
 
 (Chinhphu.vn) - Bộ luật Lao động 2019 được kỳ họp thứ 8, Quốc hội khóa XIV thông qua ngày 20/11/2019, có hiệu lực kể từ ngày 1/1/2021 có nhiều nội dung mới liên quan đến quyền lợi của người lao động.
 

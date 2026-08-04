@@ -128,12 +128,13 @@ def ocr_pdf_with_paddle(
     pdf_path: Path | str,
     *,
     min_native_chars_per_page: int = 50,
-    dpi: int = 240,
+    dpi: int = 150,
+    batch_size: int = 4,
 ) -> PaddleOcrResult:
     """Produce a complete page-ordered text result from one PDF.
 
     Pages with a usable native text layer are copied directly. The remaining
-    scan pages use a singleton PaddleOCR engine.  A page OCR failure raises so
+    scan pages use a singleton PaddleOCR engine. A page OCR failure raises so
     the caller cannot atomically replace an older Markdown with a partial file.
     """
     path = Path(pdf_path)
@@ -153,34 +154,44 @@ def ocr_pdf_with_paddle(
         document.close()
         raise PaddleOcrError(f"PDF has no pages: {path.name}")
 
-    engine: Any | None = None
-    page_texts: list[str] = []
+    page_texts: list[str] = [""] * total_pages
     native_text_pages = 0
     ocr_pages = 0
+    pages_to_ocr: list[tuple[int, np.ndarray]] = []
     try:
         for page_index, page in enumerate(document):
             native_text = page.get_text("text").strip()
             if len(native_text) >= min_native_chars_per_page:
-                page_texts.append(native_text)
+                page_texts[page_index] = native_text
                 native_text_pages += 1
-                continue
-            if engine is None:
-                engine = get_ocr_engine()
-            try:
-                predictions = engine.predict(_pdf_page_to_image(page, dpi=dpi))
-                page_text = _ordered_text_from_prediction(predictions)
-            except PaddleOcrError:
-                raise
-            except Exception as exc:
-                raise PaddleOcrError(f"PaddleOCR failed on page {page_index + 1}/{total_pages}: {exc}") from exc
-            if not page_text:
-                raise PaddleOcrError(f"PaddleOCR produced no text on page {page_index + 1}/{total_pages}")
-            page_texts.append(page_text)
-            ocr_pages += 1
+            else:
+                pages_to_ocr.append((page_index, _pdf_page_to_image(page, dpi=dpi)))
     finally:
         document.close()
 
-    processed_pages = len(page_texts)
+    if pages_to_ocr:
+        engine = get_ocr_engine()
+        for i in range(0, len(pages_to_ocr), batch_size):
+            chunk = pages_to_ocr[i : i + batch_size]
+            chunk_imgs = [item[1] for item in chunk]
+            try:
+                preds_list = engine.predict(chunk_imgs)
+            except PaddleOcrError:
+                raise
+            except Exception as exc:
+                raise PaddleOcrError(f"PaddleOCR failed on page batch starting at {chunk[0][0] + 1}: {exc}") from exc
+
+            if not isinstance(preds_list, list):
+                preds_list = [preds_list]
+
+            for (p_idx, _), pred in zip(chunk, preds_list):
+                p_text = _ordered_text_from_prediction([pred] if not isinstance(pred, list) else pred)
+                if not p_text:
+                    raise PaddleOcrError(f"PaddleOCR produced no text on page {p_idx + 1}/{total_pages}")
+                page_texts[p_idx] = p_text
+                ocr_pages += 1
+
+    processed_pages = native_text_pages + ocr_pages
     if processed_pages != total_pages:
         raise PaddleOcrError(f"OCR processed {processed_pages}/{total_pages} pages; refusing a partial result")
     full_text = "\n\n".join(page_texts).strip()

@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -36,9 +38,7 @@ audience_roles: []
 
 # Làm việc chưa đủ 12 tháng, tính ngày nghỉ phép thế nào?
 
-Trả lời công dân - doanh nghiệp
-
-Làm việc chưa đủ 12 tháng, tính ngày nghỉ phép thế nào?
+*Ngày đăng: 2026-03-22*
 
 (Chinhphu.vn) - Khoản 2 Điều 113 Bộ luật Lao động quy định, người lao động làm việc chưa đủ 12 tháng cho một người sử dụng lao động thì số ngày nghỉ hằng năm theo tỷ lệ tương ứng với số tháng làm việc.
 

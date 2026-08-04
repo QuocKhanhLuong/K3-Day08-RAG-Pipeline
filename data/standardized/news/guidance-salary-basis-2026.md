@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -37,9 +39,7 @@ audience_roles: []
 
 # Các căn cứ trả lương cho người lao động
 
-Trả lời công dân - doanh nghiệp
-
-Các căn cứ trả lương cho người lao động
+*Ngày đăng: 2026-03-04*
 
 (Chinhphu.vn) - Người sử dụng lao động trả lương cho người lao động căn cứ vào tiền lương đã thỏa thuận, năng suất lao động và chất lượng thực hiện công việc.
 

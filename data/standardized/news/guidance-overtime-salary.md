@@ -23,6 +23,8 @@ source_format: json
 pdf_type: null
 pdf_pages: null
 processed_pages: null
+native_text_pages: null
+ocr_pages: null
 ocr_required: false
 extraction_method: json_markdown
 ocr_quality_status: not_required
@@ -37,9 +39,7 @@ audience_roles: []
 
 # Hướng dẫn tính tiền lương làm thêm giờ
 
-Trả lời công dân - doanh nghiệp
-
-Hướng dẫn tính tiền lương làm thêm giờ
+*Ngày đăng: 2025-07-07*
 
 (Chinhphu.vn) - Tiền lương làm thêm giờ được xác định dựa trên tiền lương thực trả của công việc đang làm của người lao động chia cho thời gian làm việc thực tế của người lao động do doanh nghiệp lựa chọn.
 

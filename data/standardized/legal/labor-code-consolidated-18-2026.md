@@ -28,8 +28,8 @@ ocr_pages: null
 ocr_required: false
 extraction_method: markitdown_native
 ocr_quality_status: not_required
-body_character_count: 199098
-article_count: 358
+body_character_count: 195608
+article_count: 220
 ocr_warnings: []
 legal_topics:
 - probation
@@ -60,10 +60,6 @@ audience_roles:
 
 # Văn bản hợp nhất Bộ luật Lao động
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-22
-
 CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
 
 Độc lập - Tự do - Hạnh phúc
@@ -92,9 +88,7 @@ Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam;
 
 Quốc hội ban hành Bộ luật Lao động1.
 
-# CHƯƠNG I
-
-NHỮNG QUY ĐỊNH CHUNG
+# CHƯƠNG I — NHỮNG QUY ĐỊNH CHUNG
 
 ### Điều 1. Phạm vi điều chỉnh
 
@@ -118,10 +112,6 @@ một số điều theo Nghị quyết số 203/2025/QH15;
 
 Quốc hội ban hành Luật Giáo dục nghề nghiệp.”.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-23
 
 ### Điều 2. Đối tượng áp dụng
 
@@ -177,10 +167,6 @@ cơ sở thuê mướn bằng hợp đồng lao động.
 đoạn khác để ép buộc người lao động phải làm việc trái ý muốn của họ.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-24
-
 8. Phân biệt đối xử trong lao động là hành vi phân biệt, loại trừ hoặc ưu tiên
 dựa trên chủng tộc, màu da, nguồn gốc quốc gia hoặc nguồn gốc xã hội, dân tộc,
 giới tính, độ tuổi, tình trạng thai sản, tình trạng hôn nhân, tôn giáo, tín ngưỡng,
@@ -233,10 +219,6 @@ nhằm bảo vệ lao động nữ, lao động là người khuyết tật, ng�
 lao động chưa thành niên.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-25
-
 ### Điều 5. Quyền và nghĩa vụ của người lao động
 
 1. Người lao động có các quyền sau đây:
@@ -247,7 +229,7 @@ quấy rối tình dục tại nơi làm việc;
 
 b) Hưởng lương phù hợp với trình độ, kỹ năng nghề trên cơ sở thỏa thuận
 với người sử dụng lao động; được bảo hộ lao động, làm việc trong điều kiện bảo
-đảm về  an toàn, vệ sinh lao động; nghỉ theo chế độ, nghỉ hằng năm có hưởng
+đảm về an toàn, vệ sinh lao động; nghỉ theo chế độ, nghỉ hằng năm có hưởng
 lương và được hưởng phúc lợi tập thể;
 
 c) Thành lập, gia nhập, hoạt động trong tổ chức đại diện người lao động, tổ
@@ -293,10 +275,6 @@ b) Thành lập, gia nhập, hoạt động trong tổ chức đại diện ngư
 động, tổ chức nghề nghiệp và tổ chức khác theo quy định của pháp luật;
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-26
-
 c) Yêu cầu tổ chức đại diện người lao động thương lượng với mục đích ký
 kết thỏa ước lao động tập thể; tham gia giải quyết tranh chấp lao động, đình công;
 đối thoại, trao đổi với tổ chức đại diện người lao động về các vấn đề trong quan
@@ -324,7 +302,7 @@ nghiệp, bảo hiểm xã hội, bảo hiểm y tế, bảo hiểm thất nghi�
 lao động; xây dựng và thực hiện các giải pháp phòng, chống quấy rối tình dục tại
 nơi làm việc;
 
-đ)  Tham gia phát triển tiêu chuẩn kỹ năng nghề quốc gia, đánh giá, công
+đ) Tham gia phát triển tiêu chuẩn kỹ năng nghề quốc gia, đánh giá, công
 
 nhận kỹ năng nghề cho người lao động.
 
@@ -354,10 +332,6 @@ người sử dụng lao động, tham gia xây dựng quan hệ lao động ti�
 1. Phân biệt đối xử trong lao động.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-27
-
 2. Ngược đãi người lao động, cưỡng bức lao động.
 
 3. Quấy rối tình dục tại nơi làm việc.
@@ -378,9 +352,7 @@ vi trái pháp luật.
 
 7. Sử dụng lao động chưa thành niên trái pháp luật.
 
-# CHƯƠNG II
-
-VIỆC LÀM, TUYỂN DỤNG VÀ QUẢN LÝ LAO ĐỘNG
+# CHƯƠNG II — VIỆC LÀM, TUYỂN DỤNG VÀ QUẢN LÝ LAO ĐỘNG
 
 ### Điều 9. Việc làm, giải quyết việc làm
 
@@ -397,7 +369,7 @@ việc làm.
 nào và ở bất kỳ nơi nào mà pháp luật không cấm.
 
 2. Trực tiếp liên hệ với người sử dụng lao động hoặc thông qua tổ chức dịch
-vụ  việc  làm để  tìm kiếm việc  làm  theo  nguyện  vọng, khả  năng,  trình độ  nghề
+vụ việc làm để tìm kiếm việc làm theo nguyện vọng, khả năng, trình độ nghề
 nghiệp và sức khỏe của mình.
 
 ### Điều 11. Tuyển dụng lao động
@@ -415,10 +387,6 @@ theo nhu cầu của người sử dụng lao động.
 bản điện tử và xuất trình khi cơ quan nhà nước có thẩm quyền yêu cầu.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-28
-
 2. Khai trình việc sử dụng lao động trong thời hạn 30 ngày kể từ ngày bắt
 đầu hoạt động, định kỳ báo cáo tình hình thay đổi về lao động trong quá trình hoạt
 động với cơ quan chuyên môn về lao động thuộc Ủy ban nhân dân cấp tỉnh và
@@ -426,10 +394,8 @@ thông báo cho cơ quan bảo hiểm xã hội.
 
 3. Chính phủ quy định chi tiết Điều này.
 
-# CHƯƠNG III
-HỢP ĐỒNG LAO ĐỘNG
-## Mục 1
-GIAO KẾT HỢP ĐỒNG LAO ĐỘNG
+# CHƯƠNG III — HỢP ĐỒNG LAO ĐỘNG
+## Mục 1 — GIAO KẾT HỢP ĐỒNG LAO ĐỘNG
 
 ### Điều 13. Hợp đồng lao động
 
@@ -473,10 +439,6 @@ khoản 1 Điều 145 và khoản 1 Điều 162 của Bộ luật này.
 động về công việc, địa điểm làm việc, điều kiện làm việc, thời giờ làm việc, thời
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-29
-
 giờ nghỉ ngơi, an toàn, vệ sinh lao động, tiền lương, hình thức trả lương, bảo hiểm
 xã hội, bảo hiểm y tế, bảo hiểm thất nghiệp, quy định về bảo vệ bí mật kinh doanh,
 bảo vệ bí mật công nghệ và vấn đề khác liên quan trực tiếp đến việc giao kết hợp
@@ -487,9 +449,7 @@ bảo vệ bí mật công nghệ và vấn đề khác liên quan trực tiếp
 độ kỹ năng nghề, xác nhận tình trạng sức khỏe và vấn đề khác liên quan trực tiếp
 đến việc giao kết hợp đồng lao động mà người sử dụng lao động yêu cầu.
 
-### Điều 17. Hành vi người sử dụng lao động không được làm khi giao kết,
-
-thực hiện hợp đồng lao động
+### Điều 17. Hành vi người sử dụng lao động không được làm khi giao kết, thực hiện hợp đồng lao động
 
 1. Giữ bản chính giấy tờ tùy thân, văn bằng, chứng chỉ của người lao động.
 
@@ -508,7 +468,7 @@ dụng lao động.
 định tại khoản 2 Điều này.
 
 2. Đối với công việc theo mùa vụ, công việc nhất định có thời hạn dưới 12
-tháng thì nhóm người lao động từ đủ 18 tuổi trở  lên có thể ủy quyền cho một
+tháng thì nhóm người lao động từ đủ 18 tuổi trở lên có thể ủy quyền cho một
 người lao động trong nhóm để giao kết hợp đồng lao động; trong trường hợp này,
 hợp đồng lao động phải được giao kết bằng văn bản và có hiệu lực như giao kết
 với từng người lao động.
@@ -539,10 +499,6 @@ d) Cá nhân trực tiếp sử dụng lao động.
 
 một trong các trường hợp sau đây:
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-30
 
 a) Người lao động từ đủ 18 tuổi trở lên;
 
@@ -602,10 +558,6 @@ trừ hợp đồng lao động đối với người được thuê làm giám 
 có vốn nhà nước và trường hợp quy định tại khoản 1 Điều 149, khoản 2 Điều 151
 và khoản 4 Điều 177 của Bộ luật này.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-31
 
 ### Điều 21. Nội dung hợp đồng lao động
 
@@ -668,10 +620,6 @@ khoản của hợp đồng lao động nhưng không được sửa đổi th�
 lao động.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-32
-
 Trường hợp phụ lục hợp đồng lao động quy định chi tiết một số điều, khoản
 của hợp đồng lao động mà dẫn đến cách hiểu khác với hợp đồng lao động thì thực
 hiện theo nội dung của hợp đồng lao động.
@@ -733,10 +681,6 @@ nhưng ít nhất phải bằng 85% mức lương của công việc đó.
 kết quả thử việc cho người lao động.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-33
-
 Trường hợp thử việc đạt yêu cầu thì người sử dụng lao động tiếp tục thực
 hiện hợp đồng lao động đã giao kết đối với trường hợp thỏa thuận thử việc trong
 hợp đồng lao động hoặc phải giao kết hợp đồng lao động đối với trường hợp giao
@@ -749,8 +693,7 @@ giao kết hoặc hợp đồng thử việc.
 2. Trong thời gian thử việc, mỗi bên có quyền hủy bỏ hợp đồng thử việc hoặc
 hợp đồng lao động đã giao kết mà không cần báo trước và không phải bồi thường.
 
-## Mục 2
-THỰC HIỆN HỢP ĐỒNG LAO ĐỘNG
+## Mục 2 — THỰC HIỆN HỢP ĐỒNG LAO ĐỘNG
 
 ### Điều 28. Thực hiện công việc theo hợp đồng lao động
 
@@ -787,10 +730,6 @@ lương của công việc cũ nhưng không thấp hơn mức lương tối thi
 4. Người lao động không đồng ý tạm thời làm công việc khác so với hợp
 đồng lao động quá 60 ngày làm việc cộng dồn trong 01 năm mà phải ngừng việc
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-34
 
 thì người sử dụng lao động phải trả lương ngừng việc theo quy định tại Điều 99
 của Bộ luật này.
@@ -830,9 +769,7 @@ h) Trường hợp khác do hai bên thỏa thuận.
 không được hưởng lương và quyền, lợi ích đã giao kết trong hợp đồng lao động,
 trừ trường hợp hai bên có thỏa thuận hoặc pháp luật có quy định khác.
 
-### Điều 31. Nhận lại người lao động hết thời hạn tạm hoãn thực hiện hợp
-
-đồng lao động
+### Điều 31. Nhận lại người lao động hết thời hạn tạm hoãn thực hiện hợp đồng lao động
 
 Trong thời hạn 15 ngày kể từ ngày hết thời hạn tạm hoãn thực hiện hợp đồng
 lao động, người lao động phải có mặt tại nơi làm việc và người sử dụng lao động
@@ -854,10 +791,6 @@ trọn thời gian khi giao kết hợp đồng lao động.
 3. Người lao động làm việc không trọn thời gian được hưởng lương; bình đẳng
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-35
-
 trong thực hiện quyền và nghĩa vụ với người lao động làm việc trọn thời gian; bình
 đẳng về cơ hội, không bị phân biệt đối xử, bảo đảm an toàn, vệ sinh lao động.
 
@@ -875,8 +808,7 @@ hoặc giao kết hợp đồng lao động mới.
 
 hợp đồng lao động thì tiếp tục thực hiện hợp đồng lao động đã giao kết.
 
-## Mục 3
-CHẤM DỨT HỢP ĐỒNG LAO ĐỘNG
+## Mục 3 — CHẤM DỨT HỢP ĐỒNG LAO ĐỘNG
 
 ### Điều 34. Các trường hợp chấm dứt hợp đồng lao động
 
@@ -914,10 +846,6 @@ pháp luật.
 
 tại Điều 35 của Bộ luật này.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-36
 
 10. Người sử dụng lao động đơn phương chấm dứt hợp đồng lao động theo
 
@@ -986,13 +914,7 @@ g) Người sử dụng lao động cung cấp thông tin không trung thực th
 đồng lao động.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-37
-
-### Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử
-
-dụng lao động
+### Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động
 
 1. Người sử dụng lao động có quyền đơn phương chấm dứt hợp đồng lao
 
@@ -1048,10 +970,6 @@ b) Ít nhất 30 ngày đối với hợp đồng lao động xác định thờ
 từ 12 tháng đến 36 tháng;
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-38
-
 c) Ít nhất 03 ngày làm việc đối với hợp đồng lao động xác định thời hạn
 có thời hạn dưới 12 tháng và đối với trường hợp quy định tại điểm b khoản 1
 Điều này;
@@ -1064,9 +982,7 @@ thực hiện theo quy định của Chính phủ.
 e khoản 1 Điều này thì người sử dụng lao động không phải báo trước cho người
 lao động.
 
-### Điều  37.  Trường  hợp  người  sử  dụng  lao  động  không  được  thực  hiện
-
-quyền đơn phương chấm dứt hợp đồng lao động
+### Điều 37. Trường hợp người sử dụng lao động không được thực hiện quyền đơn phương chấm dứt hợp đồng lao động
 
 1. Người lao động ốm đau hoặc bị tai nạn, bệnh nghề nghiệp đang điều trị,
 điều dưỡng theo chỉ định của cơ sở khám bệnh, chữa bệnh có thẩm quyền, trừ
@@ -1091,9 +1007,7 @@ bên kia đồng ý.
 Đơn phương chấm dứt hợp đồng lao động trái pháp luật là trường hợp chấm dứt
 hợp đồng lao động không đúng quy định tại các điều 35, 36 và 37 của Bộ luật này.
 
-### Điều 40. Nghĩa vụ của người lao động khi đơn phương chấm dứt hợp
-
-đồng lao động trái pháp luật
+### Điều 40. Nghĩa vụ của người lao động khi đơn phương chấm dứt hợp đồng lao động trái pháp luật
 
 1. Không được trợ cấp thôi việc.
 
@@ -1105,17 +1019,11 @@ hợp đồng lao động và một khoản tiền tương ứng với tiền l�
 
 62 của Bộ luật này.
 
-### Điều 41. Nghĩa vụ của người sử dụng lao động khi đơn phương chấm
-
-dứt hợp đồng lao động trái pháp luật
+### Điều 41. Nghĩa vụ của người sử dụng lao động khi đơn phương chấm dứt hợp đồng lao động trái pháp luật
 
 1. Phải nhận người lao động trở lại làm việc theo hợp đồng lao động đã giao
 kết; phải trả tiền lương, đóng bảo hiểm xã hội, bảo hiểm y tế, bảo hiểm thất nghiệp
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-39
 
 trong những ngày người lao động không được làm việc và phải trả thêm cho người
 lao động một khoản tiền ít nhất bằng 02 tháng tiền lương theo hợp đồng lao động.
@@ -1144,9 +1052,7 @@ của Bộ luật này, hai bên thỏa thuận khoản tiền bồi thường t
 động nhưng ít nhất bằng 02 tháng tiền lương theo hợp đồng lao động để chấm dứt
 hợp đồng lao động.
 
-### Điều 42. Nghĩa vụ của người sử dụng lao động trong trường hợp thay
-
-đổi cơ cấu, công nghệ hoặc vì lý do kinh tế
+### Điều 42. Nghĩa vụ của người sử dụng lao động trong trường hợp thay đổi cơ cấu, công nghệ hoặc vì lý do kinh tế
 
 1. Những trường hợp sau đây được coi là thay đổi cơ cấu, công nghệ:
 
@@ -1172,10 +1078,6 @@ sử dụng lao động theo quy định tại Điều 44 của Bộ luật này
 việc mới thì ưu tiên đào tạo lại người lao động để tiếp tục sử dụng.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-40
-
 4. Trong trường hợp vì lý do kinh tế mà nhiều người lao động có nguy cơ
 mất việc làm, phải thôi việc thì người sử dụng lao động phải xây dựng và thực
 hiện phương án sử dụng lao động theo quy định tại Điều 44 của Bộ luật này.
@@ -1190,9 +1092,7 @@ cơ sở đối với nơi có tổ chức đại diện người lao động t�
 là thành viên và thông báo trước 30 ngày cho Ủy ban nhân dân cấp tỉnh và cho
 người lao động.
 
-### Điều 43. Nghĩa vụ của người sử dụng lao động khi chia, tách, hợp nhất,
-sáp nhập; bán, cho thuê, chuyển đổi loại hình doanh nghiệp; chuyển nhượng
-quyền sở hữu, quyền sử dụng tài sản của doanh nghiệp, hợp tác xã
+### Điều 43. Nghĩa vụ của người sử dụng lao động khi chia, tách, hợp nhất, sáp nhập; bán, cho thuê, chuyển đổi loại hình doanh nghiệp; chuyển nhượng quyền sở hữu, quyền sử dụng tài sản của doanh nghiệp, hợp tác xã
 
 1. Trong trường hợp chia, tách, hợp nhất, sáp nhập; bán, cho thuê, chuyển
 đổi loại hình doanh nghiệp; chuyển nhượng quyền sở hữu, quyền sử dụng tài sản
@@ -1230,10 +1130,6 @@ bên liên quan trong việc thực hiện phương án sử dụng lao động;
 trao đổi ý kiến với tổ chức đại diện người lao động tại cơ sở đối với nơi có tổ chức
 đại diện người lao động tại cơ sở. Phương án sử dụng lao động phải được thông
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-41
 
 báo công khai cho người lao động biết trong thời hạn 15 ngày kể từ ngày được
 thông qua.
@@ -1288,10 +1184,6 @@ tiền lương nhưng ít nhất bằng 02 tháng tiền lương.
 động đã làm việc thực tế cho người sử dụng lao động trừ đi thời gian người lao
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-42
-
 động đã tham gia bảo hiểm thất nghiệp theo quy định của pháp luật về bảo hiểm
 thất nghiệp và thời gian làm việc đã được người sử dụng lao động chi trả trợ cấp
 thôi việc, trợ cấp mất việc làm.
@@ -1333,9 +1225,7 @@ b) Cung cấp bản sao các tài liệu liên quan đến quá trình làm vi�
 lao động nếu người lao động có yêu cầu. Chi phí sao, gửi tài liệu do người sử dụng
 lao động trả.
 
-## Mục 4
-
-HỢP ĐỒNG LAO ĐỘNG VÔ HIỆU
+## Mục 4 — HỢP ĐỒNG LAO ĐỘNG VÔ HIỆU
 
 ### Điều 49. Hợp đồng lao động vô hiệu
 
@@ -1348,10 +1238,6 @@ nguyên tắc giao kết hợp đồng lao động quy định tại khoản 1 �
 
 c) Công việc đã giao kết trong hợp đồng lao động là công việc mà pháp luật cấm.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-43
 
 2. Hợp đồng lao động vô hiệu từng phần khi nội dung của phần đó vi phạm
 
@@ -1378,8 +1264,7 @@ hợp do ký sai thẩm quyền thì hai bên ký lại.
 
 3. Chính phủ quy định chi tiết Điều này.
 
-## Mục 5
-CHO THUÊ LẠI LAO ĐỘNG
+## Mục 5 — CHO THUÊ LẠI LAO ĐỘNG
 
 ### Điều 52. Cho thuê lại lao động
 
@@ -1412,10 +1297,6 @@ bệnh nghề nghiệp hoặc phải thực hiện các nghĩa vụ công dân;
 c) Có nhu cầu sử dụng lao động trình độ chuyên môn, kỹ thuật cao.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-44
-
 3. Bên thuê lại lao động không được sử dụng lao động thuê lại trong trường
 
 hợp sau đây:
@@ -1432,7 +1313,7 @@ c) Thay thế người lao động bị cho thôi việc do thay đổi cơ cấ
 
 vì lý do kinh tế hoặc chia, tách, hợp nhất, sáp nhập.
 
-4. Bên thuê lại lao động không được chuyển người lao động thuê  lại cho
+4. Bên thuê lại lao động không được chuyển người lao động thuê lại cho
 người sử dụng lao động khác; không được sử dụng người lao động thuê lại được
 cung cấp bởi doanh nghiệp không có Giấy phép hoạt động cho thuê lại lao động.
 
@@ -1480,10 +1361,6 @@ Ngoài các quyền và nghĩa vụ quy định tại Điều 6 của Bộ luậ
 
 nghiệp cho thuê lại lao động có các quyền và nghĩa vụ sau đây:
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-45
 
 1. Bảo đảm đưa người lao động có trình độ phù hợp với những yêu cầu của bên
 
@@ -1551,10 +1428,6 @@ lao động thuê lại có các quyền và nghĩa vụ sau đây:
 hành, giám sát hợp pháp của bên thuê lại lao động;
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-46
-
 3. Được trả lương không thấp hơn tiền lương của người lao động của bên
 thuê lại lao động có cùng trình độ, làm cùng công việc hoặc công việc có giá trị
 như nhau;
@@ -1567,9 +1440,7 @@ thuê lại lao động vi phạm các thỏa thuận trong hợp đồng cho th
 
 động để giao kết hợp đồng lao động với bên thuê lại lao động.
 
-# CHƯƠNG IV
-
-GIÁO DỤC NGHỀ NGHIỆP VÀ PHÁT TRIỂN KỸ NĂNG NGHỀ
+# CHƯƠNG IV — GIÁO DỤC NGHỀ NGHIỆP VÀ PHÁT TRIỂN KỸ NĂNG NGHỀ
 
 ### Điều 59. Đào tạo nghề nghiệp và phát triển kỹ năng nghề
 
@@ -1591,9 +1462,7 @@ b) Tổ chức thi kỹ năng nghề cho người lao động; tham gia hội đ
 nghề; dự báo nhu cầu và xây dựng tiêu chuẩn kỹ năng nghề; tổ chức đánh giá và
 công nhận kỹ năng nghề; phát triển năng lực nghề nghiệp cho người lao động.
 
-### Điều 60. Trách nhiệm của người sử dụng lao động về đào tạo, bồi dưỡng,
-
-nâng cao trình độ, kỹ năng nghề
+### Điều 60. Trách nhiệm của người sử dụng lao động về đào tạo, bồi dưỡng, nâng cao trình độ, kỹ năng nghề
 
 1. Người sử dụng lao động xây dựng kế hoạch hằng năm và dành kinh phí
 cho việc đào tạo, bồi dưỡng, nâng cao trình độ, kỹ năng nghề, phát triển kỹ năng
@@ -1607,10 +1476,6 @@ nâng cao trình độ, kỹ năng nghề cho cơ quan chuyên môn về lao đ�
 2 2 Điểm này được sửa đổi, bổ sung theo quy định tại điểm a khoản 1 Điều 43 của Luật
 Giáo dục nghề nghiệp số 124/2025/QH15, có hiệu lực kể từ ngày 01 tháng 01 năm 2026.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-47
 
 ### Điều 61. Học nghề, tập nghề để làm việc cho người sử dụng lao động
 
@@ -1641,9 +1506,7 @@ mức do hai bên thỏa thuận.
 
 khi đủ các điều kiện theo quy định của Bộ luật này.
 
-### Điều 62. Hợp đồng đào tạo nghề giữa người sử dụng lao động, người lao
-
-động và chi phí đào tạo nghề
+### Điều 62. Hợp đồng đào tạo nghề giữa người sử dụng lao động, người lao động và chi phí đào tạo nghề
 
 1. Hai bên phải ký kết hợp đồng đào tạo nghề trong trường hợp người lao
 động được đào tạo nâng cao trình độ, kỹ năng nghề, đào tạo lại ở trong nước hoặc
@@ -1669,10 +1532,6 @@ d) Chi phí đào tạo và trách nhiệm hoàn trả chi phí đào tạo;
 Giáo dục nghề nghiệp số 124/2025/QH15, có hiệu lực kể từ ngày 01 tháng 01 năm 2026.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-48
-
 e) Trách nhiệm của người lao động.
 
 3. Chi phí đào tạo bao gồm các khoản chi có chứng từ hợp lệ về chi phí trả
@@ -1682,11 +1541,8 @@ hiểm y tế, bảo hiểm thất nghiệp cho người học trong thời gian
 người lao động được gửi đi đào tạo ở nước ngoài thì chi phí đào tạo còn bao gồm
 chi phí đi lại, chi phí sinh hoạt trong thời gian đào tạo.
 
-# CHƯƠNG V
-ĐỐI THOẠI TẠI NƠI LÀM VIỆC, THƯƠNG LƯỢNG TẬP THỂ,
-THỎA ƯỚC LAO ĐỘNG TẬP THỂ
-## Mục 1
-ĐỐI THOẠI TẠI NƠI LÀM VIỆC
+# CHƯƠNG V — ĐỐI THOẠI TẠI NƠI LÀM VIỆC, THƯƠNG LƯỢNG TẬP THỂ, THỎA ƯỚC LAO ĐỘNG TẬP THỂ
+## Mục 1 — ĐỐI THOẠI TẠI NƠI LÀM VIỆC
 
 ### Điều 63. Tổ chức đối thoại tại nơi làm việc
 
@@ -1696,7 +1552,7 @@ diện người lao động về những vấn đề liên quan đến quyền, 
 tâm của các bên tại nơi làm việc nhằm tăng cường sự hiểu biết, hợp tác, cùng nỗ
 lực hướng tới giải pháp các bên cùng có lợi.
 
-2.  Người  sử  dụng  lao  động  phải  tổ  chức  đối  thoại  tại  nơi  làm  việc  trong
+2. Người sử dụng lao động phải tổ chức đối thoại tại nơi làm việc trong
 
 trường hợp sau đây:
 
@@ -1709,7 +1565,7 @@ c) Khi có vụ việc quy định tại điểm a khoản 1 Điều 36, các đ
 104, 118 và khoản 1 Điều 128 của Bộ luật này.
 
 3. Khuyến khích người sử dụng lao động và người lao động hoặc tổ chức đại
-diện  người  lao  động  tiến  hành  đối  thoại  ngoài  những  trường  hợp  quy  định  tại
+diện người lao động tiến hành đối thoại ngoài những trường hợp quy định tại
 khoản 2 Điều này.
 
 4. Chính phủ quy định việc tổ chức đối thoại và thực hiện quy chế dân chủ ở
@@ -1729,10 +1585,6 @@ một số nội dung sau đây để tiến hành đối thoại:
 a) Tình hình sản xuất, kinh doanh của người sử dụng lao động;
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-49
-
 b) Việc thực hiện hợp đồng lao động, thỏa ước lao động tập thể, nội quy lao
 
 động, quy chế và cam kết, thỏa thuận khác tại nơi làm việc;
@@ -1749,9 +1601,7 @@ diện người lao động;
 
 e) Nội dung khác mà một hoặc các bên quan tâm.
 
-## Mục 2
-
-THƯƠNG LƯỢNG TẬP THỂ
+## Mục 2 — THƯƠNG LƯỢNG TẬP THỂ
 
 ### Điều 65. Thương lượng tập thể
 
@@ -1796,13 +1646,7 @@ bạo lực và quấy rối tình dục tại nơi làm việc;
 8. Nội dung khác mà một hoặc các bên quan tâm.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-50
-
-### Điều  68.  Quyền  thương lượng  tập  thể  của  tổ  chức  đại  diện  người  lao
-
-động tại cơ sở trong doanh nghiệp
+### Điều 68. Quyền thương lượng tập thể của tổ chức đại diện người lao động tại cơ sở trong doanh nghiệp
 
 1. Tổ chức đại diện người lao động tại cơ sở có quyền yêu cầu thương lượng
 tập thể khi đạt tỷ lệ thành viên tối thiểu trên tổng số người lao động trong doanh
@@ -1854,10 +1698,6 @@ mình cử người tham gia là đại diện thương lượng và bên kia kh
 tại cơ sở có quyền yêu cầu thương lượng tập thể theo quy định tại Điều 68 của Bộ
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-51
-
 luật này hoặc yêu cầu của người sử dụng lao động thì bên nhận được yêu cầu
 không được từ chối việc thương lượng.
 
@@ -1877,7 +1717,7 @@ Thời gian bắt đầu thương lượng không được quá 30 ngày kể t�
 
 đầu thương lượng, trừ trường hợp các bên có thỏa thuận khác.
 
-Thời gian tham  gia các  phiên họp thương  lượng  tập thể  của  đại  diện  bên
+Thời gian tham gia các phiên họp thương lượng tập thể của đại diện bên
 người lao động được tính là thời gian làm việc có hưởng lương. Trường hợp người
 lao động là thành viên của tổ chức đại diện người lao động tham gia các phiên
 họp thương lượng tập thể thì thời gian tham gia các phiên họp không tính vào thời
@@ -1904,7 +1744,7 @@ Người sử dụng lao động không được gây khó khăn, cản trở ho
 quá trình tổ chức đại diện người lao động thảo luận, lấy ý kiến người lao động.
 
 5. Việc thương lượng tập thể phải được lập biên bản, trong đó ghi rõ nội
-dung  đã  được  các  bên  thống  nhất,  nội  dung  còn  ý  kiến  khác  nhau.  Biên  bản
+dung đã được các bên thống nhất, nội dung còn ý kiến khác nhau. Biên bản
 thương lượng tập thể phải có chữ ký của đại diện các bên thương lượng và của
 người ghi biên bản. Tổ chức đại diện người lao động tại cơ sở công bố rộng rãi,
 công khai biên bản thương lượng tập thể đến toàn bộ người lao động.
@@ -1913,10 +1753,6 @@ công khai biên bản thương lượng tập thể đến toàn bộ người 
 
 1. Thương lượng tập thể không thành thuộc một trong các trường hợp sau đây:
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-52
 
 a) Một bên từ chối thương lượng hoặc không tiến hành thương lượng trong
 
@@ -1935,9 +1771,7 @@ giải quyết tranh chấp lao động theo quy định của Bộ luật này.
 quyết tranh chấp lao động, tổ chức đại diện người lao động không được tổ chức
 đình công.
 
-### Điều 72. Thương lượng tập thể ngành, thương lượng tập thể có nhiều
-
-doanh nghiệp tham gia
+### Điều 72. Thương lượng tập thể ngành, thương lượng tập thể có nhiều doanh nghiệp tham gia
 
 1. Nguyên tắc, nội dung thương lượng tập thể ngành, thương lượng tập thể
 có nhiều doanh nghiệp tham gia thực hiện theo quy định tại Điều 66 và Điều 67
@@ -1955,13 +1789,11 @@ quyết định.
 Trường hợp thương lượng tập thể có nhiều doanh nghiệp tham gia thì đại diện
 thương lượng do các bên thương lượng quyết định trên cơ sở tự nguyện, thỏa thuận.
 
-### Điều 73. Thương lượng tập thể có nhiều doanh nghiệp tham gia thông
+### Điều 73. Thương lượng tập thể có nhiều doanh nghiệp tham gia thông qua Hội đồng thương lượng tập thể
 
-qua Hội đồng thương lượng tập thể
-
-1.  Trên  cơ  sở  đồng  thuận,  các  bên  thương  lượng  tập  thể  có  nhiều  doanh
+1. Trên cơ sở đồng thuận, các bên thương lượng tập thể có nhiều doanh
 nghiệp tham gia có thể yêu cầu Ủy ban nhân dân cấp tỉnh nơi đặt trụ sở chính của
-các  doanh  nghiệp  tham  gia  thương  lượng  hoặc  nơi  do  các  bên  lựa  chọn  trong
+các doanh nghiệp tham gia thương lượng hoặc nơi do các bên lựa chọn trong
 trường hợp các doanh nghiệp tham gia thương lượng có trụ sở chính tại nhiều tỉnh,
 thành phố trực thuộc trung ương thành lập Hội đồng thương lượng tập thể để tiến
 hành thương lượng tập thể.
@@ -1971,10 +1803,6 @@ nghiệp tham gia, Ủy ban nhân dân cấp tỉnh quyết định thành lập
 lượng tập thể để tổ chức việc thương lượng tập thể. Thành phần Hội đồng thương
 lượng tập thể bao gồm:
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-53
 
 a) Chủ tịch Hội đồng do các bên quyết định và có trách nhiệm điều phối hoạt
 động của Hội đồng thương lượng tập thể, hỗ trợ cho việc thương lượng tập thể
@@ -1994,9 +1822,7 @@ tham gia được ký kết hoặc theo thỏa thuận của các bên.
 
 nhiệm vụ, hoạt động của Hội đồng thương lượng tập thể.
 
-### Điều 74. Trách nhiệm của Ủy ban nhân dân cấp tỉnh trong thương lượng
-
-tập thể
+### Điều 74. Trách nhiệm của Ủy ban nhân dân cấp tỉnh trong thương lượng tập thể
 
 1. Tổ chức đào tạo, bồi dưỡng kỹ năng thương lượng tập thể cho các bên
 
@@ -2015,8 +1841,7 @@ tiến hành nếu được các bên đồng ý.
 
 lượng tập thể có nhiều doanh nghiệp theo quy định tại Điều 73 của Bộ luật này.
 
-## Mục 3
-THỎA ƯỚC LAO ĐỘNG TẬP THỂ
+## Mục 3 — THỎA ƯỚC LAO ĐỘNG TẬP THỂ
 
 ### Điều 75. Thỏa ước lao động tập thể
 
@@ -2032,10 +1857,6 @@ và các thỏa ước lao động tập thể khác.
 pháp luật; khuyến khích có lợi hơn cho người lao động so với quy định của
 pháp luật.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-54
 
 ### Điều 76. Lấy ý kiến và ký kết thỏa ước lao động tập thể
 
@@ -2087,10 +1908,6 @@ phải công bố cho người lao động của mình biết.
 7. Chính phủ quy định chi tiết Điều này.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-55
-
 ### Điều 77. Gửi thỏa ước lao động tập thể
 
 Trong thời hạn 10 ngày kể từ ngày thỏa ước lao động tập thể được ký kết,
@@ -2138,16 +1955,10 @@ mỗi bên đều có quyền yêu cầu giải quyết tranh chấp lao động
 định của pháp luật.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-56
-
-### Điều 80. Thực hiện thỏa ước lao động tập thể doanh nghiệp trong trường
-hợp chia, tách, hợp nhất, sáp nhập; bán, cho thuê, chuyển đổi loại hình doanh
-nghiệp; chuyển nhượng quyền sở hữu, quyền sử dụng tài sản của doanh nghiệp
+### Điều 80. Thực hiện thỏa ước lao động tập thể doanh nghiệp trong trường hợp chia, tách, hợp nhất, sáp nhập; bán, cho thuê, chuyển đổi loại hình doanh nghiệp; chuyển nhượng quyền sở hữu, quyền sử dụng tài sản của doanh nghiệp
 
 1. Trường hợp chia, tách, hợp nhất, sáp nhập; bán, cho thuê, chuyển đổi loại
-hình  doanh  nghiệp;  chuyển  nhượng  quyền  sở  hữu,  quyền  sử  dụng  tài  sản  của
+hình doanh nghiệp; chuyển nhượng quyền sở hữu, quyền sử dụng tài sản của
 doanh nghiệp thì người sử dụng lao động kế tiếp và tổ chức đại diện người lao
 động có quyền thương lượng theo quy định tại Điều 68 của Bộ luật này căn cứ
 vào phương án sử dụng lao động để xem xét lựa chọn việc tiếp tục thực hiện, sửa
@@ -2158,8 +1969,7 @@ kết thỏa ước lao động tập thể mới.
 sử dụng lao động chấm dứt hoạt động thì quyền lợi của người lao động được giải
 quyết theo quy định của pháp luật.
 
-### Điều 81. Quan hệ giữa thỏa ước lao động tập thể doanh nghiệp, thỏa ước
-lao động tập thể ngành và thỏa ước lao động tập thể có nhiều doanh nghiệp
+### Điều 81. Quan hệ giữa thỏa ước lao động tập thể doanh nghiệp, thỏa ước lao động tập thể ngành và thỏa ước lao động tập thể có nhiều doanh nghiệp
 
 1. Trường hợp thỏa ước lao động tập thể doanh nghiệp, thỏa ước lao động
 tập thể có nhiều doanh nghiệp, thỏa ước lao động tập thể ngành quy định về quyền,
@@ -2172,7 +1982,7 @@ hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp nhưng c
 nghiệp với những nội dung có lợi hơn cho người lao động so với thỏa ước lao động
 tập thể ngành hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp.
 
-3.  Khuyến  khích  doanh  nghiệp  chưa  tham  gia  thỏa  ước  lao  động  tập  thể
+3. Khuyến khích doanh nghiệp chưa tham gia thỏa ước lao động tập thể
 ngành hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp thực hiện nội dung
 có lợi hơn cho người lao động của thỏa ước lao động tập thể ngành hoặc thỏa ước
 lao động tập thể có nhiều doanh nghiệp.
@@ -2194,10 +2004,6 @@ luật. Trong thời gian tiến hành sửa đổi, bổ sung thỏa ước lao
 lợi của người lao động được thực hiện theo quy định của pháp luật.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-57
-
 ### Điều 83. Thỏa ước lao động tập thể hết hạn
 
 Trong thời hạn 90 ngày trước ngày thỏa ước lao động tập thể hết hạn, các
@@ -2211,9 +2017,7 @@ thì thỏa ước lao động tập thể cũ vẫn được tiếp tục thự
 quá 90 ngày kể từ ngày thỏa ước lao động tập thể hết hạn, trừ trường hợp các bên
 có thỏa thuận khác.
 
-### Điều 84. Mở rộng phạm vi áp dụng của thỏa ước lao động tập thể ngành
-
-hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp
+### Điều 84. Mở rộng phạm vi áp dụng của thỏa ước lao động tập thể ngành hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp
 
 1. Khi một thỏa ước lao động tập thể ngành hoặc thỏa ước lao động tập thể
 có nhiều doanh nghiệp có phạm vi áp dụng chiếm trên 75% người lao động hoặc
@@ -2228,9 +2032,7 @@ chế xuất, khu công nghệ cao.
 và thẩm quyền quyết định mở rộng phạm vi áp dụng thỏa ước lao động tập thể
 quy định tại khoản 1 Điều này.
 
-### Điều 85. Gia nhập và rút khỏi thỏa ước lao động tập thể ngành hoặc thỏa
-
-ước lao động tập thể có nhiều doanh nghiệp
+### Điều 85. Gia nhập và rút khỏi thỏa ước lao động tập thể ngành hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp
 
 1. Doanh nghiệp có thể gia nhập thỏa ước lao động tập thể ngành, thỏa ước
 lao động tập thể có nhiều doanh nghiệp khi có sự đồng thuận của tất cả người sử
@@ -2251,10 +2053,6 @@ lao động tại doanh nghiệp là thành viên của thỏa ước, trừ tr�
 
 trong thỏa ước lao động tập thể vi phạm pháp luật.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-58
 
 2. Thỏa ước lao động tập thể vô hiệu toàn bộ thuộc một trong các trường hợp
 
@@ -2285,9 +2083,7 @@ Mọi chi phí cho việc thương lượng, ký kết, sửa đổi, bổ sung,
 
 thỏa ước lao động tập thể do phía người sử dụng lao động chi trả.
 
-# CHƯƠNG VI
-
-TIỀN LƯƠNG
+# CHƯƠNG VI — TIỀN LƯƠNG
 
 ### Điều 90. Tiền lương
 
@@ -2295,7 +2091,7 @@ TIỀN LƯƠNG
 theo thỏa thuận để thực hiện công việc, bao gồm mức lương theo công việc hoặc
 chức danh, phụ cấp lương và các khoản bổ sung khác.
 
-2.  Mức  lương  theo  công  việc  hoặc  chức  danh  không  được  thấp  hơn  mức
+2. Mức lương theo công việc hoặc chức danh không được thấp hơn mức
 
 lương tối thiểu.
 
@@ -2315,10 +2111,6 @@ triển kinh tế - xã hội.
 3. Mức lương tối thiểu được điều chỉnh dựa trên mức sống tối thiểu của
 người lao động và gia đình họ; tương quan giữa mức lương tối thiểu và mức
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-59
 
 lương trên thị trường; chỉ số giá tiêu dùng, tốc độ tăng trưởng kinh tế; quan hệ
 cung, cầu lao động; việc làm và thất nghiệp; năng suất lao động; khả năng chi
@@ -2347,7 +2139,7 @@ của Hội đồng tiền lương quốc gia.
 
 1. Người sử dụng lao động phải xây dựng thang lương, bảng lương và định
 mức lao động làm cơ sở để tuyển dụng, sử dụng lao động, thỏa thuận mức lương
-theo công  việc  hoặc  chức  danh ghi trong hợp  đồng  lao động và  trả  lương  cho
+theo công việc hoặc chức danh ghi trong hợp đồng lao động và trả lương cho
 người lao động.
 
 2. Mức lao động phải là mức trung bình bảo đảm số đông người lao động
@@ -2374,10 +2166,6 @@ quyết chi tiêu lương của người lao động; không được ép buộc
 tiêu lương vào việc mua hàng hóa, sử dụng dịch vụ của người sử dụng lao động
 hoặc của đơn vị khác mà người sử dụng lao động chỉ định.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-60
 
 ### Điều 95. Trả lương
 
@@ -2431,10 +2219,6 @@ trả chậm tính theo lãi suất huy động tiền gửi có kỳ hạn 01 t
 người sử dụng lao động mở tài khoản trả lương cho người lao động công bố tại
 thời điểm trả lương.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-61
 
 ### Điều 98. Tiền lương làm thêm giờ, làm việc vào ban đêm
 
@@ -2490,13 +2274,9 @@ ngày đầu tiên không thấp hơn mức lương tối thiểu.
 ### Điều 100. Trả lương thông qua người cai thầu
 
 1. Nơi nào sử dụng người cai thầu hoặc người có vai trò trung gian tương
-tự  thì người sử  dụng  lao động là  chủ  chính phải có danh sách và địa chỉ  của
+tự thì người sử dụng lao động là chủ chính phải có danh sách và địa chỉ của
 những người này kèm theo danh sách những người lao động làm việc với họ và
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-62
 
 phải bảo đảm việc họ tuân thủ quy định của pháp luật về trả lương, an toàn, vệ
 sinh lao động.
@@ -2554,21 +2334,13 @@ dụng lao động thưởng cho người lao động căn cứ vào kết quả
 mức độ hoàn thành công việc của người lao động.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-63
-
 2. Quy chế thưởng do người sử dụng lao động quyết định và công bố công
 khai tại nơi làm việc sau khi tham khảo ý kiến của tổ chức đại diện người lao động
 tại cơ sở đối với nơi có tổ chức đại diện người lao động tại cơ sở.
 
-# CHƯƠNG VII
+# CHƯƠNG VII — THỜI GIỜ LÀM VIỆC, THỜI GIỜ NGHỈ NGƠI
 
-THỜI GIỜ LÀM VIỆC, THỜI GIỜ NGHỈ NGƠI
-
-## Mục 1
-
-THỜI GIỜ LÀM VIỆC
+## Mục 1 — THỜI GIỜ LÀM VIỆC
 
 ### Điều 105. Thời giờ làm việc bình thường
 
@@ -2615,10 +2387,6 @@ c) Bảo đảm số giờ làm thêm của người lao động không quá 200
 năm, trừ trường hợp quy định tại khoản 3 Điều này.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-64
-
 3. Người sử dụng lao động được sử dụng người lao động làm thêm không
 quá 300 giờ trong 01 năm trong một số ngành, nghề, công việc hoặc trường hợp
 sau đây:
@@ -2663,9 +2431,7 @@ dịch bệnh nguy hiểm và thảm họa, trừ trường hợp có nguy cơ �
 mạng, sức khỏe của người lao động theo quy định của pháp luật về an toàn, vệ
 sinh lao động.
 
-## Mục 2
-
-THỜI GIỜ NGHỈ NGƠI
+## Mục 2 — THỜI GIỜ NGHỈ NGƠI
 
 ### Điều 109. Nghỉ trong giờ làm việc
 
@@ -2673,10 +2439,6 @@ THỜI GIỜ NGHỈ NGƠI
 Bộ luật này từ 06 giờ trở lên trong một ngày thì được nghỉ giữa giờ ít nhất 30 phút
 liên tục, làm việc ban đêm thì được nghỉ giữa giờ ít nhất 45 phút liên tục.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-65
 
 Trường hợp người lao động làm việc theo ca liên tục từ 06 giờ trở lên thì thời
 
@@ -2742,10 +2504,6 @@ cụ thể ngày nghỉ quy định tại điểm b và điểm đ khoản 1 Đi
 được nghỉ hằng năm, hưởng nguyên lương theo hợp đồng lao động như sau:
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-66
-
 a) 12 ngày làm việc đối với người làm công việc trong điều kiện bình thường;
 
 b) 14 ngày làm việc đối với người lao động chưa thành niên, lao động là
@@ -2805,23 +2563,13 @@ với người sử dụng lao động khi ông nội, bà nội, ông ngoại, 
 ruột chết; cha hoặc mẹ kết hôn; anh, chị, em ruột kết hôn.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-67
-
 3. Ngoài quy định tại khoản 1 và khoản 2 Điều này, người lao động có thể
 
 thỏa thuận với người sử dụng lao động để nghỉ không hưởng lương.
 
-## Mục 3
+## Mục 3 — THỜI GIỜ LÀM VIỆC, THỜI GIỜ NGHỈ NGƠI ĐỐI VỚI NGƯỜI LÀM CÔNG VIỆC CÓ TÍNH CHẤT ĐẶC BIỆT
 
-THỜI GIỜ LÀM VIỆC, THỜI GIỜ NGHỈ NGƠI
-
-ĐỐI VỚI NGƯỜI LÀM CÔNG VIỆC CÓ TÍNH CHẤT ĐẶC BIỆT
-
-### Điều 116. Thời giờ làm việc, thời giờ nghỉ ngơi đối với người làm công
-
-việc có tính chất đặc biệt
+### Điều 116. Thời giờ làm việc, thời giờ nghỉ ngơi đối với người làm công việc có tính chất đặc biệt
 
 Đối với các công việc có tính chất đặc biệt trong lĩnh vực vận tải đường bộ,
 đường sắt, đường thủy, đường hàng không; thăm dò, khai thác dầu khí trên biển;
@@ -2834,10 +2582,8 @@ biệt khác do Chính phủ quy định thì các Bộ, ngành quản lý quy �
 giờ làm việc, thời giờ nghỉ ngơi sau khi thống nhất với Bộ Lao động - Thương
 binh và Xã hội và phải tuân thủ quy định tại Điều 109 của Bộ luật này.
 
-# CHƯƠNG VIII
-KỶ LUẬT LAO ĐỘNG, TRÁCH NHIỆM VẬT CHẤT
-## Mục 1
-KỶ LUẬT LAO ĐỘNG
+# CHƯƠNG VIII — KỶ LUẬT LAO ĐỘNG, TRÁCH NHIỆM VẬT CHẤT
+## Mục 1 — KỶ LUẬT LAO ĐỘNG
 
 ### Điều 117. Kỷ luật lao động
 
@@ -2859,10 +2605,6 @@ a) Thời giờ làm việc, thời giờ nghỉ ngơi;
 
 b) Trật tự tại nơi làm việc;
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-68
 
 c) An toàn, vệ sinh lao động;
 
@@ -2926,10 +2668,6 @@ tại Điều này.
 Hồ sơ đăng ký nội quy lao động bao gồm:
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-69
-
 1. Văn bản đề nghị đăng ký nội quy lao động;
 
 2. Nội quy lao động;
@@ -2958,7 +2696,7 @@ hành nội quy lao động bằng văn bản thì hiệu lực do người sử
 
 a) Người sử dụng lao động phải chứng minh được lỗi của người lao động;
 
-b) Phải có sự tham gia của tổ  chức đại diện người lao động tại cơ sở  mà
+b) Phải có sự tham gia của tổ chức đại diện người lao động tại cơ sở mà
 
 người lao động đang bị xử lý kỷ luật là thành viên;
 
@@ -2990,10 +2728,6 @@ c) Đang chờ kết quả của cơ quan có thẩm quyền điều tra xác mi
 luận đối với hành vi vi phạm được quy định tại khoản 1 và khoản 2 Điều 125 của
 Bộ luật này;
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-70
 
 d) Người lao động nữ mang thai; người lao động nghỉ thai sản, nuôi con dưới
 
@@ -3052,10 +2786,6 @@ lao động lặp lại hành vi vi phạm đã bị xử lý kỷ luật mà ch
 quy định tại Điều 126 của Bộ luật này;
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-71
-
 4. Người lao động tự ý bỏ việc 05 ngày cộng dồn trong thời hạn 30 ngày
 hoặc 20 ngày cộng dồn trong thời hạn 365 ngày tính từ ngày đầu tiên tự ý bỏ việc
 mà không có lý do chính đáng.
@@ -3113,12 +2843,7 @@ không phải trả lại số tiền lương đã tạm ứng.
 sử dụng lao động trả đủ tiền lương cho thời gian bị tạm đình chỉ công việc.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-72
-
-## Mục 2
-TRÁCH NHIỆM VẬT CHẤT
+## Mục 2 — TRÁCH NHIỆM VẬT CHẤT
 
 ### Điều 129. Bồi thường thiệt hại
 
@@ -3159,8 +2884,7 @@ quy định.
 
 Chính phủ quy định chi tiết Điều này.
 
-# CHƯƠNG IX
-AN TOÀN, VỆ SINH LAO ĐỘNG
+# CHƯƠNG IX — AN TOÀN, VỆ SINH LAO ĐỘNG
 
 ### Điều 132. Tuân thủ pháp luật về an toàn, vệ sinh lao động
 
@@ -3168,10 +2892,6 @@ Người sử dụng lao động, người lao động và cơ quan, tổ chức
 quan đến lao động, sản xuất, kinh doanh phải thực hiện quy định của pháp luật về
 an toàn, vệ sinh lao động.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-73
 
 ### Điều 133. Chương trình an toàn, vệ sinh lao động
 
@@ -3191,9 +2911,7 @@ nhằm bảo đảm an toàn, vệ sinh lao động tại nơi làm việc.
 yêu cầu về an toàn, vệ sinh lao động; tuân thủ pháp luật và nắm vững kiến thức,
 kỹ năng về các biện pháp bảo đảm an toàn, vệ sinh lao động tại nơi làm việc.
 
-# CHƯƠNG X
-NHỮNG QUY ĐỊNH RIÊNG ĐỐI VỚI LAO ĐỘNG NỮ
-VÀ BẢO ĐẢM BÌNH ĐẲNG GIỚI
+# CHƯƠNG X — NHỮNG QUY ĐỊNH RIÊNG ĐỐI VỚI LAO ĐỘNG NỮ VÀ BẢO ĐẢM BÌNH ĐẲNG GIỚI
 
 ### Điều 135. Chính sách của Nhà nước
 
@@ -3225,10 +2943,6 @@ mẹ của phụ nữ.
 
 1. Bảo đảm thực hiện bình đẳng giới và các biện pháp thúc đẩy bình đẳng
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-74
 
 giới trong tuyển dụng, bố trí, sắp xếp việc làm, đào tạo, thời giờ làm việc, thời giờ
 nghỉ ngơi, tiền lương và các chế độ khác.
@@ -3281,16 +2995,10 @@ hoặc nuôi con dưới 12 tháng tuổi thì được ưu tiên giao kết h�
 thời gian nuôi con dưới 12 tháng tuổi được nghỉ mỗi ngày 60 phút trong thời gian
 làm việc. Thời gian nghỉ vẫn được hưởng đủ tiền lương theo hợp đồng lao động.
 
-### Điều 138. Quyền đơn phương chấm dứt, tạm hoãn hợp đồng lao động
-
-của lao động nữ mang thai
+### Điều 138. Quyền đơn phương chấm dứt, tạm hoãn hợp đồng lao động của lao động nữ mang thai
 
 1. Lao động nữ mang thai nếu có xác nhận của cơ sở khám bệnh, chữa bệnh
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-75
 
 có thẩm quyền về việc tiếp tục làm việc sẽ ảnh hưởng xấu tới thai nhi thì có
 quyền đơn phương chấm dứt hợp đồng lao động hoặc tạm hoãn thực hiện hợp
@@ -3344,10 +3052,6 @@ hiểm xã hội.
 số 113/2025/QH15, có hiệu lực kể từ ngày 01 tháng 7 năm 2026.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-76
-
 ### Điều 140. Bảo đảm việc làm cho lao động nghỉ thai sản
 
 Lao động được bảo đảm việc làm cũ khi trở lại làm việc sau khi nghỉ hết thời
@@ -3356,20 +3060,16 @@ cắt giảm tiền lương và quyền, lợi ích so với trước khi nghỉ
 việc làm cũ không còn thì người sử dụng lao động phải bố trí việc làm khác cho
 họ với mức lương không thấp hơn mức lương trước khi nghỉ thai sản.
 
-### Điều 141. Trợ cấp trong thời gian chăm sóc con ốm đau, thai sản và thực
-
-hiện các biện pháp tránh thai
+### Điều 141. Trợ cấp trong thời gian chăm sóc con ốm đau, thai sản và thực hiện các biện pháp tránh thai
 
 Thời gian nghỉ việc khi chăm sóc con dưới 07 tuổi ốm đau, khám thai, sẩy
 thai, nạo, hút thai, thai chết lưu, phá thai bệnh lý, thực hiện các biện pháp tránh
 thai, triệt sản, người lao động được hưởng trợ cấp theo quy định của pháp luật về
 bảo hiểm xã hội.
 
-### Điều 142. Nghề, công việc có ảnh hưởng xấu tới chức năng sinh sản và
+### Điều 142. Nghề, công việc có ảnh hưởng xấu tới chức năng sinh sản và nuôi con
 
-nuôi con
-
-1. Bộ  trưởng Bộ  Lao động  - Thương binh và  Xã hội ban hành danh mục
+1. Bộ trưởng Bộ Lao động - Thương binh và Xã hội ban hành danh mục
 
 nghề, công việc có ảnh hưởng xấu tới chức năng sinh sản và nuôi con.
 
@@ -3378,14 +3078,9 @@ hiểm, nguy cơ, yêu cầu của công việc để người lao động lựa
 đảm điều kiện an toàn, vệ sinh lao động cho người lao động theo quy định khi sử
 dụng họ làm công việc thuộc danh mục quy định tại khoản 1 Điều này.
 
-# CHƯƠNG XI
+# CHƯƠNG XI — NHỮNG QUY ĐỊNH RIÊNG ĐỐI VỚI LAO ĐỘNG CHƯA THÀNH NIÊN VÀ MỘT SỐ LAO ĐỘNG KHÁC
 
-NHỮNG QUY ĐỊNH RIÊNG ĐỐI VỚI LAO ĐỘNG
-CHƯA THÀNH NIÊN VÀ MỘT SỐ LAO ĐỘNG KHÁC
-
-## Mục 1
-
-LAO ĐỘNG CHƯA THÀNH NIÊN
+## Mục 1 — LAO ĐỘNG CHƯA THÀNH NIÊN
 
 ### Điều 143. Lao động chưa thành niên
 
@@ -3403,10 +3098,6 @@ danh mục do Bộ trưởng Bộ Lao động – Thương binh và Xã hội ba
 
 3 Điều 145 của Bộ luật này.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-77
 
 ### Điều 144. Nguyên tắc sử dụng lao động chưa thành niên
 
@@ -3465,18 +3156,12 @@ cấp tỉnh.
 01 ngày và 20 giờ trong 01 tuần; không được làm thêm giờ, làm việc vào ban đêm.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-78
-
 2. Thời giờ làm việc của người từ đủ 15 tuổi đến chưa đủ 18 tuổi không được
 quá 08 giờ trong 01 ngày và 40 giờ trong 01 tuần. Người từ đủ 15 tuổi đến chưa đủ
 18 tuổi có thể được làm thêm giờ, làm việc vào ban đêm trong một số nghề, công
 việc theo danh mục do Bộ trưởng Bộ Lao động - Thương binh và Xã hội ban hành.
 
-### Điều 147. Công việc và nơi làm việc cấm sử dụng người lao động từ đủ
-
-15 tuổi đến chưa đủ 18 tuổi
+### Điều 147. Công việc và nơi làm việc cấm sử dụng người lao động từ đủ 15 tuổi đến chưa đủ 18 tuổi
 
 1. Cấm sử dụng người lao động từ đủ 15 tuổi đến chưa đủ 18 tuổi làm các
 
@@ -3524,9 +3209,7 @@ của người chưa thành niên.
 
 điểm h khoản 1 và điểm đ khoản 2 Điều này.
 
-## Mục 2
-
-NGƯỜI LAO ĐỘNG CAO TUỔI
+## Mục 2 — NGƯỜI LAO ĐỘNG CAO TUỔI
 
 ### Điều 148. Người lao động cao tuổi
 
@@ -3536,10 +3219,6 @@ NGƯỜI LAO ĐỘNG CAO TUỔI
 
 2. Người lao động cao tuổi có quyền thỏa thuận với người sử dụng lao động
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-79
 
 về việc rút ngắn thời giờ làm việc hằng ngày hoặc áp dụng chế độ làm việc không
 trọn thời gian.
@@ -3556,7 +3235,7 @@ nhiều lần hợp đồng lao động xác định thời hạn.
 
 2. Khi người lao động cao tuổi đang hưởng lương hưu theo quy định của
 Luật Bảo hiểm xã hội mà làm việc theo hợp đồng lao động mới thì ngoài quyền
-lợi đang  hưởng  theo  chế  độ  hưu trí,  người  lao động cao tuổi  được  hưởng tiền
+lợi đang hưởng theo chế độ hưu trí, người lao động cao tuổi được hưởng tiền
 lương và các quyền lợi khác theo quy định của pháp luật, hợp đồng lao động.
 
 3. Không được sử dụng người lao động cao tuổi làm nghề, công việc nặng
@@ -3568,14 +3247,9 @@ kiện làm việc an toàn.
 
 người lao động cao tuổi tại nơi làm việc.
 
-## Mục 3
-NGƯỜI LAO ĐỘNG VIỆT NAM ĐI LÀM VIỆC Ở NƯỚC NGOÀI,
-LAO ĐỘNG CHO CÁC TỔ CHỨC, CÁ NHÂN NƯỚC NGOÀI TẠI VIỆT NAM,
-LAO ĐỘNG LÀ NGƯỜI NƯỚC NGOÀI LÀM VIỆC TẠI VIỆT NAM
+## Mục 3 — NGƯỜI LAO ĐỘNG VIỆT NAM ĐI LÀM VIỆC Ở NƯỚC NGOÀI, LAO ĐỘNG CHO CÁC TỔ CHỨC, CÁ NHÂN NƯỚC NGOÀI TẠI VIỆT NAM, LAO ĐỘNG LÀ NGƯỜI NƯỚC NGOÀI LÀM VIỆC TẠI VIỆT NAM
 
-### Điều 150. Người lao động Việt Nam đi làm việc ở nước ngoài, lao động
-
-cho các tổ chức, cá nhân nước ngoài tại Việt Nam
+### Điều 150. Người lao động Việt Nam đi làm việc ở nước ngoài, lao động cho các tổ chức, cá nhân nước ngoài tại Việt Nam
 
 1. Nhà nước khuyến khích doanh nghiệp, cơ quan, tổ chức, cá nhân tìm kiếm
 và mở rộng thị trường lao động để đưa người lao động Việt Nam đi làm việc ở
@@ -3594,10 +3268,6 @@ Việt Nam và được pháp luật bảo vệ.
 
 làm việc cho các tổ chức, cá nhân nước ngoài tại Việt Nam.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-80
 
 ### Điều 151. Điều kiện người lao động nước ngoài làm việc tại Việt Nam
 
@@ -3628,9 +3298,7 @@ giao kết nhiều lần hợp đồng lao động xác định thời hạn.
 lao động Việt Nam và được pháp luật Việt Nam bảo vệ, trừ trường hợp điều ước quốc
 tế mà nước Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên có quy định khác.
 
-### Điều 152. Điều kiện tuyển dụng, sử dụng người lao động nước ngoài làm
-
-việc tại Việt Nam
+### Điều 152. Điều kiện tuyển dụng, sử dụng người lao động nước ngoài làm việc tại Việt Nam
 
 1. Doanh nghiệp, cơ quan, tổ chức, cá nhân, nhà thầu chỉ được tuyển dụng
 người lao động nước ngoài vào làm vị trí công việc quản lý, điều hành, chuyên
@@ -3646,9 +3314,7 @@ Nam phải kê khai cụ thể các vị trí công việc, trình độ chuyên
 nghiệm làm việc, thời gian làm việc cần sử dụng lao động nước ngoài để thực hiện
 gói thầu và được sự chấp thuận bằng văn bản của cơ quan nhà nước có thẩm quyền.
 
-### Điều 153. Trách nhiệm của người sử dụng lao động và người lao động
-
-nước ngoài
+### Điều 153. Trách nhiệm của người sử dụng lao động và người lao động nước ngoài
 
 1. Người lao động nước ngoài phải xuất trình giấy phép lao động khi có yêu
 
@@ -3659,17 +3325,11 @@ cầu của cơ quan nhà nước có thẩm quyền.
 cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-81
-
 3. Người sử dụng lao động sử dụng người lao động nước ngoài làm việc cho
 
 mình mà không có giấy phép lao động thì bị xử lý theo quy định của pháp luật.
 
-### Điều 154. Người lao động nước ngoài làm việc tại Việt Nam không thuộc
-
-diện cấp giấy phép lao động
+### Điều 154. Người lao động nước ngoài làm việc tại Việt Nam không thuộc diện cấp giấy phép lao động
 
 1. Là chủ sở hữu hoặc thành viên góp vốn của công ty trách nhiệm hữu hạn có
 
@@ -3731,10 +3391,6 @@ lao động đã được cấp.
 nghệ số số 71/2025/QH15, có hiệu lực kể từ ngày 01 tháng 01 năm 2026.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-82
-
 5. Hợp đồng trong các lĩnh vực là cơ sở phát sinh giấy phép lao động hết thời
 
 hạn hoặc chấm dứt.
@@ -3749,21 +3405,17 @@ Việt Nam sử dụng lao động là người nước ngoài chấm dứt ho�
 
 8. Giấy phép lao động bị thu hồi.
 
-### Điều 157. Cấp, cấp lại, gia hạn, thu hồi giấy phép lao động, giấy xác nhận
-
-không thuộc diện cấp giấy phép lao động
+### Điều 157. Cấp, cấp lại, gia hạn, thu hồi giấy phép lao động, giấy xác nhận không thuộc diện cấp giấy phép lao động
 
 Chính phủ quy định điều kiện, trình tự, thủ tục cấp, cấp lại, gia hạn, thu hồi
 giấy phép lao động và giấy xác nhận không thuộc diện cấp giấy phép lao động đối
 với người lao động nước ngoài làm việc tại Việt Nam.
 
-## Mục 4
-
-LAO ĐỘNG LÀ NGƯỜI KHUYẾT TẬT
+## Mục 4 — LAO ĐỘNG LÀ NGƯỜI KHUYẾT TẬT
 
 ### Điều 158. Chính sách của Nhà nước đối với lao động là người khuyết tật
 
-Nhà nước bảo trợ quyền lao động, tự  tạo việc làm của người lao động là
+Nhà nước bảo trợ quyền lao động, tự tạo việc làm của người lao động là
 người khuyết tật; có chính sách khuyến khích, ưu đãi phù hợp đối với người sử
 dụng lao động trong tạo việc làm và nhận người lao động là người khuyết tật vào
 làm việc theo quy định của pháp luật về người khuyết tật.
@@ -3778,9 +3430,7 @@ người lao động là người khuyết tật.
 
 khuyết tật khi quyết định những vấn đề liên quan đến quyền và lợi ích của họ.
 
-### Điều  160.  Các  hành  vi  bị  nghiêm  cấm  khi  sử  dụng  lao  động  là  người
-
-khuyết tật
+### Điều 160. Các hành vi bị nghiêm cấm khi sử dụng lao động là người khuyết tật
 
 1. Sử dụng người lao động là người khuyết tật nhẹ suy giảm khả năng lao
 động từ 51% trở lên, khuyết tật nặng hoặc khuyết tật đặc biệt nặng làm thêm giờ,
@@ -3792,13 +3442,7 @@ hội ban hành mà không có sự đồng ý của người khuyết tật sau
 sử dụng lao động cung cấp đầy đủ thông tin về công việc đó.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-83
-
-## Mục 5
-
-LAO ĐỘNG LÀ NGƯỜI GIÚP VIỆC GIA ĐÌNH
+## Mục 5 — LAO ĐỘNG LÀ NGƯỜI GIÚP VIỆC GIA ĐÌNH
 
 ### Điều 161. Lao động là người giúp việc gia đình
 
@@ -3826,9 +3470,7 @@ lao động bất kỳ khi nào nhưng phải báo trước ít nhất 15 ngày.
 
 hạn trả lương, thời giờ làm việc hằng ngày, chỗ ở.
 
-### Điều 163. Nghĩa vụ của người sử dụng lao động khi sử dụng lao động là
-
-người giúp việc gia đình
+### Điều 163. Nghĩa vụ của người sử dụng lao động khi sử dụng lao động là người giúp việc gia đình
 
 1. Thực hiện đầy đủ thỏa thuận đã giao kết trong hợp đồng lao động.
 
@@ -3861,10 +3503,6 @@ tai nạn, đe dọa an toàn, sức khỏe, tính mạng, tài sản của gia 
 lao động và bản thân.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-84
-
 4. Tố cáo với cơ quan có thẩm quyền nếu người sử dụng lao động có hành vi
 ngược đãi, quấy rối tình dục, cưỡng bức lao động hoặc có hành vi khác vi phạm
 pháp luật.
@@ -3879,13 +3517,9 @@ pháp luật.
 
 3. Giữ giấy tờ tùy thân của người lao động.
 
-## Mục 6
+## Mục 6 — MỘT SỐ LAO ĐỘNG KHÁC
 
-MỘT SỐ LAO ĐỘNG KHÁC
-
-### Điều 166. Người lao động làm việc trong lĩnh vực nghệ thuật, thể dục,
-
-thể thao, hàng hải, hàng không
+### Điều 166. Người lao động làm việc trong lĩnh vực nghệ thuật, thể dục, thể thao, hàng hải, hàng không
 
 Người lao động làm việc trong lĩnh vực nghệ thuật, thể dục, thể thao, hàng hải,
 hàng không được áp dụng một số chế độ phù hợp về đào tạo, bồi dưỡng, nâng cao
@@ -3898,9 +3532,7 @@ Người lao động có thể thỏa thuận với người sử dụng lao đ�
 
 về làm tại nhà.
 
-# CHƯƠNG XII
-BẢO HIỂM XÃ HỘI, BẢO HIỂM Y TẾ,
-BẢO HIỂM THẤT NGHIỆP
+# CHƯƠNG XII — BẢO HIỂM XÃ HỘI, BẢO HIỂM Y TẾ, BẢO HIỂM THẤT NGHIỆP
 
 ### Điều 168. Tham gia bảo hiểm xã hội, bảo hiểm y tế, bảo hiểm thất nghiệp
 
@@ -3921,10 +3553,6 @@ hợp hai bên có thỏa thuận khác.
 bắt buộc, bảo hiểm y tế, bảo hiểm thất nghiệp thì người sử dụng lao động có trách
 nhiệm chi trả thêm cùng lúc với kỳ trả lương một khoản tiền cho người lao động
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-85
 
 tương đương với mức người sử dụng lao động đóng bảo hiểm xã hội bắt buộc,
 bảo hiểm y tế, bảo hiểm thất nghiệp cho người lao động theo quy định của pháp
@@ -3952,18 +3580,15 @@ hưu ở tuổi thấp hơn nhưng không quá 05 tuổi so với quy định t�
 này tại thời điểm nghỉ hưu, trừ trường hợp pháp luật có quy định khác.
 
 4. Người lao động có trình độ chuyên môn, kỹ thuật cao và một số trường
-hợp đặc biệt có thể nghỉ hưu ở tuổi cao hơn nhưng không quá 05 tuổi so với   quy
+hợp đặc biệt có thể nghỉ hưu ở tuổi cao hơn nhưng không quá 05 tuổi so với quy
 định tại khoản 2 Điều này tại thời điểm nghỉ hưu, trừ trường hợp pháp luật có quy
 định khác.
 
 5. Chính phủ quy định chi tiết Điều này.
 
-# CHƯƠNG XIII
-TỔ CHỨC ĐẠI DIỆN NGƯỜI LAO ĐỘNG TẠI CƠ SỞ
+# CHƯƠNG XIII — TỔ CHỨC ĐẠI DIỆN NGƯỜI LAO ĐỘNG TẠI CƠ SỞ
 
-### Điều 170. Quyền thành lập, gia nhập và tham gia hoạt động của tổ chức
-
-đại diện người lao động tại cơ sở
+### Điều 170. Quyền thành lập, gia nhập và tham gia hoạt động của tổ chức đại diện người lao động tại cơ sở
 
 1. Người lao động có quyền thành lập, gia nhập và hoạt động công đoàn theo
 
@@ -3977,10 +3602,6 @@ các điều 172, 173 và 174 của Bộ luật này.
 này bình đẳng về quyền và nghĩa vụ trong việc đại diện bảo vệ quyền và lợi ích
 hợp pháp, chính đáng của người lao động trong quan hệ lao động.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-86
 
 ### Điều 171. Công đoàn cơ sở thuộc hệ thống tổ chức Công đoàn Việt Nam
 
@@ -4017,15 +3638,13 @@ cấp đăng ký, thu hồi đăng ký; quản lý nhà nước đối với v�
 tổ chức của người lao động tại doanh nghiệp; chia, tách, hợp nhất, sáp nhập, giải
 thể, quyền liên kết của tổ chức của người lao động tại doanh nghiệp.
 
-### Điều 173. Ban lãnh đạo và thành viên tổ chức của người lao động tại
-
-doanh nghiệp
+### Điều 173. Ban lãnh đạo và thành viên tổ chức của người lao động tại doanh nghiệp
 
 1. Tại thời điểm đăng ký, tổ chức của người lao động tại doanh nghiệp phải
 có số lượng tối thiểu thành viên là người lao động làm việc tại doanh nghiệp theo
 quy định của Chính phủ.
 
-2.  Ban lãnh  đạo do thành viên  của tổ  chức  của người lao  động  tại doanh
+2. Ban lãnh đạo do thành viên của tổ chức của người lao động tại doanh
 nghiệp bầu. Thành viên ban lãnh đạo là người lao động Việt Nam đang làm việc
 tại doanh nghiệp; không đang trong thời gian bị truy cứu trách nhiệm hình sự,
 chấp hành hình phạt hoặc chưa được xóa án tích do phạm các tội xâm phạm an
@@ -4040,10 +3659,6 @@ chủ yếu sau đây:
 
 a) Tên, địa chỉ tổ chức; biểu tượng (nếu có);
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-87
 
 b) Tôn chỉ, mục đích và phạm vi hoạt động là bảo vệ quyền, lợi ích hợp pháp,
 chính đáng của thành viên tổ chức mình trong quan hệ lao động tại doanh nghiệp;
@@ -4081,9 +3696,7 @@ h) Kiến nghị và giải quyết kiến nghị của thành viên trong nội
 
 2. Chính phủ quy định chi tiết Điều này.
 
-### Điều 175. Các hành vi bị nghiêm cấm đối với người sử dụng lao động
-liên quan đến thành lập, gia nhập và hoạt động của tổ chức đại diện người
-lao động tại cơ sở
+### Điều 175. Các hành vi bị nghiêm cấm đối với người sử dụng lao động liên quan đến thành lập, gia nhập và hoạt động của tổ chức đại diện người lao động tại cơ sở
 
 1. Phân biệt đối xử đối với người lao động, thành viên ban lãnh đạo của tổ
 chức đại diện người lao động tại cơ sở vì lý do thành lập, gia nhập hoặc hoạt động
@@ -4103,10 +3716,6 @@ khác trong quan hệ lao động;
 d) Cản trở, gây khó khăn liên quan đến công việc nhằm làm suy yếu hoạt
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-88
-
 động của tổ chức đại diện người lao động tại cơ sở.
 
 2. Can thiệp, thao túng quá trình thành lập, bầu cử, xây dựng kế hoạch công
@@ -4116,9 +3725,7 @@ hiệu hóa hoặc suy yếu việc thực hiện chức năng đại diện c�
 người lao động tại cơ sở hoặc phân biệt đối xử giữa các tổ chức đại diện người
 lao động tại cơ sở.
 
-### Điều 176. Quyền của thành viên ban lãnh đạo của tổ chức đại diện người
-
-lao động tại cơ sở
+### Điều 176. Quyền của thành viên ban lãnh đạo của tổ chức đại diện người lao động tại cơ sở
 
 1. Thành viên ban lãnh đạo của tổ chức đại diện người lao động tại cơ sở có
 
@@ -4150,9 +3757,7 @@ thuận về thời gian tăng thêm so với thời gian tối thiểu quy đ�
 này và cách thức sử dụng thời gian làm việc của thành viên ban lãnh đạo của tổ
 chức đại diện người lao động tại cơ sở phù hợp với điều kiện thực tế.
 
-### Điều 177. Nghĩa vụ của người sử dụng lao động đối với tổ chức đại diện
-
-người lao động tại cơ sở
+### Điều 177. Nghĩa vụ của người sử dụng lao động đối với tổ chức đại diện người lao động tại cơ sở
 
 1. Không được cản trở, gây khó khăn khi người lao động tiến hành các hoạt
 động hợp pháp nhằm thành lập, gia nhập và tham gia các hoạt động của tổ chức
@@ -4162,10 +3767,6 @@ người lao động tại cơ sở
 
 cơ sở đã được thành lập hợp pháp.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-89
 
 3. Phải thỏa thuận bằng văn bản với ban lãnh đạo của tổ chức đại diện người
 lao động tại cơ sở khi đơn phương chấm dứt hợp đồng lao động, chuyển làm công
@@ -4184,9 +3785,7 @@ lao động là thành viên ban lãnh đạo của tổ chức đại diện ng
 
 5. Các nghĩa vụ khác theo quy định của pháp luật.
 
-### Điều 178. Quyền và nghĩa vụ của tổ chức đại diện người lao động tại cơ
-
-sở trong quan hệ lao động
+### Điều 178. Quyền và nghĩa vụ của tổ chức đại diện người lao động tại cơ sở trong quan hệ lao động
 
 1. Thương lượng tập thể với người sử dụng lao động theo quy định của Bộ
 
@@ -4217,15 +3816,8 @@ tin, bảo đảm các điều kiện cần thiết cho hoạt động của t�
 8. Các quyền và nghĩa vụ khác theo quy định của pháp luật.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-90
-
-# CHƯƠNG XIV
-GIẢI QUYẾT TRANH CHẤP LAO ĐỘNG
-## Mục 1
-NHỮNG QUY ĐỊNH CHUNG
-VỀ GIẢI QUYẾT TRANH CHẤP LAO ĐỘNG
+# CHƯƠNG XIV — GIẢI QUYẾT TRANH CHẤP LAO ĐỘNG
+## Mục 1 — NHỮNG QUY ĐỊNH CHUNG VỀ GIẢI QUYẾT TRANH CHẤP LAO ĐỘNG
 
 ### Điều 179. Tranh chấp lao động
 
@@ -4276,10 +3868,6 @@ trong thời hạn theo quy định của pháp luật.
 suốt quá trình giải quyết tranh chấp lao động.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-91
-
 2. Coi trọng giải quyết tranh chấp lao động thông qua hòa giải, trọng tài trên
 cơ sở tôn trọng quyền và lợi ích của hai bên tranh chấp, tôn trọng lợi ích chung
 của xã hội, không trái pháp luật.
@@ -4295,9 +3883,7 @@ quyền giải quyết tranh chấp lao động tiến hành sau khi có yêu c�
 chấp hoặc theo đề nghị của cơ quan, tổ chức, cá nhân có thẩm quyền và được các
 bên tranh chấp đồng ý.
 
-### Điều 181. Trách nhiệm của cơ quan, tổ chức trong giải quyết tranh chấp
-
-lao động
+### Điều 181. Trách nhiệm của cơ quan, tổ chức trong giải quyết tranh chấp lao động
 
 1. Cơ quan quản lý nhà nước về lao động có trách nhiệm phối hợp với tổ
 chức đại diện người lao động, tổ chức đại diện người sử dụng lao động hướng
@@ -4340,13 +3926,7 @@ b) Chấp hành thỏa thuận đã đạt được, quyết định của Ban t
 bản án, quyết định của Tòa án đã có hiệu lực pháp luật.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-92
-
-### Điều 183. Quyền của cơ quan, tổ chức, cá nhân có thẩm quyền giải quyết
-
-tranh chấp lao động
+### Điều 183. Quyền của cơ quan, tổ chức, cá nhân có thẩm quyền giải quyết tranh chấp lao động
 
 Cơ quan, tổ chức, cá nhân có thẩm quyền giải quyết tranh chấp lao động,
 trong phạm vi nhiệm vụ, quyền hạn của mình, có quyền yêu cầu các bên tranh
@@ -4399,10 +3979,6 @@ chức mình hoặc cử người khác đáp ứng đầy đủ các tiêu chu�
 viên lao động theo quy định;
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-93
-
 c) Thư ký Hội đồng trọng tài lao động thực hiện nhiệm vụ thường trực của
 Hội đồng trọng tài lao động. Trọng tài viên lao động làm việc theo chế độ chuyên
 trách hoặc kiêm nhiệm.
@@ -4432,17 +4008,13 @@ nhiệm, miễn nhiệm, chế độ và điều kiện hoạt động của tr�
 Hội đồng trọng tài lao động; tổ chức và hoạt động của Hội đồng trọng tài lao động;
 việc thành lập và hoạt động của Ban trọng tài lao động quy định tại Điều này.
 
-### Điều 186. Cấm hành động đơn phương trong khi tranh chấp lao động
-
-đang được giải quyết
+### Điều 186. Cấm hành động đơn phương trong khi tranh chấp lao động đang được giải quyết
 
 Khi tranh chấp lao động đang được cơ quan, tổ chức, cá nhân có thẩm quyền
 giải quyết trong thời hạn theo quy định của Bộ luật này thì không bên nào được
 hành động đơn phương chống lại bên kia.
 
-## Mục 2
-THẨM QUYỀN VÀ TRÌNH TỰ GIẢI QUYẾT
-TRANH CHẤP LAO ĐỘNG CÁ NHÂN
+## Mục 2 — THẨM QUYỀN VÀ TRÌNH TỰ GIẢI QUYẾT TRANH CHẤP LAO ĐỘNG CÁ NHÂN
 
 ### Điều 187. Thẩm quyền giải quyết tranh chấp lao động cá nhân
 
@@ -4456,17 +4028,11 @@ nhân bao gồm:
 
 3. Tòa án nhân dân.
 
-### Điều 188. Trình tự, thủ tục hòa giải tranh chấp lao động cá nhân của hòa
-
-giải viên lao động
+### Điều 188. Trình tự, thủ tục hòa giải tranh chấp lao động cá nhân của hòa giải viên lao động
 
 1. Tranh chấp lao động cá nhân phải được giải quyết thông qua thủ tục hòa
 giải của hòa giải viên lao động trước khi yêu cầu Hội đồng trọng tài lao động hoặc
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-94
 
 Tòa án giải quyết, trừ các tranh chấp lao động sau đây không bắt buộc phải qua
 thủ tục hòa giải:
@@ -4526,10 +4092,6 @@ bản hòa giải thành thì bên kia có quyền yêu cầu Hội đồng tr�
 Tòa án giải quyết.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-95
-
 7. Trường hợp không bắt buộc phải qua thủ tục hòa giải quy định tại khoản 1
 Điều này hoặc trường hợp hết thời hạn hòa giải quy định tại khoản 2 Điều này mà
 hòa giải viên lao động không tiến hành hòa giải hoặc trường hợp hòa giải không
@@ -4542,9 +4104,7 @@ của Bộ luật này;
 
 b) Yêu cầu Tòa án giải quyết.
 
-### Điều 189. Giải quyết tranh chấp lao động cá nhân của Hội đồng trọng
-
-tài lao động
+### Điều 189. Giải quyết tranh chấp lao động cá nhân của Hội đồng trọng tài lao động
 
 1. Trên cơ sở đồng thuận, các bên tranh chấp có quyền yêu cầu Hội đồng
 trọng tài lao động giải quyết tranh chấp trong trường hợp quy định tại khoản 7
@@ -4583,19 +4143,13 @@ năm kể từ ngày phát hiện ra hành vi mà bên tranh chấp cho rằng q
 hợp pháp của mình bị vi phạm.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-96
-
 4. Trường hợp người yêu cầu chứng minh được vì sự kiện bất khả kháng, trở
 ngại khách quan hoặc lý do khác theo quy định của pháp luật mà không thể yêu
 cầu đúng thời hạn quy định tại Điều này thì thời gian có sự kiện bất khả kháng,
 trở ngại khách quan hoặc lý do đó không tính vào thời hiệu yêu cầu giải quyết
 tranh chấp lao động cá nhân.
 
-## Mục 3
-THẨM QUYỀN VÀ TRÌNH TỰ GIẢI QUYẾT
-TRANH CHẤP LAO ĐỘNG TẬP THỂ VỀ QUYỀN
+## Mục 3 — THẨM QUYỀN VÀ TRÌNH TỰ GIẢI QUYẾT TRANH CHẤP LAO ĐỘNG TẬP THỂ VỀ QUYỀN
 
 ### Điều 191. Thẩm quyền giải quyết tranh chấp lao động tập thể về quyền
 
@@ -4635,14 +4189,8 @@ của Bộ luật này;
 
 b) Yêu cầu Tòa án giải quyết.
 
-### Điều 193. Giải quyết tranh chấp lao động tập thể về quyền của Hội đồng
+### Điều 193. Giải quyết tranh chấp lao động tập thể về quyền của Hội đồng trọng tài lao động
 
-trọng tài lao động
-
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-97
 
 1. Trên cơ sở đồng thuận, các bên tranh chấp có quyền yêu cầu Hội đồng
 trọng tài lao động giải quyết tranh chấp trong trường hợp hòa giải không thành
@@ -4692,13 +4240,7 @@ là 01 năm kể từ ngày phát hiện ra hành vi mà bên tranh chấp cho r
 pháp của mình bị vi phạm.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-98
-
-## Mục 4
-THẨM QUYỀN VÀ TRÌNH TỰ GIẢI QUYẾT
-TRANH CHẤP LAO ĐỘNG TẬP THỂ VỀ LỢI ÍCH
+## Mục 4 — THẨM QUYỀN VÀ TRÌNH TỰ GIẢI QUYẾT TRANH CHẤP LAO ĐỘNG TẬP THỂ VỀ LỢI ÍCH
 
 ### Điều 195. Thẩm quyền giải quyết tranh chấp lao động tập thể về lợi ích
 
@@ -4714,9 +4256,7 @@ b) Hội đồng trọng tài lao động.
 tục hòa giải của hòa giải viên lao động trước khi yêu cầu Hội đồng trọng tài lao
 động giải quyết hoặc tiến hành thủ tục đình công.
 
-### Điều 196. Trình tự, thủ tục giải quyết tranh chấp lao động tập thể về
-
-lợi ích
+### Điều 196. Trình tự, thủ tục giải quyết tranh chấp lao động tập thể về lợi ích
 
 1. Trình tự, thủ tục hòa giải tranh chấp lao động tập thể về lợi ích được thực
 
@@ -4741,9 +4281,7 @@ b) Tổ chức đại diện người lao động có quyền tiến hành thủ
 
 các điều 200, 201 và 202 của Bộ luật này để đình công.
 
-### Điều 197. Giải quyết tranh chấp lao động tập thể về lợi ích của Hội đồng
-
-trọng tài lao động
+### Điều 197. Giải quyết tranh chấp lao động tập thể về lợi ích của Hội đồng trọng tài lao động
 
 1. Trên cơ sở đồng thuận, các bên tranh chấp có quyền yêu cầu Hội đồng
 trọng tài lao động giải quyết tranh chấp trong trường hợp hòa giải không thành
@@ -4755,10 +4293,6 @@ hiện thỏa thuận trong biên bản hòa giải thành.
 tranh chấp theo quy định tại khoản 1 Điều này, Ban trọng tài lao động phải được
 thành lập để giải quyết tranh chấp.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-99
 
 3. Trong thời hạn 30 ngày kể từ ngày được thành lập, căn cứ vào quy định
 của pháp luật về lao động, thỏa ước lao động tập thể, nội quy lao động đã được
@@ -4777,8 +4311,7 @@ là bên tranh chấp không thực hiện quyết định giải quyết tranh 
 tài lao động thì tổ chức đại diện người lao động là bên tranh chấp có quyền tiến
 hành thủ tục quy định tại các điều 200, 201 và 202 của Bộ luật này để đình công.
 
-## Mục 5
-ĐÌNH CÔNG
+## Mục 5 — ĐÌNH CÔNG
 
 ### Điều 198. Đình công
 
@@ -4815,10 +4348,6 @@ không thực hiện quyết định giải quyết tranh chấp của Ban trọ
 
 1. Trước khi tiến hành đình công, tổ chức đại diện người lao động có quyền
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-100
 
 tổ chức và lãnh đạo đình công quy định tại Điều 198 của Bộ luật này có trách
 nhiệm lấy ý kiến của toàn thể người lao động hoặc thành viên ban lãnh đạo của
@@ -4878,10 +4407,6 @@ chấp nhận giải quyết yêu cầu của người lao động thì tổ ch�
 hoặc cùng đề nghị hòa giải viên lao động, Hội đồng trọng tài lao động tiến hành
 hòa giải, giải quyết tranh chấp lao động.
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-101
 
 2. Tổ chức đại diện người lao động có quyền tổ chức và lãnh đạo đình công
 
@@ -4952,13 +4477,7 @@ việc tại nơi làm việc và thông báo cho các cơ quan, tổ chức sau
 2. Sau khi người lao động ngừng đình công.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-102
-
-### Điều 207. Tiền lương và các quyền lợi hợp pháp khác của người lao động
-
-trong thời gian đình công
+### Điều 207. Tiền lương và các quyền lợi hợp pháp khác của người lao động trong thời gian đình công
 
 1. Người lao động không tham gia đình công nhưng phải ngừng việc vì lý do
 đình công thì được trả lương ngừng việc theo quy định tại khoản 2 Điều 99 của Bộ
@@ -5005,20 +4524,16 @@ nền kinh tế quốc dân, lợi ích công cộng, đe dọa đến quốc ph
 công cộng, sức khỏe của con người thì Chủ tịch Ủy ban nhân dân cấp tỉnh quyết
 định hoãn hoặc ngừng đình công.
 
-2.  Chính  phủ  quy  định  chi  tiết việc  hoãn,  ngừng  đình  công  và  giải  quyết
+2. Chính phủ quy định chi tiết việc hoãn, ngừng đình công và giải quyết
 
 quyền lợi của người lao động.
 
 ### Điều 211. Xử lý cuộc đình công không đúng trình tự, thủ tục
 
-Trong thời hạn 12 giờ kể từ khi nhận được  thông báo về cuộc đình công
+Trong thời hạn 12 giờ kể từ khi nhận được thông báo về cuộc đình công
 không tuân theo quy định tại các điều 200, 201 và 202 của Bộ luật này, Chủ tịch
 Ủy ban nhân dân cấp huyện chủ trì, chỉ đạo cơ quan chuyên môn về lao động phối
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-103
 
 hợp với công đoàn cùng cấp, cơ quan, tổ chức có liên quan trực tiếp gặp gỡ người
 sử dụng lao động và đại diện ban lãnh đạo tổ chức đại diện người lao động tại cơ
@@ -5033,8 +4548,7 @@ hiện hành vi vi phạm pháp luật theo quy định của pháp luật.
 dẫn, hỗ trợ các bên tiến hành các thủ tục giải quyết tranh chấp lao động theo quy
 định của Bộ luật này.
 
-# CHƯƠNG XV
-QUẢN LÝ NHÀ NƯỚC VỀ LAO ĐỘNG
+# CHƯƠNG XV — QUẢN LÝ NHÀ NƯỚC VỀ LAO ĐỘNG
 
 ### Điều 212. Nội dung quản lý nhà nước về lao động
 
@@ -5072,10 +4586,6 @@ về lao động; giải quyết tranh chấp lao động theo quy định của
 thực hiện quản lý nhà nước về lao động.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-104
-
 3. Bộ, cơ quan ngang Bộ, trong phạm vi nhiệm vụ, quyền hạn của mình, có
 trách nhiệm thực hiện và phối hợp với Bộ Lao động - Thương binh và Xã hội
 trong quản lý nhà nước về lao động.
@@ -5084,9 +4594,7 @@ trong quản lý nhà nước về lao động.
 
 phạm vi địa phương mình.
 
-# CHƯƠNG XVI
-THANH TRA LAO ĐỘNG,
-XỬ LÝ VI PHẠM PHÁP LUẬT VỀ LAO ĐỘNG
+# CHƯƠNG XVI — THANH TRA LAO ĐỘNG, XỬ LÝ VI PHẠM PHÁP LUẬT VỀ LAO ĐỘNG
 
 ### Điều 214. Nội dung thanh tra lao động
 
@@ -5132,10 +4640,6 @@ truy cứu trách nhiệm hình sự, nếu gây thiệt hại thì phải bồi
 của pháp luật.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-105
-
 2. Khi đã có quyết định của Tòa án về cuộc đình công là bất hợp pháp thì
 người lao động đang tham gia đình công phải ngừng ngay đình công và trở lại làm
 việc; nếu người lao động không ngừng đình công, không trở lại làm việc thì tùy
@@ -5148,14 +4652,13 @@ công phải bồi thường thiệt hại theo quy định của pháp luật.
 
 3. Người lợi dụng đình công gây mất trật tự, an toàn công cộng, làm tổn hại
 máy, thiết bị, tài sản của người sử dụng lao động; người có hành vi cản trở thực
-hiện  quyền  đình  công,  kích động,  lôi  kéo,  ép  buộc  người  lao  động  đình  công;
+hiện quyền đình công, kích động, lôi kéo, ép buộc người lao động đình công;
 người có hành vi trù dập, trả thù người tham gia đình công, người lãnh đạo cuộc
 đình công thì tùy theo mức độ vi phạm mà bị xử phạt vi phạm hành chính hoặc
 truy cứu trách nhiệm hình sự, nếu gây thiệt hại thì phải bồi thường theo quy định
 của pháp luật.
 
-# CHƯƠNG XVII
-ĐIỀU KHOẢN THI HÀNH66
+# CHƯƠNG XVII — ĐIỀU KHOẢN THI HÀNH66
 
 ### Điều 218. Miễn, giảm thủ tục đối với trường hợp sử dụng dưới 10 lao động
 
@@ -5197,16 +4700,10 @@ nghề nghiệp số 74/2014/QH13) hết hiệu lực từ ngày Luật này có
 hợp quy định tại khoản 2 Điều này và các nội dung liên quan trong Điều 45 Luật này.”.
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-106
-
 Người sử dụng lao động sử dụng dưới 10 người lao động thực hiện quy định
 của Bộ luật này nhưng được miễn, giảm một số thủ tục theo quy định của Chính phủ.
 
-### Điều 219. Sửa đổi, bổ sung một số điều của các luật có liên quan đến
-
-lao động
+### Điều 219. Sửa đổi, bổ sung một số điều của các luật có liên quan đến lao động
 
 1. Sửa đổi, bổ sung một số điều của Luật Bảo hiểm xã hội số 58/2014/QH13
 đã được sửa đổi, bổ sung theo Luật số 84/2015/QH13 và Luật số 35/2018/QH14:
@@ -5227,7 +4724,7 @@ b) Đủ tuổi theo quy định tại khoản 3 Điều 169 của Bộ luật L
 nhọc, độc hại, nguy hiểm thuộc danh mục do Bộ Lao động - Thương binh và Xã
 hội ban hành hoặc có đủ 15 năm làm việc ở vùng có điều kiện kinh tế - xã hội đặc
 biệt khó khăn bao gồm cả thời gian làm việc ở nơi có phụ cấp khu vực hệ số 0,7
-trở lên trước ngày 01 tháng 01  năm 2021;
+trở lên trước ngày 01 tháng 01 năm 2021;
 
 c) Người lao động có tuổi thấp hơn tối đa 10 tuổi so với tuổi nghỉ hưu của
 người lao động quy định tại khoản 2 Điều 169 của Bộ luật Lao động và có đủ 15
@@ -5252,10 +4749,6 @@ b) Có tuổi thấp hơn tối đa 05 tuổi so với tuổi nghỉ hưu quy đ
 do Bộ Lao động - Thương binh và Xã hội ban hành hoặc có đủ 15 năm làm việc
 ở vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn bao gồm cả thời gian làm
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-107
 
 việc ở nơi có phụ cấp khu vực hệ số 0,7 trở lên trước ngày 01 tháng 01 năm 2021;
 
@@ -5313,10 +4806,6 @@ c) Sửa đổi, bổ sung khoản 1 Điều 73 như sau:
 a) Đủ tuổi nghỉ hưu theo quy định tại khoản 2 Điều 169 của Bộ luật Lao động;
 
 
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-108
-
 b) Đủ 20 năm đóng bảo hiểm xã hội trở lên.”.
 
 2. Sửa đổi, bổ sung Điều 32 của Bộ luật Tố tụng dân sự số 92/2015/QH13
@@ -5371,12 +4860,8 @@ hòa giải thành thì có quyền yêu cầu Tòa án giải quyết.
 
 1c. Tranh chấp lao động tập thể về quyền mà hai bên thỏa thuận lựa chọn
 Hội đồng trọng tài lao động giải quyết nhưng hết thời hạn theo quy định của
-pháp luật về  lao động  mà  Ban trọng tài lao động  không được  thành  lập,  Ban
+pháp luật về lao động mà Ban trọng tài lao động không được thành lập, Ban
 
-
-CÔNG BÁO/Số 131/Ngày 28-02-2026
-
-109
 
 trọng tài lao động không ra quyết định giải quyết tranh chấp hoặc một trong các
 bên không thi hành quyết định của Ban trọng tài lao động thì có quyền yêu cầu
