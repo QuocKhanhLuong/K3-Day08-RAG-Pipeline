@@ -11,6 +11,7 @@ venv/
 
 # Temp PDF conversion cache
 data/_tmp_pdf/
+data/landing/legal
 
 # Temp / cache
 .pytest_cache/

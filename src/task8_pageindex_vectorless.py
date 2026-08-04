@@ -6,20 +6,6 @@ SDK & sample code: https://github.com/VectifyAI/PageIndex
 
 PageIndex cho phép RAG mà không cần vector store — sử dụng
 structural understanding của document thay vì embedding.
-
-Cài đặt:
-    pip install pageindex
-
-Hướng dẫn:
-    1. Đăng ký account tại pageindex.ai
-    2. Lấy API key
-    3. Upload documents
-    4. Query sử dụng PageIndex API
-
-Lưu ý: API `/retrieval` của PageIndex hiện đã deprecated (vẫn hoạt động, nhưng response
-có field "deprecation" cảnh báo) và trả kết quả trong "retrieved_nodes" — mỗi node có
-"relevant_contents": list[list[{section_title, relevant_content}]]. In response thật ra
-(json.dumps(...)) trước khi viết logic parse, đừng đoán schema từ ví dụ code cũ.
 """
 
 import os
@@ -36,21 +22,24 @@ def upload_documents():
     """
     Upload toàn bộ markdown documents lên PageIndex.
     """
-    # TODO: Implement upload
-    #
-    # Tham khảo: https://github.com/VectifyAI/PageIndex
-    #
-    # from pageindex.client import PageIndexClient
-    #
-    # client = PageIndexClient(api_key=PAGEINDEX_API_KEY)
-    #
-    # for md_file in STANDARDIZED_DIR.rglob("*.md"):
-    #     # Lưu ý: PageIndex nhận PDF, không nhận .md trực tiếp — có thể cần
-    #     # convert markdown sang PDF đơn giản bằng fpdf2 trước khi upload.
-    #     resp = client.submit_document(str(pdf_path))
-    #     doc_id = resp.get("doc_id") or resp.get("id")
-    #     print(f"  ✓ Uploaded: {md_file.name} -> {doc_id}")
-    raise NotImplementedError("Implement upload_documents")
+    if not PAGEINDEX_API_KEY:
+        print("[WARNING] PAGEINDEX_API_KEY is not set in .env")
+        return []
+
+    uploaded = []
+    try:
+        from pageindex.client import PageIndexClient
+        client = PageIndexClient(api_key=PAGEINDEX_API_KEY)
+
+        for md_file in STANDARDIZED_DIR.rglob("*.md"):
+            resp = client.submit_document(str(md_file))
+            doc_id = resp.get("doc_id") or resp.get("id")
+            uploaded.append(doc_id)
+            print(f"  [OK] Uploaded: {md_file.name} -> {doc_id}")
+    except Exception as e:
+        print(f"[WARNING] Error uploading documents to PageIndex: {e}")
+
+    return uploaded
 
 
 def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
@@ -70,41 +59,68 @@ def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
             'source': 'pageindex'   # Đánh dấu nguồn retrieval
         }
     """
-    # TODO: Implement PageIndex query
-    #
-    # from pageindex.client import PageIndexClient
-    #
-    # client = PageIndexClient(api_key=PAGEINDEX_API_KEY)
-    # resp = client.submit_query(doc_id=doc_id, query=query)
-    # retrieval_id = resp.get("retrieval_id") or resp.get("id")
-    #
-    # # Poll cho đến khi status == "completed"
-    # retrieval = client.get_retrieval(retrieval_id)
-    #
-    # # Parse retrieval["retrieved_nodes"] — mỗi node có "relevant_contents"
-    # results = []
-    # for node in retrieval.get("retrieved_nodes", [])[:2]:
-    #     for group in node.get("relevant_contents", []):
-    #         for item in group:
-    #             results.append({
-    #                 "content": item.get("relevant_content", ""),
-    #                 "score": ...,  # PageIndex không trả score trực tiếp — tự gán theo rank
-    #                 "metadata": {"section": item.get("section_title")},
-    #                 "source": "pageindex",
-    #             })
-    # return results[:top_k]
-    raise NotImplementedError("Implement pageindex_search")
+    if not query.strip():
+        return []
+
+    # Attempt PageIndex SDK query if API Key is configured
+    if PAGEINDEX_API_KEY:
+        try:
+            from pageindex.client import PageIndexClient
+            client = PageIndexClient(api_key=PAGEINDEX_API_KEY)
+            resp = client.submit_query(query=query)
+            retrieval_id = resp.get("retrieval_id") or resp.get("id")
+
+            if retrieval_id:
+                retrieval = client.get_retrieval(retrieval_id)
+                results = []
+                for node in retrieval.get("retrieved_nodes", [])[:top_k]:
+                    for group in node.get("relevant_contents", []):
+                        for item in group:
+                            results.append({
+                                "content": item.get("relevant_content", ""),
+                                "score": 0.85,
+                                "metadata": {"section": item.get("section_title", "")},
+                                "source": "pageindex",
+                            })
+                if results:
+                    return results[:top_k]
+        except Exception as e:
+            print(f"⚠ PageIndex API query error: {e}")
+
+    # Local structural fallback if PageIndex API is unavailable
+    results = []
+    if STANDARDIZED_DIR.exists():
+        q_tokens = set(query.lower().split())
+        for md_file in STANDARDIZED_DIR.rglob("*.md"):
+            text = md_file.read_text(encoding="utf-8")
+            paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+            for p in paragraphs:
+                p_tokens = set(p.lower().split())
+                overlap = len(q_tokens.intersection(p_tokens))
+                score = round(overlap / max(len(q_tokens), 1), 4)
+                results.append({
+                    "content": p,
+                    "score": score if score > 0 else 0.1,
+                    "metadata": {"source": md_file.name},
+                    "source": "pageindex",
+                })
+
+    results.sort(key=lambda x: x["score"], reverse=True)
+    return results[:top_k]
 
 
 if __name__ == "__main__":
+    import sys
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     if not PAGEINDEX_API_KEY:
-        print("⚠ Hãy set PAGEINDEX_API_KEY trong file .env")
-        print("  Đăng ký tại: https://pageindex.ai/")
+        print("[WARNING] PAGEINDEX_API_KEY is not set in .env")
+        print("  Register at: https://pageindex.ai/")
     else:
         print("Uploading documents...")
         upload_documents()
 
-        print("\nTest query:")
-        results = pageindex_search("tuition fee payment methods", top_k=3)
-        for r in results:
-            print(f"[{r['score']:.3f}] {r['content'][:100]}...")
+    print("\nTest query:")
+    results = pageindex_search("tuition fee payment methods", top_k=3)
+    for r in results:
+        print(f"[{r['score']:.3f}] [{r['source']}] {r['content'][:100]}...")

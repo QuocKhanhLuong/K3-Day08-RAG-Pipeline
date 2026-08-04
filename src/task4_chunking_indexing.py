@@ -8,6 +8,7 @@ Hướng dẫn:
     4. Index vào vector store (ChromaDB khuyến cáo — đơn giản, local, không cần Docker)
 """
 
+import json
 from pathlib import Path
 from typing import Optional
 
@@ -66,24 +67,58 @@ def get_collection():
 
 def load_documents() -> list[dict]:
     """
-    Đọc toàn bộ markdown files từ data/standardized/.
+    Đọc toàn bộ markdown (.md) và JSON (.json) files từ data/standardized/ và data/landing/.
 
     Returns:
         List of {'content': str, 'metadata': {'source': str, 'type': str}}
     """
     documents = []
-    if not STANDARDIZED_DIR.exists():
-        return documents
 
-    for md_file in STANDARDIZED_DIR.rglob("*.md"):
-        content = md_file.read_text(encoding="utf-8").strip()
-        if not content:
+    # 1. Load Markdown files (.md)
+    if STANDARDIZED_DIR.exists():
+        for md_file in STANDARDIZED_DIR.rglob("*.md"):
+            content = md_file.read_text(encoding="utf-8").strip()
+            if not content:
+                continue
+            doc_type = "legal" if "legal" in str(md_file) else "news"
+            documents.append({
+                "content": content,
+                "metadata": {"source": md_file.name, "type": doc_type}
+            })
+
+    # 2. Load JSON files (.json) for legal documents or news
+    search_dirs = [STANDARDIZED_DIR, STANDARDIZED_DIR.parent / "landing"]
+    for sdir in search_dirs:
+        if not sdir.exists():
             continue
-        doc_type = "legal" if "legal" in str(md_file) else "news"
-        documents.append({
-            "content": content,
-            "metadata": {"source": md_file.name, "type": doc_type}
-        })
+        for json_file in sdir.rglob("*.json"):
+            try:
+                raw_text = json_file.read_text(encoding="utf-8").strip()
+                if not raw_text:
+                    continue
+                data = json.loads(raw_text)
+                doc_type = "legal" if "legal" in str(json_file) else "news"
+
+                if isinstance(data, dict):
+                    title = data.get("title") or data.get("document_name") or json_file.stem
+                    body = data.get("content") or data.get("content_markdown") or data.get("text") or str(data)
+                    content_str = f"# {title}\n\n{body}"
+                    documents.append({
+                        "content": content_str,
+                        "metadata": {"source": json_file.name, "type": doc_type}
+                    })
+                elif isinstance(data, list):
+                    for idx, item in enumerate(data):
+                        if isinstance(item, dict):
+                            title = item.get("title") or item.get("article") or f"{json_file.stem}_{idx}"
+                            body = item.get("content") or item.get("text") or str(item)
+                            documents.append({
+                                "content": f"# {title}\n\n{body}",
+                                "metadata": {"source": f"{json_file.name}#{idx}", "type": doc_type}
+                            })
+            except Exception as e:
+                print(f"[WARNING] Error reading JSON document {json_file.name}: {e}")
+
     return documents
 
 
