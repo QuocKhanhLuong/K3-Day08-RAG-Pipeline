@@ -178,6 +178,15 @@ python -m src.validate_corpus
 
 ## Team responsibilities
 
+### Team members
+
+| # | Member |
+|---:|---|
+| 1 | Lương Quốc Khánh |
+| 2 | Huyền |
+| 3 | Mỹ Anh |
+| 4 | Hoàng Đức Anh |
+
 | Workstream | Owner | Status on this branch |
 |---|---|---|
 | Role 1 architecture, data contract, corpus validation, supervisor | Lương Quốc Khánh | Implemented in scope |
