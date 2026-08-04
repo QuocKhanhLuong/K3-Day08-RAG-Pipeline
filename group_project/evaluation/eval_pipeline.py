@@ -1,221 +1,192 @@
-"""
-RAG Evaluation Pipeline.
+"""Evaluate two RAG configurations with RAGAS and export Markdown results."""
 
-Sử dụng DeepEval / RAGAS / TruLens để đánh giá chất lượng RAG pipeline.
-Chọn 1 framework và implement đầy đủ.
+from __future__ import annotations
 
-Yêu cầu:
-    1. Load golden_dataset.json (≥15 Q&A pairs)
-    2. Chạy RAG pipeline trên từng question
-    3. Evaluate với 4 metrics: faithfulness, relevance, context_recall, context_precision
-    4. So sánh A/B ít nhất 2 configs
-    5. Export results ra results.md
-
-Lưu ý rate limit nếu dùng model OpenRouter ":free": RAGAS/DeepEval gọi LLM RẤT NHIỀU LẦN
-(không phải 1 lần/câu hỏi mà nhiều lần/metric/câu hỏi). Model free của OpenRouter giới hạn
-50 request/ngày CHO CẢ TÀI KHOẢN (không phải theo model hay theo API key — đổi model free
-khác hay tạo key mới KHÔNG reset quota). Nếu chạy full 15+ câu hỏi mà bị rate limit giữa
-chừng, thử giảm xuống subset 5 câu để chạy kịp trong buổi, hoặc nạp $10 credit để mở khóa
-1000 request/ngày.
-"""
-
+import argparse
 import json
+import math
+import os
+from datetime import datetime
 from pathlib import Path
+from typing import Any, Callable
 
-GOLDEN_DATASET_PATH = Path(__file__).parent / "golden_dataset.json"
-RESULTS_PATH = Path(__file__).parent / "results.md"
+from dotenv import load_dotenv
 
-
-def load_golden_dataset() -> list[dict]:
-    """Load golden dataset từ JSON file."""
-    with open(GOLDEN_DATASET_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-# =============================================================================
-# Option 1: DeepEval
-# =============================================================================
-
-def evaluate_with_deepeval(rag_pipeline, golden_dataset: list[dict]) -> dict:
-    """
-    Evaluate RAG pipeline sử dụng DeepEval.
-
-    pip install deepeval
-    """
-    # TODO: Implement
-    #
-    # from deepeval import evaluate
-    # from deepeval.metrics import (
-    #     FaithfulnessMetric,
-    #     AnswerRelevancyMetric,
-    #     ContextualRecallMetric,
-    #     ContextualPrecisionMetric,
-    # )
-    # from deepeval.test_case import LLMTestCase
-    #
-    # test_cases = []
-    # for item in golden_dataset:
-    #     result = rag_pipeline.generate_with_citation(item["question"])
-    #     test_case = LLMTestCase(
-    #         input=item["question"],
-    #         actual_output=result["answer"],
-    #         expected_output=item["expected_answer"],
-    #         retrieval_context=[c["content"] for c in result["sources"]],
-    #     )
-    #     test_cases.append(test_case)
-    #
-    # metrics = [
-    #     FaithfulnessMetric(threshold=0.7),
-    #     AnswerRelevancyMetric(threshold=0.7),
-    #     ContextualRecallMetric(threshold=0.7),
-    #     ContextualPrecisionMetric(threshold=0.7),
-    # ]
-    #
-    # results = evaluate(test_cases, metrics)
-    # return results
-    raise NotImplementedError("Implement evaluate_with_deepeval")
+load_dotenv()
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+GOLDEN_DATASET_PATH = Path(__file__).with_name("golden_dataset.json")
+RESULTS_PATH = Path(__file__).with_name("results.md")
+METRICS = ("faithfulness", "answer_relevancy", "context_recall", "context_precision")
 
 
-# =============================================================================
-# Option 2: RAGAS
-# =============================================================================
-
-def evaluate_with_ragas(rag_pipeline, golden_dataset: list[dict]) -> dict:
-    """
-    Evaluate RAG pipeline sử dụng RAGAS.
-
-    pip install ragas
-    """
-    # TODO: Implement
-    #
-    # from ragas import evaluate
-    # from ragas.metrics import (
-    #     faithfulness,
-    #     answer_relevancy,
-    #     context_recall,
-    #     context_precision,
-    # )
-    # from datasets import Dataset
-    #
-    # eval_data = {"question": [], "answer": [], "contexts": [], "ground_truth": []}
-    #
-    # for item in golden_dataset:
-    #     result = rag_pipeline.generate_with_citation(item["question"])
-    #     eval_data["question"].append(item["question"])
-    #     eval_data["answer"].append(result["answer"])
-    #     eval_data["contexts"].append([c["content"] for c in result["sources"]])
-    #     eval_data["ground_truth"].append(item["expected_answer"])
-    #
-    # dataset = Dataset.from_dict(eval_data)
-    # result = evaluate(
-    #     dataset,
-    #     metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
-    # )
-    # return result.to_pandas()
-    raise NotImplementedError("Implement evaluate_with_ragas")
+def load_golden_dataset() -> list[dict[str, Any]]:
+    data = json.loads(GOLDEN_DATASET_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, list) or len(data) != 15:
+        raise ValueError("golden_dataset.json phải chứa đúng 15 câu hỏi")
+    required = {"question", "expected_answer", "expected_context"}
+    for index, item in enumerate(data, 1):
+        if not isinstance(item, dict) or not required.issubset(item):
+            raise ValueError(f"Mẫu #{index} thiếu trường bắt buộc: {sorted(required)}")
+    return data
 
 
-# =============================================================================
-# Option 3: TruLens
-# =============================================================================
+def _ragas_runtime():
+    """Build evaluator LLM/embeddings for either OpenAI or OpenRouter."""
+    try:
+        from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+    except ImportError as error:
+        raise RuntimeError("Thiếu dependencies; chạy: pip install -r requirements.txt") from error
 
-def evaluate_with_trulens(rag_pipeline, golden_dataset: list[dict]) -> dict:
-    """
-    Evaluate RAG pipeline sử dụng TruLens.
+    api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        raise RuntimeError("Cần đặt OPENAI_API_KEY hoặc OPENROUTER_API_KEY để RAGAS chấm điểm")
 
-    pip install trulens
-    """
-    # TODO: Implement
-    #
-    # from trulens.apps.custom import TruCustomApp
-    # from trulens.core import Feedback
-    # from trulens.providers.openai import OpenAI as TruOpenAI
-    #
-    # provider = TruOpenAI()
-    #
-    # f_faithfulness = Feedback(provider.groundedness_measure_with_cot_reasons).on_output()
-    # f_relevance = Feedback(provider.relevance).on_input_output()
-    # f_context_relevance = Feedback(provider.context_relevance).on_input()
-    #
-    # tru_rag = TruCustomApp(
-    #     rag_pipeline,
-    #     app_name="UniversityServices_RAG",
-    #     feedbacks=[f_faithfulness, f_relevance, f_context_relevance],
-    # )
-    #
-    # with tru_rag as recording:
-    #     for item in golden_dataset:
-    #         rag_pipeline.generate_with_citation(item["question"])
-    #
-    # # Dashboard: from trulens.dashboard import run_dashboard; run_dashboard()
-    raise NotImplementedError("Implement evaluate_with_trulens")
+    openrouter = bool(os.getenv("OPENROUTER_API_KEY") and not os.getenv("OPENAI_API_KEY"))
+    base_url = os.getenv("OPENAI_BASE_URL")
+    if openrouter:
+        base_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+
+    model = os.getenv("RAGAS_MODEL", os.getenv("LLM_MODEL", "gpt-4o-mini"))
+    if openrouter and "/" not in model:
+        model = f"openai/{model}"
+    common = {"api_key": api_key}
+    if base_url:
+        common["base_url"] = base_url
+    llm = ChatOpenAI(model=model, temperature=0, **common)
+
+    embedding_model = os.getenv("RAGAS_EMBEDDING_MODEL", "text-embedding-3-small")
+    if openrouter and "/" not in embedding_model:
+        embedding_model = f"openai/{embedding_model}"
+    embeddings = OpenAIEmbeddings(model=embedding_model, **common)
+    return llm, embeddings
 
 
-# =============================================================================
-# A/B Comparison
-# =============================================================================
-
-def compare_configs(rag_pipeline, golden_dataset: list[dict]):
-    """
-    So sánh A/B giữa ít nhất 2 configs.
-
-    Gợi ý configs để so sánh:
-    - Config A: hybrid search + reranking
-    - Config B: dense-only (không reranking)
-    - Config C: hybrid search + PageIndex fallback
-    """
-    # TODO: Implement A/B comparison
-    #
-    # configs = {
-    #     "hybrid_rerank": {"use_reranking": True, "alpha": 0.5},
-    #     "dense_only": {"use_reranking": False, "alpha": 1.0},
-    # }
-    #
-    # results = {}
-    # for config_name, params in configs.items():
-    #     # Run eval with this config
-    #     ...
-    #     results[config_name] = scores
-    #
-    # return results
-    raise NotImplementedError("Implement compare_configs")
+def collect_answers(
+    generate: Callable[..., dict[str, Any]],
+    golden_dataset: list[dict[str, Any]],
+    *,
+    top_k: int,
+) -> dict[str, list[Any]]:
+    rows: dict[str, list[Any]] = {
+        "question": [], "answer": [], "contexts": [], "ground_truth": []
+    }
+    for index, item in enumerate(golden_dataset, 1):
+        print(f"[{index:02d}/{len(golden_dataset)}] top_k={top_k}: {item['question']}", flush=True)
+        output = generate(item["question"], top_k=top_k)
+        rows["question"].append(item["question"])
+        rows["answer"].append(output.get("answer", ""))
+        rows["contexts"].append([chunk.get("content", "") for chunk in output.get("sources", [])])
+        rows["ground_truth"].append(item["expected_answer"])
+    return rows
 
 
-# =============================================================================
-# Export Results
-# =============================================================================
+def evaluate_with_ragas(eval_data: dict[str, list[Any]]) -> list[dict[str, Any]]:
+    try:
+        from datasets import Dataset
+        from ragas import evaluate
+        from ragas.metrics import answer_relevancy, context_precision, context_recall, faithfulness
+        from ragas.run_config import RunConfig
+    except ImportError as error:
+        raise RuntimeError("Thiếu RAGAS; chạy: pip install -r requirements.txt") from error
 
-def export_results(results: dict, comparison: dict):
-    """Export evaluation results to results.md"""
-    # TODO: Format and write results
-    #
-    # content = "# RAG Evaluation Results\n\n"
-    # content += "## Overall Scores\n\n"
-    # content += "| Metric | Score |\n|--------|-------|\n"
-    # ...
-    # content += "\n## A/B Comparison\n\n"
-    # ...
-    # content += "\n## Worst Performers\n\n"
-    # ...
-    # content += "\n## Recommendations\n\n"
-    # ...
-    #
-    # RESULTS_PATH.write_text(content, encoding="utf-8")
-    raise NotImplementedError("Implement export_results")
+    llm, embeddings = _ragas_runtime()
+    result = evaluate(
+        Dataset.from_dict(eval_data),
+        metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
+        llm=llm,
+        embeddings=embeddings,
+        run_config=RunConfig(
+            timeout=90,
+            max_retries=2,
+            max_wait=15,
+            max_workers=4,
+            log_tenacity=True,
+        ),
+        # Do not silently turn API/configuration errors into NaN scores.
+        raise_exceptions=True,
+    )
+    return result.to_pandas().to_dict(orient="records")
+
+
+def _mean(rows: list[dict[str, Any]], metric: str) -> float:
+    values = []
+    for row in rows:
+        value = row.get(metric)
+        try:
+            numeric = float(value)
+        except (TypeError, ValueError):
+            continue
+        if not math.isnan(numeric):
+            values.append(numeric)
+    return sum(values) / len(values) if values else float("nan")
+
+
+def export_results(config_rows: dict[str, list[dict[str, Any]]]) -> None:
+    names = list(config_rows)
+    averages = {name: {metric: _mean(rows, metric) for metric in METRICS} for name, rows in config_rows.items()}
+    lines = [
+        "# RAG Evaluation Results", "",
+        f"- Framework: **RAGAS 0.1.21**",
+        f"- Số câu hỏi: **15**",
+        f"- Thời điểm chạy: **{datetime.now().astimezone().isoformat(timespec='seconds')}**", "",
+        "## So sánh cấu hình", "",
+        f"| Metric | {names[0]} | {names[1]} | Δ ({names[1]} - {names[0]}) |",
+        "|---|---:|---:|---:|",
+    ]
+    for metric in METRICS:
+        a, b = averages[names[0]][metric], averages[names[1]][metric]
+        lines.append(f"| {metric} | {a:.4f} | {b:.4f} | {b-a:+.4f} |")
+    mean_a = sum(averages[names[0]].values()) / len(METRICS)
+    mean_b = sum(averages[names[1]].values()) / len(METRICS)
+    lines.extend([f"| **Average** | **{mean_a:.4f}** | **{mean_b:.4f}** | **{mean_b-mean_a:+.4f}** |", ""])
+
+    best = names[1] if mean_b > mean_a else names[0]
+    lines.extend(["## Kết luận", "", f"**{best}** có điểm trung bình cao hơn trên bộ kiểm thử này.", ""])
+    for name, rows in config_rows.items():
+        lines.extend([f"## Chi tiết — {name}", "", "| # | Question | Faithfulness | Relevancy | Recall | Precision |", "|---:|---|---:|---:|---:|---:|"])
+        for index, row in enumerate(rows, 1):
+            def score(metric: str) -> str:
+                try:
+                    return f"{float(row.get(metric)):.4f}"
+                except (TypeError, ValueError):
+                    return "N/A"
+            question = str(row.get("question", "")).replace("|", "\\|")
+            lines.append(f"| {index} | {question} | {score('faithfulness')} | {score('answer_relevancy')} | {score('context_recall')} | {score('context_precision')} |")
+        lines.append("")
+    RESULTS_PATH.write_text("\n".join(lines), encoding="utf-8")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config-a-top-k", type=int, default=3)
+    parser.add_argument("--config-b-top-k", type=int, default=5)
+    args = parser.parse_args()
+    if args.config_a_top_k < 1 or args.config_b_top_k < 1:
+        parser.error("top_k phải lớn hơn 0")
+
+    import sys
+    sys.path.insert(0, str(PROJECT_ROOT))
+    from src.task10_generation import generate_with_citation
+
+    golden = load_golden_dataset()
+    # Fail before the relatively expensive retrieval/generation loop when the
+    # evaluator is not configured.
+    _ragas_runtime()
+    configs = {
+        f"Config A (top_k={args.config_a_top_k})": args.config_a_top_k,
+        f"Config B (top_k={args.config_b_top_k})": args.config_b_top_k,
+    }
+    evaluated = {}
+    for name, top_k in configs.items():
+        print(f"\n=== Thu thập câu trả lời: {name} ===", flush=True)
+        evaluated[name] = evaluate_with_ragas(
+            collect_answers(generate_with_citation, golden, top_k=top_k)
+        )
+        print(f"=== RAGAS đã chấm xong: {name} ===", flush=True)
+    export_results(evaluated)
+    print(f"Đã ghi kết quả vào {RESULTS_PATH}")
+    return 0
 
 
 if __name__ == "__main__":
-    golden_dataset = load_golden_dataset()
-    print(f"Loaded {len(golden_dataset)} test cases")
-
-    # TODO: Import your RAG pipeline
-    # from src.task10_generation import generate_with_citation
-    #
-    # Chọn 1 framework:
-    # results = evaluate_with_deepeval(pipeline, golden_dataset)
-    # results = evaluate_with_ragas(pipeline, golden_dataset)
-    # results = evaluate_with_trulens(pipeline, golden_dataset)
-    #
-    # comparison = compare_configs(pipeline, golden_dataset)
-    # export_results(results, comparison)
-    print("⚠ Implement evaluation logic and run again!")
+    raise SystemExit(main())

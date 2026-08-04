@@ -53,7 +53,7 @@
     "resolved_download_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/3/5/468971-1772684381_v1_1772690833_signed.pdf",
     "size_bytes": 2296937,
     "sha256": "9f0ead44c45112ca46882b01036179c23772d1494f7af32024c07f2366a62d27",
-    "collected_at": "2026-08-04T05:02:57+00:00",
+    "collected_at": "2026-08-04T15:44:48+00:00",
     "download_status": "success",
     "download_reused": false
   },
@@ -83,7 +83,7 @@
     "resolved_download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2019/12/45.signed.pdf",
     "size_bytes": 5232503,
     "sha256": "a0c0fcc3b9e040bcdcab70191f0ab95952183be94a6f5bc6424e8d3e85697139",
-    "collected_at": "2026-08-04T05:03:01+00:00",
+    "collected_at": "2026-08-04T15:44:48+00:00",
     "download_status": "success",
     "download_reused": false
   },
@@ -122,7 +122,7 @@
     "resolved_download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/12/145.signed.pdf",
     "size_bytes": 6176759,
     "sha256": "a72a1ff295cc06fbddd335d57257688f5118826968cd8b62d58f50fc1554b230",
-    "collected_at": "2026-08-04T05:03:02+00:00",
+    "collected_at": "2026-08-04T15:44:48+00:00",
     "download_status": "success",
     "download_reused": false
   },
@@ -152,7 +152,7 @@
     "resolved_download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/12-2022-nd.signed.pdf",
     "size_bytes": 4766689,
     "sha256": "6773588aae73522a26ddb1d5e5f4551912008e0ac62fcc0117be3e95e79c7ae1",
-    "collected_at": "2026-08-04T05:03:06+00:00",
+    "collected_at": "2026-08-04T15:44:49+00:00",
     "download_status": "success",
     "download_reused": false
   },
@@ -186,7 +186,7 @@
     "resolved_download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/11/293-cp.signed.pdf",
     "size_bytes": 711910,
     "sha256": "80d2943b04403338a18af20c488b4f215a98b023046ba3775f99b6e2cda93169",
-    "collected_at": "2026-08-04T05:03:07+00:00",
+    "collected_at": "2026-08-04T15:44:49+00:00",
     "download_status": "success",
     "download_reused": false
   },
@@ -219,7 +219,7 @@
     "resolved_download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/12/337-cp.signed.pdf",
     "size_bytes": 802003,
     "sha256": "9a04efe6691b871da3cc8ac3fd6984cc9425040a973f27990e6a3081d9d76fec",
-    "collected_at": "2026-08-04T05:03:09+00:00",
+    "collected_at": "2026-08-04T15:44:49+00:00",
     "download_status": "success",
     "download_reused": false
   },
@@ -252,7 +252,7 @@
     "resolved_download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/5/08-bnv.pdf",
     "size_bytes": 8188494,
     "sha256": "e14a80342e6914629d7f34f3cfafc827c1685d728f511f03859a376acc3b3999",
-    "collected_at": "2026-08-04T05:03:31+00:00",
+    "collected_at": "2026-08-04T15:44:50+00:00",
     "download_status": "success",
     "download_reused": false
   }
