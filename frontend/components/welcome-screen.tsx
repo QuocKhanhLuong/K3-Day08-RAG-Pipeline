@@ -1,7 +1,14 @@
 import { Scale, ArrowUpRight } from "lucide-react"
-import { suggestedQuestions } from "@/lib/mock-data"
+import { suggestedQuestions as defaultQuestions } from "@/lib/mock-data"
 
-export function WelcomeScreen({ onPick }: { onPick: (q: string) => void }) {
+type WelcomeScreenProps = {
+  onPick: (q: string) => void
+  questions?: string[]
+}
+
+export function WelcomeScreen({ onPick, questions }: WelcomeScreenProps) {
+  const displayQuestions = questions && questions.length > 0 ? questions : defaultQuestions
+
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-10 text-center md:py-16">
       <span className="flex size-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
@@ -12,7 +19,7 @@ export function WelcomeScreen({ onPick }: { onPick: (q: string) => void }) {
       </h1>
       <p className="mt-3 max-w-md text-pretty text-sm leading-relaxed text-muted-foreground">
         Hỏi bất cứ điều gì về thử việc, làm thêm giờ, nghỉ phép, hợp đồng hay sa thải. Câu trả lời luôn kèm căn cứ từ
-        Bộ luật Lao động 2019.
+        Bộ luật Lao động 2019 và các hướng dẫn chính thống.
       </p>
 
       <div className="mt-8 w-full">
@@ -20,7 +27,7 @@ export function WelcomeScreen({ onPick }: { onPick: (q: string) => void }) {
           Câu hỏi gợi ý
         </p>
         <div className="grid gap-2.5 sm:grid-cols-2">
-          {suggestedQuestions.map((q, i) => (
+          {displayQuestions.map((q, i) => (
             <button
               key={i}
               onClick={() => onPick(q)}
@@ -35,3 +42,4 @@ export function WelcomeScreen({ onPick }: { onPick: (q: string) => void }) {
     </div>
   )
 }
+

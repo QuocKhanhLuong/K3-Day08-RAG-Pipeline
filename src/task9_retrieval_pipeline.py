@@ -16,10 +16,12 @@ try:
     from .task5_semantic_search import semantic_search
     from .task7_reranking import rerank, rerank_rrf
     from .task8_pageindex_vectorless import pageindex_search
+    from .guidance_matcher import get_guidance_chunks
 except ImportError:
     from task5_semantic_search import semantic_search
     from task7_reranking import rerank, rerank_rrf
     from task8_pageindex_vectorless import pageindex_search
+    from guidance_matcher import get_guidance_chunks
 
 
 # =============================================================================
@@ -38,7 +40,7 @@ def retrieve(
     use_reranking: bool = True,
 ) -> list[dict]:
     """
-    Retrieval pipeline hoàn chỉnh với fallback logic.
+    Retrieval pipeline hoàn chỉnh tích hợp Guidance Matcher với fallback logic.
 
     Args:
         query: Câu truy vấn
@@ -51,11 +53,20 @@ def retrieve(
             'content': str,
             'score': float,
             'metadata': dict,
-            'source': str  # 'hybrid' hoặc 'pageindex'
+            'source': str  # 'guidance_match', 'hybrid', hoặc 'pageindex'
         }
     """
     if not query.strip():
         return []
+
+    # Step 0: Check guidance matcher for direct guidance title match (>= 0.60 threshold)
+    guidance_results = []
+    try:
+        raw_guidance = get_guidance_chunks(query, threshold=0.60)
+        # Take top 2 best guidance matches to leave room for legal statutes
+        guidance_results = raw_guidance[:2]
+    except Exception as e:
+        print(f"  [WARNING] Guidance matcher error: {e}")
 
     # Step 1: Semantic search (dense)
     dense_results = semantic_search(query, top_k=top_k * 2)
@@ -77,7 +88,7 @@ def retrieve(
     for item in merged:
         item["source"] = "hybrid"
 
-    # Step 3: Rerank
+    # Step 3: Rerank hybrid results
     if use_reranking and merged:
         final_results = rerank(query, merged, top_k=top_k, method=RERANK_METHOD)
         for item in final_results:
@@ -85,9 +96,16 @@ def retrieve(
     else:
         final_results = merged[:top_k]
 
-    # Step 4: Check threshold dựa trên điểm Cosine gốc của dense_results
+    # Prepend direct guidance matches if present (avoiding duplicates)
+    if guidance_results:
+        existing_sources = {item.get("metadata", {}).get("source") for item in final_results}
+        filtered_guidance = [g for g in guidance_results if g.get("metadata", {}).get("source") not in existing_sources]
+        final_results = filtered_guidance + final_results
+
+
+    # Step 4: Check threshold dựa trên điểm Cosine gốc của dense_results (nếu chưa có guidance match)
     best_score = dense_results[0]["score"] if dense_results else 0.0
-    if best_score < score_threshold or not final_results:
+    if not guidance_results and (best_score < score_threshold or not final_results):
         print(f"  [WARNING] Semantic best score ({best_score:.3f}) < threshold ({score_threshold}). Triggering PageIndex fallback...")
         fallback = pageindex_search(query, top_k=top_k)
         if fallback:
@@ -103,9 +121,9 @@ if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     test_queries = [
-        "What is the tuition fee at RMIT Vietnam?",
-        "How do I book a library study room?",
-        "What scholarships are available for international students?",
+        "Không nghỉ hết phép năm có được thanh toán tiền không?",
+        "Thời gian thử việc, tiền lương và bảo hiểm xã hội quy định như thế nào?",
+        "Giới hạn thời giờ làm thêm giờ và cách tính tiền lương OT?",
         "xyzabc123nonsense",  # Query không có kết quả → test fallback
     ]
 
@@ -115,3 +133,4 @@ if __name__ == "__main__":
         results = retrieve(q, top_k=3)
         for i, r in enumerate(results, 1):
             print(f"  {i}. [{r['score']:.3f}] [{r['source']}] {r['content'][:80]}...")
+

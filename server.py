@@ -56,10 +56,22 @@ class ChatResponse(BaseModel):
     retrieval_source: str
 
 
+from src.guidance_matcher import load_guidance_catalog
+
+
 @app.get("/")
 @app.get("/api/health")
 def health_check():
     return {"status": "ok", "service": "Legal RAG System Backend"}
+
+
+@app.get("/api/guidance-queries")
+def get_guidance_queries():
+    """Lấy danh sách các câu hỏi gợi ý từ các file guidance JSON trong data/landing/news."""
+    catalog = load_guidance_catalog()
+    titles = [item["title"] for item in catalog if item.get("title")]
+    return {"queries": titles}
+
 
 
 @app.post("/api/chat", response_model=ChatResponse)
@@ -76,7 +88,13 @@ def handle_chat_query(req: QueryRequest):
 
         for src in raw_sources:
             meta = src.get("metadata", {})
-            source_file = meta.get("source", "Văn bản pháp luật")
+            doc_type = meta.get("type", "")
+            
+            if doc_type == "news" or "guidance" in str(meta.get("source", "")).lower() or meta.get("guidance_match"):
+                source_file = meta.get("issuing_authority") or meta.get("issuing_organization") or "Báo Điện tử Chính phủ"
+            else:
+                source_file = meta.get("source", "Văn bản pháp luật")
+
             article = meta.get("article") or meta.get("section") or meta.get("title") or "Quy định liên quan"
             content = src.get("content", "").strip()
 
@@ -85,6 +103,7 @@ def handle_chat_query(req: QueryRequest):
                 article=article,
                 excerpt=content[:250] + ("..." if len(content) > 250 else "")
             ))
+
 
         return ChatResponse(
             answer=rag_output.get("answer", ""),
@@ -97,6 +116,25 @@ def handle_chat_query(req: QueryRequest):
         raise HTTPException(status_code=500, detail=f"Error in RAG pipeline: {str(e)}")
 
 
+class CrawlRequest(BaseModel):
+    url: str
+
+
+@app.post("/api/crawl-url")
+def handle_crawl_url(req: CrawlRequest):
+    """Crawl URL, kiểm duyệt nguồn chính thống, đánh giá chất lượng và tự động re-index."""
+    if not req.url or not req.url.strip():
+        raise HTTPException(status_code=400, detail="URL cannot be empty")
+
+    try:
+        from src.crawl_validator import crawl_and_validate_url
+        result = crawl_and_validate_url(req.url.strip())
+        return result
+    except Exception as e:
+        print(f"[ERROR] Crawl error: {e}")
+        raise HTTPException(status_code=500, detail=f"Error processing URL: {str(e)}")
+
+
 @app.post("/api/index")
 def trigger_indexing():
     """Trigger re-indexing of all legal docs in data/standardized and data/landing."""
@@ -105,6 +143,7 @@ def trigger_indexing():
         return {"status": "success", "message": "Indexing completed successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Indexing error: {str(e)}")
+
 
 
 if __name__ == "__main__":

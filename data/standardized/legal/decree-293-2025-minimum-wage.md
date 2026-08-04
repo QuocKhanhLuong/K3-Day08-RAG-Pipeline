@@ -1,8 +1,7 @@
 ---
 document_id: decree_293_2025_minimum_wage
 source: decree-293-2025-minimum-wage.pdf
-title: Nghị định quy định mức lương tối thiểu đối với người lao động làm việc theo
-  hợp đồng lao động
+title: Nghị định quy định mức lương tối thiểu đối với người lao động làm việc theo hợp đồng lao động
 document_number: 293/2025/NĐ-CP
 document_type: decree
 issuing_authority: Chính phủ

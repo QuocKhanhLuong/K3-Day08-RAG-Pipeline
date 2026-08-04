@@ -46,9 +46,9 @@ SYSTEM_PROMPT = """Bạn là trợ lý AI chuyên hỗ trợ giải đáp các t
 
 Quy tắc bắt buộc:
 1. Chỉ sử dụng thông tin từ context được cung cấp — KHÔNG bịa đặt
-2. BẮT BUỘC chèn trích dẫn NẰM NGAY LIỀN KỀ phía sau MỖI CÂU thông tin. Định dạng trích dẫn chuẩn phải ghi rõ Document và Source, ví dụ chuẩn: [Document 5 | Source: guidance-unilateral-termination-2023.json]. KHÔNG được viết tắt thành [Document X].
+2. BẮT BUỘC chèn trích dẫn NẰM NGAY LIỀN KỀ phía sau MỖI CÂU thông tin. Định dạng trích dẫn chuẩn phải ghi rõ Document và Source, ví dụ chuẩn: [Document 1 | Source: Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng]. KHÔNG được viết tắt thành [Document X].
 3. Nếu context không đủ thông tin → trả lời: "Tôi không thể xác minh thông tin này từ nguồn hiện có"
-4. Trả lời bằng tiếng Việt, có cấu trúc rõ ràng theo đoạn văn
+4. Trả lời bằng tiếng Việt, có cấu trúc rõ ràng, chuyên nghiệp và dễ hiểu
 5. Không suy luận hay mở rộng ngoài những gì được nêu trong context"""
 
 
@@ -151,7 +151,7 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
             answer = response.choices[0].message.content
         except Exception as e:
             print(f"[WARNING] OpenAI API call error: {e}")
-            answer = f"Theo thông tin tìm được:\n\n{context}\n\n[Trích dẫn tự động]"
+            answer = f"Theo thông tin tìm được từ nguồn dữ liệu:\n\n{context}\n\n[Trích dẫn tự động]"
     elif openrouter_key:
         try:
             from openai import OpenAI
@@ -172,12 +172,12 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
             answer = response.choices[0].message.content
         except Exception as e:
             print(f"[WARNING] OpenRouter API call error: {e}")
-            answer = f"Theo thông tin tìm được:\n\n{context}\n\n[Trích dẫn tự động]"
+            answer = f"Theo thông tin tìm được từ nguồn dữ liệu:\n\n{context}\n\n[Trích dẫn tự động]"
     else:
         # Structured fallback response when no API key configured
-        source_names = [c.get("metadata", {}).get("source", "Tài liệu") for c in chunks[:2]]
-        answer = f"Dựa trên các tài liệu [{', '.join(source_names)}]:\n\n" + \
-                 "\n".join([f"- {c['content'][:150]}..." for c in chunks[:3]])
+        source_names = [c.get("metadata", {}).get("source", "Tài liệu") for c in chunks[:3]]
+        answer = f"Dựa trên các văn bản pháp luật và hướng dẫn [{', '.join(source_names)}]:\n\n" + \
+                 "\n".join([f"• {c['content'][:250]}..." for c in chunks[:3]])
 
     return {
         "answer": answer,
@@ -203,3 +203,4 @@ if __name__ == "__main__":
         result = generate_with_citation(q)
         print(f"\nA: {result['answer']}")
         print(f"\n[Sources: {len(result['sources'])} chunks | via {result['retrieval_source']}]")
+
