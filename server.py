@@ -94,7 +94,12 @@ def handle_chat_query(req: QueryRequest):
             if doc_type == "news" or "guidance" in str(meta.get("source", "")).lower() or meta.get("guidance_match"):
                 source_file = meta.get("issuing_authority") or meta.get("issuing_organization") or "Báo Điện tử Chính phủ"
             else:
-                source_file = meta.get("source", "Văn bản pháp luật")
+                source_file = (
+                    meta.get("display_source")
+                    or meta.get("title")
+                    or meta.get("source")
+                    or "Văn bản pháp luật"
+                )
 
             article = meta.get("article") or meta.get("section") or meta.get("title") or "Quy định liên quan"
             content = src.get("content", "").strip()

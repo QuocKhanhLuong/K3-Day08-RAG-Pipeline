@@ -9,6 +9,7 @@ Hướng dẫn:
 """
 
 import json
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -35,6 +36,84 @@ VECTOR_STORE = "chromadb"
 COLLECTION_NAME = "legal_labor_docs"
 
 _model_instance = None
+
+
+def _parse_scalar(value: str):
+    value = value.strip()
+    if value in {"null", "None", "~"}:
+        return None
+    if value == "true":
+        return True
+    if value == "false":
+        return False
+    if (value.startswith("'") and value.endswith("'")) or (value.startswith('"') and value.endswith('"')):
+        return value[1:-1]
+    return value
+
+
+def _parse_simple_yaml(yaml_text: str) -> dict:
+    """Small front matter fallback for environments without PyYAML."""
+    metadata = {}
+    current_list_key = None
+    for raw_line in yaml_text.splitlines():
+        line = raw_line.rstrip()
+        if not line.strip():
+            continue
+        if line.startswith("- ") and current_list_key:
+            metadata.setdefault(current_list_key, []).append(_parse_scalar(line[2:]))
+            continue
+        current_list_key = None
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        key = key.strip()
+        value = value.strip()
+        if value:
+            metadata[key] = _parse_scalar(value)
+        else:
+            metadata[key] = []
+            current_list_key = key
+    return metadata
+
+
+def _split_front_matter(content: str) -> tuple[dict, str]:
+    """Return YAML front matter metadata and body for standardized Markdown."""
+    if not content.startswith("---"):
+        return {}, content
+
+    parts = content.split("---", 2)
+    if len(parts) < 3:
+        return {}, content
+
+    try:
+        import yaml
+        metadata = yaml.safe_load(parts[1]) or {}
+        if not isinstance(metadata, dict):
+            metadata = {}
+    except Exception:
+        metadata = _parse_simple_yaml(parts[1])
+
+    return metadata, parts[2].strip()
+
+
+def _chroma_safe_metadata(metadata: dict) -> dict:
+    """Chroma metadata values must be scalar; keep rich fields display-friendly."""
+    safe = {}
+    for key, value in metadata.items():
+        if value is None:
+            continue
+        if isinstance(value, (str, int, float, bool)):
+            safe[key] = value
+        elif isinstance(value, list):
+            safe[key] = ", ".join(str(item) for item in value)
+        else:
+            safe[key] = json.dumps(value, ensure_ascii=False)
+    return safe
+
+
+def _extract_article_label(text: str) -> Optional[str]:
+    match = re.search(r"(Điều\s+\d+[a-zA-Z]?\.\s*[^\n]{0,120})", text)
+    return match.group(1).strip() if match else None
 
 
 def get_embedding_model():
@@ -77,11 +156,27 @@ def load_documents() -> list[dict]:
     # 1. Load Markdown files (.md)
     if STANDARDIZED_DIR.exists():
         for md_file in STANDARDIZED_DIR.rglob("*.md"):
-            content = md_file.read_text(encoding="utf-8").strip()
-            if not content:
+            raw_content = md_file.read_text(encoding="utf-8").strip()
+            if not raw_content:
+                continue
+            front_matter, content = _split_front_matter(raw_content)
+            if front_matter.get("active_corpus") is False:
                 continue
             doc_type = "legal" if "legal" in str(md_file) else "news"
-            meta = {"source": md_file.name, "type": doc_type}
+            meta = {
+                **front_matter,
+                "source": md_file.name,
+                "source_file": md_file.name,
+                "type": doc_type,
+            }
+            if front_matter.get("source"):
+                meta["original_source"] = front_matter.get("source")
+            if front_matter.get("title"):
+                doc_number = front_matter.get("document_number")
+                meta["display_source"] = (
+                    f"{front_matter['title']} ({doc_number})"
+                    if doc_number else front_matter["title"]
+                )
             if doc_type == "news":
                 # Try finding matching landing json file for issuing_authority / issuing_organization
                 landing_json = STANDARDIZED_DIR.parent / "landing" / "news" / f"{md_file.stem}.json"
@@ -96,7 +191,7 @@ def load_documents() -> list[dict]:
 
             documents.append({
                 "content": content,
-                "metadata": meta
+                "metadata": _chroma_safe_metadata(meta)
             })
 
     # 2. Load JSON files (.json) for legal documents or news
@@ -118,24 +213,24 @@ def load_documents() -> list[dict]:
                     title = data.get("title") or data.get("document_name") or json_file.stem
                     body = data.get("content") or data.get("content_markdown") or data.get("text") or str(data)
                     content_str = f"# {title}\n\n{body}"
-                    meta = {"source": json_file.name, "type": doc_type}
+                    meta = {"source": json_file.name, "source_file": json_file.name, "type": doc_type, "title": title, "display_source": title}
                     if issuing_auth:
                         meta["issuing_authority"] = issuing_auth
                     documents.append({
                         "content": content_str,
-                        "metadata": meta
+                        "metadata": _chroma_safe_metadata(meta)
                     })
                 elif isinstance(data, list):
                     for idx, item in enumerate(data):
                         if isinstance(item, dict):
                             title = item.get("title") or item.get("article") or f"{json_file.stem}_{idx}"
                             body = item.get("content") or item.get("text") or str(item)
-                            meta = {"source": f"{json_file.name}#{idx}", "type": doc_type}
+                            meta = {"source": f"{json_file.name}#{idx}", "source_file": json_file.name, "type": doc_type, "title": title, "display_source": title}
                             if issuing_auth:
                                 meta["issuing_authority"] = issuing_auth
                             documents.append({
                                 "content": f"# {title}\n\n{body}",
-                                "metadata": meta
+                                "metadata": _chroma_safe_metadata(meta)
                             })
             except Exception as e:
                 print(f"[WARNING] Error reading JSON document {json_file.name}: {e}")
@@ -180,9 +275,13 @@ def chunk_documents(documents: list[dict]) -> list[dict]:
 
         for i, chunk_text in enumerate(splits):
             if chunk_text.strip():
+                article = _extract_article_label(chunk_text)
+                metadata = {**doc["metadata"], "chunk_index": i}
+                if article:
+                    metadata["article"] = article
                 chunks.append({
                     "content": chunk_text,
-                    "metadata": {**doc["metadata"], "chunk_index": i}
+                    "metadata": metadata
                 })
 
     return chunks

@@ -19,7 +19,7 @@ export function WelcomeScreen({ onPick, questions }: WelcomeScreenProps) {
       </h1>
       <p className="mt-3 max-w-md text-pretty text-sm leading-relaxed text-muted-foreground">
         Hỏi bất cứ điều gì về thử việc, làm thêm giờ, nghỉ phép, hợp đồng hay sa thải. Câu trả lời luôn kèm căn cứ từ
-        Bộ luật Lao động 2019 và các hướng dẫn chính thống.
+        Văn bản hợp nhất 18/VBHN-VPQH năm 2026 và các hướng dẫn chính thống.
       </p>
 
       <div className="mt-8 w-full">

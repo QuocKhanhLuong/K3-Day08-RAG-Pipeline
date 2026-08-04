@@ -215,7 +215,7 @@ export default function Page() {
             </span>
             <div className="leading-tight">
               <h1 className="text-sm font-semibold text-foreground">Trợ lý Luật Lao Động</h1>
-              <p className="text-xs text-muted-foreground">Bộ luật Lao động 2019 &amp; các văn bản pháp luật</p>
+              <p className="text-xs text-muted-foreground">VBHN 18/VBHN-VPQH năm 2026 &amp; các văn bản pháp luật</p>
             </div>
           </div>
 
