@@ -1,56 +1,25 @@
 # RAG Evaluation Results
 
-## Framework sử dụng
+- Framework: **RAGAS 0.1.21**
+- Số câu hỏi: **15**
+- Trạng thái: **Chưa chạy được phép chấm điểm**
 
-> Ghi rõ framework đã chọn: DeepEval / RAGAS / TruLens
+## So sánh cấu hình
 
----
+| Metric | Config A (top_k=3) | Config B (top_k=5) | Δ |
+|---|---:|---:|---:|
+| faithfulness | N/A | N/A | N/A |
+| answer_relevancy | N/A | N/A | N/A |
+| context_recall | N/A | N/A | N/A |
+| context_precision | N/A | N/A | N/A |
 
-## Overall Scores
+Pipeline đánh giá đã được cài đặt nhưng môi trường hiện tại chưa có `OPENAI_API_KEY` hoặc
+`OPENROUTER_API_KEY`, đồng thời chưa cài `ragas`, `langchain-openai` và `streamlit`.
+Không có điểm số giả được điền vào bảng. Sau khi cấu hình dependencies và API key, chạy:
 
-| Metric | Config A (hybrid + rerank) | Config B (dense-only) | Δ |
-|--------|---------------------------|----------------------|---|
-| Faithfulness | | | |
-| Answer Relevance | | | |
-| Context Recall | | | |
-| Context Precision | | | |
-| **Average** | | | |
+```bash
+python -m group_project.evaluation.eval_pipeline
+```
 
----
-
-## A/B Comparison Analysis
-
-**Config A:**
-> Mô tả config ...
-
-**Config B:**
-> Mô tả config ...
-
-**Kết luận:**
-> Config nào tốt hơn? Vì sao? (2-3 câu)
-
----
-
-## Worst Performers (Bottom 3)
-
-| # | Question | Faithfulness | Relevance | Recall | Failure Stage | Root Cause |
-|---|----------|-------------|-----------|--------|---------------|------------|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
-
----
-
-## Recommendations
-
-### Cải tiến 1
-**Action:**
-**Expected impact:**
-
-### Cải tiến 2
-**Action:**
-**Expected impact:**
-
-### Cải tiến 3
-**Action:**
-**Expected impact:**
+Lệnh sẽ đánh giá đủ 15 câu cho cả hai cấu hình, ghi bốn chỉ số và bảng chi tiết theo từng
+câu hỏi đè lên file này.

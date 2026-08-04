@@ -9,6 +9,7 @@ Hướng dẫn:
 """
 
 import json
+import os
 import re
 from pathlib import Path
 from typing import Optional
@@ -36,6 +37,10 @@ VECTOR_STORE = "chromadb"
 COLLECTION_NAME = "legal_labor_docs"
 
 _model_instance = None
+
+# SentenceTransformer uses PyTorch here. Avoid auto-importing an installed
+# TensorFlow build which can block inside a native mutex in some Conda setups.
+os.environ.setdefault("USE_TF", "0")
 
 
 def _parse_scalar(value: str):

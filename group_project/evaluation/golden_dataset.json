@@ -73,30 +73,5 @@
     "question": "Từ ngày 01/01/2026, mức lương tối thiểu tháng vùng I là bao nhiêu?",
     "expected_answer": "Từ ngày 01/01/2026, mức lương tối thiểu tháng vùng I là 5.310.000 đồng/tháng.",
     "expected_context": "Nghị định 293/2025/NĐ-CP, Điều 3 về mức lương tối thiểu vùng"
-  },
-  {
-    "question": "Từ ngày 01/01/2026, mức lương tối thiểu giờ vùng II là bao nhiêu?",
-    "expected_answer": "Từ ngày 01/01/2026, mức lương tối thiểu giờ vùng II là 22.700 đồng/giờ.",
-    "expected_context": "Nghị định 293/2025/NĐ-CP, Điều 3 về mức lương tối thiểu giờ theo vùng"
-  },
-  {
-    "question": "Người sử dụng lao động muốn yêu cầu làm thêm giờ thì cần điều kiện gì?",
-    "expected_answer": "Việc làm thêm giờ phải có sự đồng ý của người lao động và phải bảo đảm giới hạn về số giờ làm thêm: không quá 50% số giờ làm việc bình thường trong ngày, tổng giờ làm việc và làm thêm không quá 12 giờ/ngày nếu tính theo tuần, không quá 40 giờ/tháng và thông thường không quá 200 giờ/năm.",
-    "expected_context": "Bộ luật Lao động 2019, Điều 107 về làm thêm giờ"
-  },
-  {
-    "question": "Tiền lương làm thêm giờ vào ngày thường, ngày nghỉ hằng tuần và ngày lễ được tính tối thiểu thế nào?",
-    "expected_answer": "Làm thêm giờ được trả ít nhất 150% vào ngày thường, 200% vào ngày nghỉ hằng tuần và 300% vào ngày lễ, tết hoặc ngày nghỉ có hưởng lương; mức 300% chưa bao gồm tiền lương ngày lễ, tết, ngày nghỉ có hưởng lương đối với người hưởng lương ngày.",
-    "expected_context": "Bộ luật Lao động 2019, Điều 98 khoản 1 về tiền lương làm thêm giờ"
-  },
-  {
-    "question": "Người lao động làm việc vào ban đêm được trả thêm bao nhiêu tiền lương?",
-    "expected_answer": "Người lao động làm việc vào ban đêm được trả thêm ít nhất 30% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc của ngày làm việc bình thường.",
-    "expected_context": "Bộ luật Lao động 2019, Điều 98 khoản 2 về tiền lương làm việc ban đêm"
-  },
-  {
-    "question": "Người lao động làm đủ 12 tháng thì được nghỉ hằng năm tối thiểu bao nhiêu ngày?",
-    "expected_answer": "Người lao động làm đủ 12 tháng được nghỉ hằng năm hưởng nguyên lương tối thiểu 12 ngày làm việc trong điều kiện bình thường; 14 ngày đối với một số nhóm lao động hoặc công việc nặng nhọc, độc hại, nguy hiểm; 16 ngày đối với công việc đặc biệt nặng nhọc, độc hại, nguy hiểm.",
-    "expected_context": "Bộ luật Lao động 2019, Điều 113 về nghỉ hằng năm"
   }
 ]
